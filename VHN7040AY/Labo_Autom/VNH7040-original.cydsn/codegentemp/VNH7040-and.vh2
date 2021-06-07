@@ -1,0 +1,1582 @@
+--
+--	Conversion of VNH7040-and.v to vh2:
+--
+--	Cypress Semiconductor - WARP Version 6.3 IR 41
+--	Sun Jun 06 21:00:04 2021
+--
+
+USE cypress.cypress.all;
+USE cypress.rtlpkg.all;
+ENTITY top_RTL IS
+ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
+END top_RTL;
+--------------------------------------------------------
+ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL tmpOE__LED_net_0 : bit;
+SIGNAL zero : bit;
+SIGNAL tmpFB_0__LED_net_0 : bit;
+SIGNAL tmpIO_0__LED_net_0 : bit;
+TERMINAL tmpSIOVREF__LED_net_0 : bit;
+SIGNAL one : bit;
+SIGNAL tmpINTERRUPT_0__LED_net_0 : bit;
+SIGNAL \UART:Net_847\ : bit;
+SIGNAL \UART:select_s_wire\ : bit;
+SIGNAL \UART:rx_wire\ : bit;
+SIGNAL \UART:Net_1268\ : bit;
+SIGNAL \UART:Net_1257\ : bit;
+SIGNAL \UART:uncfg_rx_irq\ : bit;
+SIGNAL \UART:Net_1170\ : bit;
+SIGNAL \UART:sclk_s_wire\ : bit;
+SIGNAL \UART:mosi_s_wire\ : bit;
+SIGNAL \UART:miso_m_wire\ : bit;
+SIGNAL \UART:tmpOE__tx_net_0\ : bit;
+SIGNAL \UART:tx_wire\ : bit;
+SIGNAL \UART:tmpFB_0__tx_net_0\ : bit;
+SIGNAL \UART:tmpIO_0__tx_net_0\ : bit;
+TERMINAL \UART:tmpSIOVREF__tx_net_0\ : bit;
+SIGNAL \UART:tmpINTERRUPT_0__tx_net_0\ : bit;
+SIGNAL \UART:Net_1099\ : bit;
+SIGNAL \UART:Net_1258\ : bit;
+SIGNAL Net_914 : bit;
+SIGNAL \UART:tmpOE__rx_net_0\ : bit;
+SIGNAL \UART:tmpIO_0__rx_net_0\ : bit;
+TERMINAL \UART:tmpSIOVREF__rx_net_0\ : bit;
+SIGNAL \UART:tmpINTERRUPT_0__rx_net_0\ : bit;
+SIGNAL \UART:cts_wire\ : bit;
+SIGNAL \UART:rts_wire\ : bit;
+SIGNAL \UART:mosi_m_wire\ : bit;
+SIGNAL \UART:select_m_wire_3\ : bit;
+SIGNAL \UART:select_m_wire_2\ : bit;
+SIGNAL \UART:select_m_wire_1\ : bit;
+SIGNAL \UART:select_m_wire_0\ : bit;
+SIGNAL \UART:sclk_m_wire\ : bit;
+SIGNAL \UART:miso_s_wire\ : bit;
+SIGNAL Net_931 : bit;
+SIGNAL Net_932 : bit;
+SIGNAL Net_917 : bit;
+SIGNAL Net_916 : bit;
+SIGNAL \UART:Net_1028\ : bit;
+SIGNAL Net_922 : bit;
+SIGNAL Net_923 : bit;
+SIGNAL Net_924 : bit;
+SIGNAL Net_925 : bit;
+SIGNAL Net_926 : bit;
+SIGNAL Net_927 : bit;
+SIGNAL Net_913 : bit;
+SIGNAL Net_933 : bit;
+SIGNAL Net_928 : bit;
+SIGNAL Net_930 : bit;
+SIGNAL tmpOE__DI_Fdg_net_0 : bit;
+SIGNAL tmpFB_0__DI_Fdg_net_0 : bit;
+SIGNAL tmpIO_0__DI_Fdg_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_Fdg_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_Fdg_net_0 : bit;
+SIGNAL tmpOE__DI_Fdd_net_0 : bit;
+SIGNAL tmpFB_0__DI_Fdd_net_0 : bit;
+SIGNAL tmpIO_0__DI_Fdd_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_Fdd_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_Fdd_net_0 : bit;
+SIGNAL tmpOE__DI_ATU_net_0 : bit;
+SIGNAL tmpFB_0__DI_ATU_net_0 : bit;
+SIGNAL tmpIO_0__DI_ATU_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_ATU_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_ATU_net_0 : bit;
+SIGNAL Net_4459 : bit;
+SIGNAL cydff_1 : bit;
+SIGNAL Net_1788 : bit;
+SIGNAL Net_4505 : bit;
+SIGNAL tmpOE__DI_Index_net_0 : bit;
+SIGNAL Net_828 : bit;
+SIGNAL tmpIO_0__DI_Index_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_Index_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_Index_net_0 : bit;
+SIGNAL tmpOE__DI_PhiA_net_0 : bit;
+SIGNAL tmpIO_0__DI_PhiA_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_PhiA_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_PhiA_net_0 : bit;
+SIGNAL tmpOE__DI_PhiB_net_0 : bit;
+SIGNAL tmpIO_0__DI_PhiB_net_0 : bit;
+TERMINAL tmpSIOVREF__DI_PhiB_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__DI_PhiB_net_0 : bit;
+SIGNAL \QuadDec:Net_89\ : bit;
+SIGNAL Net_4502 : bit;
+SIGNAL \QuadDec:Net_95\ : bit;
+SIGNAL Net_4491 : bit;
+SIGNAL \QuadDec:CounterUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_cmod_2\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_cmod_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_cmod_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_capmode_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_capmode_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:Clk_Ctl_i\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_7\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_6\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_5\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_4\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_3\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_2\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:control_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:ctrl_enable\ : bit;
+SIGNAL \QuadDec:CounterUDB:prevCapture\ : bit;
+SIGNAL \QuadDec:CounterUDB:capt_rising\ : bit;
+SIGNAL \QuadDec:CounterUDB:capt_falling\ : bit;
+SIGNAL \QuadDec:CounterUDB:capt_either_edge\ : bit;
+SIGNAL \QuadDec:CounterUDB:hwCapture\ : bit;
+SIGNAL \QuadDec:CounterUDB:reload\ : bit;
+SIGNAL \QuadDec:CounterUDB:final_enable\ : bit;
+SIGNAL \QuadDec:CounterUDB:counter_enable\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_out_status\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:per_zero\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_2\ : bit;
+SIGNAL \QuadDec:CounterUDB:overflow_status\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_3\ : bit;
+SIGNAL \QuadDec:CounterUDB:underflow_status\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_4\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_5\ : bit;
+SIGNAL \QuadDec:CounterUDB:fifo_full\ : bit;
+SIGNAL \QuadDec:CounterUDB:status_6\ : bit;
+SIGNAL \QuadDec:CounterUDB:fifo_nempty\ : bit;
+SIGNAL Net_2231 : bit;
+SIGNAL Net_2235 : bit;
+SIGNAL \QuadDec:CounterUDB:overflow\ : bit;
+SIGNAL \QuadDec:CounterUDB:per_FF\ : bit;
+SIGNAL \QuadDec:CounterUDB:underflow\ : bit;
+SIGNAL \QuadDec:CounterUDB:overflow_reg_i\ : bit;
+SIGNAL \QuadDec:CounterUDB:underflow_reg_i\ : bit;
+SIGNAL \QuadDec:CounterUDB:tc_i\ : bit;
+SIGNAL \QuadDec:CounterUDB:tc_reg_i\ : bit;
+SIGNAL Net_2232 : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_out_i\ : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_less\ : bit;
+SIGNAL \QuadDec:CounterUDB:prevCompare\ : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_out_reg_i\ : bit;
+SIGNAL Net_2233 : bit;
+SIGNAL \QuadDec:CounterUDB:count_stored_i\ : bit;
+SIGNAL Net_4468 : bit;
+SIGNAL \QuadDec:CounterUDB:count_enable\ : bit;
+SIGNAL \QuadDec:CounterUDB:dp_dir\ : bit;
+SIGNAL \QuadDec:CounterUDB:reload_tc\ : bit;
+SIGNAL \QuadDec:CounterUDB:cs_addr_2\ : bit;
+SIGNAL \QuadDec:CounterUDB:cs_addr_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:cs_addr_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc16\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc17\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc1\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc10\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc2\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc3\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z1_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:so_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:nc30\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc31\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:carry\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:sh_right\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:sh_left\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:msb\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_eq_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_eq_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_lt_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_lt_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_zero_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_zero_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_ff_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmp_ff_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cap_1\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cap_0\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cfb\ : bit;
+SIGNAL \QuadDec:CounterUDB:per_equal\ : bit;
+SIGNAL \QuadDec:CounterUDB:nc43\ : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_equal\ : bit;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z1_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:so_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \QuadDec:CounterUDB:sC16:counterdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL tmpOE__ENA_L298_net_0 : bit;
+SIGNAL Net_4498 : bit;
+SIGNAL tmpFB_0__ENA_L298_net_0 : bit;
+SIGNAL tmpIO_0__ENA_L298_net_0 : bit;
+TERMINAL tmpSIOVREF__ENA_L298_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__ENA_L298_net_0 : bit;
+SIGNAL Net_501 : bit;
+SIGNAL \Stat_dir:status_0\ : bit;
+SIGNAL \Stat_dir:status_1\ : bit;
+SIGNAL \Stat_dir:status_2\ : bit;
+SIGNAL \Stat_dir:status_3\ : bit;
+SIGNAL \Stat_dir:status_4\ : bit;
+SIGNAL \Stat_dir:status_5\ : bit;
+SIGNAL \Stat_dir:status_6\ : bit;
+SIGNAL \Stat_dir:status_7\ : bit;
+SIGNAL \PWM:Net_81\ : bit;
+SIGNAL \PWM:Net_75\ : bit;
+SIGNAL \PWM:Net_69\ : bit;
+SIGNAL \PWM:Net_66\ : bit;
+SIGNAL \PWM:Net_82\ : bit;
+SIGNAL \PWM:Net_72\ : bit;
+SIGNAL Net_4455 : bit;
+SIGNAL Net_4454 : bit;
+SIGNAL Net_4456 : bit;
+SIGNAL Net_4458 : bit;
+SIGNAL Net_4453 : bit;
+SIGNAL tmpOE__IN2_L298_net_0 : bit;
+SIGNAL tmpFB_0__IN2_L298_net_0 : bit;
+SIGNAL tmpIO_0__IN2_L298_net_0 : bit;
+TERMINAL tmpSIOVREF__IN2_L298_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__IN2_L298_net_0 : bit;
+SIGNAL tmpOE__IN1_L298_net_0 : bit;
+SIGNAL tmpFB_0__IN1_L298_net_0 : bit;
+SIGNAL tmpIO_0__IN1_L298_net_0 : bit;
+TERMINAL tmpSIOVREF__IN1_L298_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__IN1_L298_net_0 : bit;
+SIGNAL Net_751 : bit;
+SIGNAL \Speed:Net_81\ : bit;
+SIGNAL \Speed:Net_75\ : bit;
+SIGNAL \Speed:Net_69\ : bit;
+SIGNAL \Speed:Net_66\ : bit;
+SIGNAL \Speed:Net_82\ : bit;
+SIGNAL \Speed:Net_72\ : bit;
+SIGNAL Net_866 : bit;
+SIGNAL Net_880 : bit;
+SIGNAL Net_867 : bit;
+SIGNAL Net_868 : bit;
+SIGNAL Net_869 : bit;
+SIGNAL Net_864 : bit;
+SIGNAL Net_745 : bit;
+SIGNAL Net_4470 : bit;
+SIGNAL \FECH:Net_81\ : bit;
+SIGNAL \FECH:Net_75\ : bit;
+SIGNAL \FECH:Net_69\ : bit;
+SIGNAL \FECH:Net_66\ : bit;
+SIGNAL \FECH:Net_82\ : bit;
+SIGNAL \FECH:Net_72\ : bit;
+SIGNAL Net_747 : bit;
+SIGNAL Net_1704 : bit;
+SIGNAL Net_749 : bit;
+SIGNAL Net_750 : bit;
+SIGNAL Net_885 : bit;
+SIGNAL cydff_1D : bit;
+SIGNAL \QuadDec:CounterUDB:prevCapture\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:overflow_reg_i\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:underflow_reg_i\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:tc_reg_i\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:prevCompare\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:cmp_out_reg_i\\D\ : bit;
+SIGNAL \QuadDec:CounterUDB:count_stored_i\\D\ : bit;
+BEGIN
+
+zero <=  ('0') ;
+
+tmpOE__LED_net_0 <=  ('1') ;
+
+\QuadDec:CounterUDB:status_0\ <= ((not \QuadDec:CounterUDB:prevCompare\ and \QuadDec:CounterUDB:cmp_out_i\));
+
+\QuadDec:CounterUDB:status_2\ <= ((not \QuadDec:CounterUDB:overflow_reg_i\ and \QuadDec:CounterUDB:overflow\));
+
+\QuadDec:CounterUDB:status_3\ <= ((not \QuadDec:CounterUDB:underflow_reg_i\ and \QuadDec:CounterUDB:status_1\));
+
+\QuadDec:CounterUDB:tc_i\ <= (\QuadDec:CounterUDB:status_1\
+	OR \QuadDec:CounterUDB:overflow\);
+
+\QuadDec:CounterUDB:count_enable\ <= ((not Net_1788 and not \QuadDec:CounterUDB:count_stored_i\ and Net_4459 and \QuadDec:CounterUDB:control_7\)
+	OR (not Net_4459 and not \QuadDec:CounterUDB:count_stored_i\ and Net_1788 and \QuadDec:CounterUDB:control_7\));
+
+Net_4502 <= (not cydff_1);
+
+Net_4468 <= ((not Net_1788 and Net_4459)
+	OR (not Net_4459 and Net_1788));
+
+LED:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__LED_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__LED_net_0),
+		siovref=>(tmpSIOVREF__LED_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__LED_net_0);
+\UART:SCBCLK\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/2dc2d7a8-ce2b-43c7-af4a-821c8cd73ccf",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"120563271.604938",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>\UART:Net_847\,
+		dig_domain_out=>open);
+\UART:tx\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/23b8206d-1c77-4e61-be4a-b4037d5de5fc",
+		drive_mode=>"110",
+		ibuf_enabled=>"0",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"B",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>\UART:tx_wire\,
+		fb=>(\UART:tmpFB_0__tx_net_0\),
+		analog=>(open),
+		io=>(\UART:tmpIO_0__tx_net_0\),
+		siovref=>(\UART:tmpSIOVREF__tx_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>\UART:tmpINTERRUPT_0__tx_net_0\);
+\UART:SCB_IRQ\:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_914);
+\UART:rx\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/78e33e5d-45ea-4b75-88d5-73274e8a7ce4",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>\UART:rx_wire\,
+		analog=>(open),
+		io=>(\UART:tmpIO_0__rx_net_0\),
+		siovref=>(\UART:tmpSIOVREF__rx_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>\UART:tmpINTERRUPT_0__rx_net_0\);
+\UART:SCB\:cy_m0s8_scb_v2_0
+	GENERIC MAP(cy_registers=>"",
+		scb_mode=>2)
+	PORT MAP(clock=>\UART:Net_847\,
+		interrupt=>Net_914,
+		rx=>\UART:rx_wire\,
+		tx=>\UART:tx_wire\,
+		cts=>zero,
+		rts=>\UART:rts_wire\,
+		mosi_m=>\UART:mosi_m_wire\,
+		miso_m=>zero,
+		select_m=>(\UART:select_m_wire_3\, \UART:select_m_wire_2\, \UART:select_m_wire_1\, \UART:select_m_wire_0\),
+		sclk_m=>\UART:sclk_m_wire\,
+		mosi_s=>zero,
+		miso_s=>\UART:miso_s_wire\,
+		select_s=>zero,
+		sclk_s=>zero,
+		scl=>Net_931,
+		sda=>Net_932,
+		tx_req=>Net_917,
+		rx_req=>Net_916);
+DI_Fdg:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"a2c1cd90-b2aa-4314-9d5f-45c621e5c1ce",
+		drive_mode=>"011",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__DI_Fdg_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__DI_Fdg_net_0),
+		siovref=>(tmpSIOVREF__DI_Fdg_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_Fdg_net_0);
+DI_Fdd:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"6ec7a058-ba52-45d2-9647-6f8c1f9ff825",
+		drive_mode=>"011",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__DI_Fdd_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__DI_Fdd_net_0),
+		siovref=>(tmpSIOVREF__DI_Fdd_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_Fdd_net_0);
+DI_ATU:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"9db661c0-017c-446e-93c1-e46c0797ee34",
+		drive_mode=>"010",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__DI_ATU_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__DI_ATU_net_0),
+		siovref=>(tmpSIOVREF__DI_ATU_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_ATU_net_0);
+DI_Index:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e75c78b4-9cb3-40df-9cd1-2a4238c8b647",
+		drive_mode=>"010",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>Net_828,
+		analog=>(open),
+		io=>(tmpIO_0__DI_Index_net_0),
+		siovref=>(tmpSIOVREF__DI_Index_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_Index_net_0);
+DI_PhiA:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"9229aad5-9779-4c2c-94ac-fc1e526ec844",
+		drive_mode=>"010",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>Net_1788,
+		analog=>(open),
+		io=>(tmpIO_0__DI_PhiA_net_0),
+		siovref=>(tmpSIOVREF__DI_PhiA_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_PhiA_net_0);
+DI_PhiB:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"93068c1d-8452-4009-8c06-462d77d1670e",
+		drive_mode=>"010",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>Net_4459,
+		analog=>(open),
+		io=>(tmpIO_0__DI_PhiB_net_0),
+		siovref=>(tmpSIOVREF__DI_PhiB_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__DI_PhiB_net_0);
+\QuadDec:CounterUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_4491,
+		enable=>tmpOE__LED_net_0,
+		clock_out=>\QuadDec:CounterUDB:ClockOutFromEnBlock\);
+\QuadDec:CounterUDB:sCTRLReg:cy_psoc3_udb_Ctl_Clk_Sync\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_4491,
+		enable=>tmpOE__LED_net_0,
+		clock_out=>\QuadDec:CounterUDB:Clk_Ctl_i\);
+\QuadDec:CounterUDB:sCTRLReg:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\QuadDec:CounterUDB:Clk_Ctl_i\,
+		control=>(\QuadDec:CounterUDB:control_7\, \QuadDec:CounterUDB:control_6\, \QuadDec:CounterUDB:control_5\, \QuadDec:CounterUDB:control_4\,
+			\QuadDec:CounterUDB:control_3\, \QuadDec:CounterUDB:control_2\, \QuadDec:CounterUDB:control_1\, \QuadDec:CounterUDB:control_0\));
+\QuadDec:CounterUDB:sSTSReg:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0011111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		status=>(\QuadDec:CounterUDB:status_6\, \QuadDec:CounterUDB:status_5\, zero, \QuadDec:CounterUDB:status_3\,
+			\QuadDec:CounterUDB:status_2\, \QuadDec:CounterUDB:status_1\, \QuadDec:CounterUDB:status_0\),
+		interrupt=>Net_2235);
+\QuadDec:CounterUDB:sC16:counterdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001000000001000000010000000000000010000000000000000100000000000000100000000010000001000000000000001000000011111111000000001111111111111111101000000000000000000001000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4502, \QuadDec:CounterUDB:count_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\QuadDec:CounterUDB:nc16\,
+		cl0=>\QuadDec:CounterUDB:nc17\,
+		z0=>\QuadDec:CounterUDB:nc1\,
+		ff0=>\QuadDec:CounterUDB:nc10\,
+		ce1=>\QuadDec:CounterUDB:nc2\,
+		cl1=>\QuadDec:CounterUDB:nc3\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>\QuadDec:CounterUDB:nc30\,
+		f0_blk_stat=>\QuadDec:CounterUDB:nc31\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\QuadDec:CounterUDB:sC16:counterdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\QuadDec:CounterUDB:sC16:counterdp:sh_right\,
+		sol=>\QuadDec:CounterUDB:sC16:counterdp:sh_left\,
+		msbi=>\QuadDec:CounterUDB:sC16:counterdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_eq_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_lt_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_zero_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_ff_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\QuadDec:CounterUDB:sC16:counterdp:cap_1\, \QuadDec:CounterUDB:sC16:counterdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\QuadDec:CounterUDB:sC16:counterdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\QuadDec:CounterUDB:sC16:counterdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001000000001000000010000000000000010000000000000000100000000000000100000000010000001000000000000001000000011111111000000001111111111111111101011110000000000000001000001110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		cs_addr=>(Net_4502, \QuadDec:CounterUDB:count_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\QuadDec:CounterUDB:per_equal\,
+		cl0=>\QuadDec:CounterUDB:nc43\,
+		z0=>\QuadDec:CounterUDB:status_1\,
+		ff0=>\QuadDec:CounterUDB:overflow\,
+		ce1=>\QuadDec:CounterUDB:cmp_equal\,
+		cl1=>\QuadDec:CounterUDB:cmp_out_i\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>\QuadDec:CounterUDB:status_6\,
+		f0_blk_stat=>\QuadDec:CounterUDB:status_5\,
+		f1_bus_stat=>open,
+		f1_blk_stat=>open,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\QuadDec:CounterUDB:sC16:counterdp:carry\,
+		co=>open,
+		sir=>\QuadDec:CounterUDB:sC16:counterdp:sh_left\,
+		sor=>\QuadDec:CounterUDB:sC16:counterdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\QuadDec:CounterUDB:sC16:counterdp:msb\,
+		cei=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_eq_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_lt_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_zero_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\QuadDec:CounterUDB:sC16:counterdp:cmp_ff_1\, \QuadDec:CounterUDB:sC16:counterdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\QuadDec:CounterUDB:sC16:counterdp:cap_1\, \QuadDec:CounterUDB:sC16:counterdp:cap_0\),
+		capo=>open,
+		cfbi=>\QuadDec:CounterUDB:sC16:counterdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+ENA_L298:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"24884ecb-a92b-42c9-bbf6-238c9aec4ac4",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"1",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>Net_4498,
+		fb=>(tmpFB_0__ENA_L298_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__ENA_L298_net_0),
+		siovref=>(tmpSIOVREF__ENA_L298_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__ENA_L298_net_0);
+Clock_1:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"9c57d574-0afd-454d-b942-6d809e92bebc",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"60606060.6060606",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_501,
+		dig_domain_out=>open);
+\Stat_dir:sts:sts_reg\:cy_psoc3_status
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"00000000")
+	PORT MAP(reset=>zero,
+		clock=>Net_4491,
+		status=>(zero, zero, zero, zero,
+			zero, zero, zero, Net_4502));
+\PWM:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_501,
+		capture=>zero,
+		count=>tmpOE__LED_net_0,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		underflow=>Net_4455,
+		overflow=>Net_4454,
+		compare_match=>Net_4456,
+		line_out=>Net_4498,
+		line_out_compl=>Net_4458,
+		interrupt=>Net_4453);
+IN2_L298:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"3ca3cf72-8f1c-4ef6-bb77-46e3b552b317",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__IN2_L298_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__IN2_L298_net_0),
+		siovref=>(tmpSIOVREF__IN2_L298_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__IN2_L298_net_0);
+IN1_L298:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"57d632e9-0f4d-4f71-9912-bcf08085fd92",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__LED_net_0),
+		y=>(zero),
+		fb=>(tmpFB_0__IN1_L298_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__IN1_L298_net_0),
+		siovref=>(tmpSIOVREF__IN1_L298_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>tmpOE__LED_net_0,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>tmpOE__LED_net_0,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__IN1_L298_net_0);
+Clock_2:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"e325947f-7644-47aa-89c7-68cf3d864943",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"250000000000",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_751,
+		dig_domain_out=>open);
+\Speed:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_4470,
+		capture=>Net_745,
+		count=>Net_4468,
+		reload=>Net_745,
+		stop=>zero,
+		start=>zero,
+		underflow=>Net_866,
+		overflow=>Net_880,
+		compare_match=>Net_867,
+		line_out=>Net_868,
+		line_out_compl=>Net_869,
+		interrupt=>Net_864);
+\FECH:cy_m0s8_tcpwm_1\:cy_m0s8_tcpwm_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_751,
+		capture=>zero,
+		count=>tmpOE__LED_net_0,
+		reload=>zero,
+		stop=>zero,
+		start=>zero,
+		underflow=>Net_747,
+		overflow=>Net_745,
+		compare_match=>Net_1704,
+		line_out=>Net_749,
+		line_out_compl=>Net_750,
+		interrupt=>Net_885);
+isr_fech:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_885);
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"d8fb8ea3-24c7-4018-ad11-9564ae328a3c",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"30303030.3030303",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_4470,
+		dig_domain_out=>open);
+Clock_4:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"6441ee02-e0e7-4527-88c0-9ea99bf7a98e",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"60606060.6060606",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_4491,
+		dig_domain_out=>open);
+cydff_1:cy_dff
+	PORT MAP(d=>Net_1788,
+		clk=>Net_4459,
+		q=>cydff_1);
+\QuadDec:CounterUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:prevCapture\);
+\QuadDec:CounterUDB:overflow_reg_i\:cy_dff
+	PORT MAP(d=>\QuadDec:CounterUDB:overflow\,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:overflow_reg_i\);
+\QuadDec:CounterUDB:underflow_reg_i\:cy_dff
+	PORT MAP(d=>\QuadDec:CounterUDB:status_1\,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:underflow_reg_i\);
+\QuadDec:CounterUDB:tc_reg_i\:cy_dff
+	PORT MAP(d=>\QuadDec:CounterUDB:tc_i\,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:tc_reg_i\);
+\QuadDec:CounterUDB:prevCompare\:cy_dff
+	PORT MAP(d=>\QuadDec:CounterUDB:cmp_out_i\,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:prevCompare\);
+\QuadDec:CounterUDB:cmp_out_reg_i\:cy_dff
+	PORT MAP(d=>\QuadDec:CounterUDB:cmp_out_i\,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:cmp_out_reg_i\);
+\QuadDec:CounterUDB:count_stored_i\:cy_dff
+	PORT MAP(d=>Net_4468,
+		clk=>\QuadDec:CounterUDB:ClockOutFromEnBlock\,
+		q=>\QuadDec:CounterUDB:count_stored_i\);
+
+END R_T_L;

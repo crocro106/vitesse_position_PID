@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Labo_Autom\Labo_Autom_VNH7040\Source Files\State_machine.c">
+<ExpandedNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Pins</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Analog</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Clocks</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Interrupts</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\System</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Directives</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Flash Security</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\cyapicallbacks.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\proj_types.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\State_machine.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\UART_XG.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\main.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\State_machine.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\UART_XG.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Pins</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Analog</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Clocks</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Interrupts</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\System</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Directives</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.cydwr\Flash Security</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\cyapicallbacks.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\proj_types.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\State_machine.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Header Files\UART_XG.h</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\main.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\State_machine.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Source Files\UART_XG.c</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Clock_1</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Clock_2</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Clock_3</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Clock_4</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\cy_boot</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_ATU</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_Fdd</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_Fdg</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_Index</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_PhiA</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\DI_PhiB</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\ENA_L298</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\FECH</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\IN1_L298</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\IN2_L298</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\isr_fech</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\LED</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\PWM</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\QuadDec</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Speed</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\Stat_dir</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\UART</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\UART_rx</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\UART_SCB_IRQ</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Generated_Source\PSoC4\UART_SCBCLK</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign\TopDesign.cysch</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign\TopDesign_01.cymacro</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign\TopDesign.cysch</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TopDesign\TopDesign_01.cymacro</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_4.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_ATU.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_ATU_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdd.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdd_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdg.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdg_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Index.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Index_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiA.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiA_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiB.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiB_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\ENA_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\ENA_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\FECH.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\FECH_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN1_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN1_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN2_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN2_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_fech.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Speed.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Speed_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Stat_dir.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\State_machine.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SCB_IRQ.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\UART_XG.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Labo_Autom_VNH7040.elf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Labo_Autom_VNH7040.hex</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Labo_Autom_VNH7040.map</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.gpdsc</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040.rpt</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Labo_Autom_VNH7040_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_3.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_4.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_ATU.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_ATU_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdd.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdd_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdg.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Fdg_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Index.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_Index_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiA.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiA_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiB.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\DI_PhiB_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\ENA_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\ENA_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\FECH.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\FECH_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN1_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN1_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN2_L298.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\IN2_L298_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\isr_fech.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\QuadDec_PM.lst</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CortexM0\ARM_GCC_541\Debug\Listing Files\Speed.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\PSoC 4 Architecture TRM</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\PSoC 4200 Family Datasheet</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides\cy_boot_v5_81</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Counter_v3_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_clock_v2_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_constant_v1_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_isr_v1_70.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_pins_v2_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cydff_v1_30.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CyStatusReg_v1_90.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\not_v1_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\SCB_P4_v4_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TCPWM_P4_v2_10</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\xor_v1_0.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Labo_Autom</v>
+<v>Labo_Autom\Labo_Autom_VNH7040</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\PSoC 4 Architecture TRM</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\PSoC 4200 Family Datasheet</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides\cy_boot_v5_81</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\Counter_v3_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_clock_v2_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_constant_v1_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_isr_v1_70.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_pins_v2_20</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\cydff_v1_30.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\CyStatusReg_v1_90.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\not_v1_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\SCB_P4_v4_0.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TCPWM_P4_v2_10</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\TCPWM_P4_v2_10\TCPWM_P4_v2_10.pdf</v>
+<v>Labo_Autom\Labo_Autom_VNH7040\xor_v1_0.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Labo_Autom_VNH7040.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Labo_Autom_VNH7040.cydsn\Labo_Autom_VNH7040.cydwr" />
+<name v=".\Labo_Autom_VNH7040.cydsn\cyapicallbacks.h" />
+<name v=".\Labo_Autom_VNH7040.cydsn\proj_types.h" />
+<name v=".\Labo_Autom_VNH7040.cydsn\State_machine.h" />
+<name v=".\Labo_Autom_VNH7040.cydsn\UART_XG.h" />
+<name v=".\Labo_Autom_VNH7040.cydsn\main.c" />
+<name v=".\Labo_Autom_VNH7040.cydsn\State_machine.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1239, 642" SelectedTabbedMdiWindow="9ac03f4c-4d31-4033-b9a4-15e788c0e41b"><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\TopDesign\TopDesign.cysch" Guid="af8f647b-aead-44b9-a8a6-a70661fc4edf" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\Labo_Autom_VNH7040.cydwr" Guid="75b57f54-d8be-430a-b891-b337fd082517" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="712ed2e5-378e-4d3f-9e76-4de2b4fd1a15" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\cyapicallbacks.h" Guid="9c25d31a-743e-42bb-83ac-036333809f61" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\proj_types.h" Guid="fa5a586c-8fd0-4b4b-896f-760c62c9e80d" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\State_machine.h" Guid="4a78a067-a414-4ba8-89dd-6a0227fd61e1" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\UART_XG.h" Guid="420d482f-cf9b-41ba-9e9e-61b558e29f2e" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\main.c" Guid="e9d902d5-293c-42c2-aecc-c01124b95c7f" /><DocumentWindow Key="F:\onedrive\OneDrive - ENISE\4GM\autom\Labo_Autom\VHN7040AY\Labo_Autom\Labo_Autom_VNH7040.cydsn\State_machine.c" Guid="9ac03f4c-4d31-4033-b9a4-15e788c0e41b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

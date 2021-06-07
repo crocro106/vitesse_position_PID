@@ -1,0 +1,10 @@
+C:\Users\Laurent\Documents\PSoC Creator\4.4\VHN7040AY\Labo_Autom\VNH7040_modifie.cydsn\VNH7040_modifie.cyprj|01d0a860-72f6-4be6-873f-e40ce92ce460
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|98fa21c6-7ac1-4bc9-9426-ee5c925bcdbe
+C:\Users\Laurent\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|13c082fc-874e-4fcc-9735-5458a69777e3
+C:\Users\Laurent\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|72b30244-b4ba-49fa-aef0-735f6dfc2dac
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d237a298-6c9c-4191-9951-3ca03f630926
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8db6f2aa-d666-45f4-aae3-d8c456a0ff6e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6a3764c3-ea6f-4cc1-9630-14afa779a32f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|232626b9-6154-4c84-993f-12481e4aad6d
+C:\Users\Laurent\Documents\PSoC Creator\4.4\VHN7040AY\Labo_Autom\VNH7040-and.cydsn\VNH7040-and.cyprj|00c97b64-f863-4024-a0c7-c6a2b2b48f30
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|acff86ab-8332-41b0-a5aa-911172289222

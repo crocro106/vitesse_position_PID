@@ -1,0 +1,2311 @@
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"QuadDec.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	QuadDec_initVar
+  20              		.bss
+  21              		.type	QuadDec_initVar, %object
+  22              		.size	QuadDec_initVar, 1
+  23              	QuadDec_initVar:
+  24 0000 00       		.space	1
+  25              		.section	.text.QuadDec_Init,"ax",%progbits
+  26              		.align	2
+  27              		.global	QuadDec_Init
+  28              		.code	16
+  29              		.thumb_func
+  30              		.type	QuadDec_Init, %function
+  31              	QuadDec_Init:
+  32              	.LFB0:
+  33              		.file 1 "Generated_Source\\PSoC4\\QuadDec.c"
+   1:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/QuadDec.c **** * File Name: QuadDec.c  
+   3:Generated_Source\PSoC4/QuadDec.c **** * Version 3.0
+   4:Generated_Source\PSoC4/QuadDec.c **** *
+   5:Generated_Source\PSoC4/QuadDec.c **** *  Description:
+   6:Generated_Source\PSoC4/QuadDec.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:Generated_Source\PSoC4/QuadDec.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:Generated_Source\PSoC4/QuadDec.c **** *
+   9:Generated_Source\PSoC4/QuadDec.c **** *   Note:
+  10:Generated_Source\PSoC4/QuadDec.c **** *     None
+  11:Generated_Source\PSoC4/QuadDec.c **** *
+  12:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/QuadDec.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/QuadDec.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC4/QuadDec.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC4/QuadDec.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/QuadDec.c **** 
+  19:Generated_Source\PSoC4/QuadDec.c **** #include "QuadDec.h"
+  20:Generated_Source\PSoC4/QuadDec.c **** 
+  21:Generated_Source\PSoC4/QuadDec.c **** uint8 QuadDec_initVar = 0u;
+  22:Generated_Source\PSoC4/QuadDec.c **** 
+  23:Generated_Source\PSoC4/QuadDec.c **** 
+  24:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 2
+
+
+  25:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_Init
+  26:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+  27:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+  28:Generated_Source\PSoC4/QuadDec.c **** *     Initialize to the schematic state
+  29:Generated_Source\PSoC4/QuadDec.c **** * 
+  30:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+  31:Generated_Source\PSoC4/QuadDec.c **** *  void  
+  32:Generated_Source\PSoC4/QuadDec.c **** *
+  33:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+  34:Generated_Source\PSoC4/QuadDec.c **** *  void
+  35:Generated_Source\PSoC4/QuadDec.c **** *
+  36:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+  37:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_Init(void) 
+  38:Generated_Source\PSoC4/QuadDec.c **** {
+  34              		.loc 1 38 0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 8
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 90B5     		push	{r4, r7, lr}
+  39              		.cfi_def_cfa_offset 12
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 83B0     		sub	sp, sp, #12
+  44              		.cfi_def_cfa_offset 24
+  45 0004 00AF     		add	r7, sp, #0
+  46              		.cfi_def_cfa_register 7
+  39:Generated_Source\PSoC4/QuadDec.c ****         #if (!QuadDec_UsingFixedFunction && !QuadDec_ControlRegRemoved)
+  40:Generated_Source\PSoC4/QuadDec.c ****             uint8 ctrl;
+  41:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (!QuadDec_UsingFixedFunction && !QuadDec_ControlRegRemoved) */
+  42:Generated_Source\PSoC4/QuadDec.c ****         
+  43:Generated_Source\PSoC4/QuadDec.c ****         #if(!QuadDec_UsingFixedFunction) 
+  44:Generated_Source\PSoC4/QuadDec.c ****             /* Interrupt State Backup for Critical Region*/
+  45:Generated_Source\PSoC4/QuadDec.c ****             uint8 QuadDec_interruptState;
+  46:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (!QuadDec_UsingFixedFunction) */
+  47:Generated_Source\PSoC4/QuadDec.c ****         
+  48:Generated_Source\PSoC4/QuadDec.c ****         #if (QuadDec_UsingFixedFunction)
+  49:Generated_Source\PSoC4/QuadDec.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_CONTROL &= QuadDec_CTRL_ENABLE;
+  51:Generated_Source\PSoC4/QuadDec.c ****             
+  52:Generated_Source\PSoC4/QuadDec.c ****             /* Clear the mode bits for continuous run mode */
+  53:Generated_Source\PSoC4/QuadDec.c ****             #if (CY_PSOC5A)
+  54:Generated_Source\PSoC4/QuadDec.c ****                 QuadDec_CONTROL2 &= ((uint8)(~QuadDec_CTRL_MODE_MASK));
+  55:Generated_Source\PSoC4/QuadDec.c ****             #endif /* (CY_PSOC5A) */
+  56:Generated_Source\PSoC4/QuadDec.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:Generated_Source\PSoC4/QuadDec.c ****                 QuadDec_CONTROL3 &= ((uint8)(~QuadDec_CTRL_MODE_MASK));                
+  58:Generated_Source\PSoC4/QuadDec.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:Generated_Source\PSoC4/QuadDec.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:Generated_Source\PSoC4/QuadDec.c ****             #if (QuadDec_RunModeUsed != 0x0u)
+  61:Generated_Source\PSoC4/QuadDec.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:Generated_Source\PSoC4/QuadDec.c ****                 QuadDec_CONTROL |= QuadDec_ONESHOT;
+  63:Generated_Source\PSoC4/QuadDec.c ****             #endif /* (QuadDec_RunModeUsed != 0x0u) */
+  64:Generated_Source\PSoC4/QuadDec.c ****             
+  65:Generated_Source\PSoC4/QuadDec.c ****             /* Set the IRQ to use the status register interrupts */
+  66:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_CONTROL2 |= QuadDec_CTRL2_IRQ_SEL;
+  67:Generated_Source\PSoC4/QuadDec.c ****             
+  68:Generated_Source\PSoC4/QuadDec.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 3
+
+
+  69:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_RT1 &= ((uint8)(~QuadDec_RT1_MASK));
+  70:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_RT1 |= QuadDec_SYNC;     
+  71:Generated_Source\PSoC4/QuadDec.c ****                     
+  72:Generated_Source\PSoC4/QuadDec.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_RT1 &= ((uint8)(~QuadDec_SYNCDSI_MASK));
+  74:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_RT1 |= QuadDec_SYNCDSI_EN;
+  75:Generated_Source\PSoC4/QuadDec.c **** 
+  76:Generated_Source\PSoC4/QuadDec.c ****         #else
+  77:Generated_Source\PSoC4/QuadDec.c ****             #if(!QuadDec_ControlRegRemoved)
+  78:Generated_Source\PSoC4/QuadDec.c ****             /* Set the default compare mode defined in the parameter */
+  79:Generated_Source\PSoC4/QuadDec.c ****             ctrl = QuadDec_CONTROL & ((uint8)(~QuadDec_CTRL_CMPMODE_MASK));
+  47              		.loc 1 79 0
+  48 0006 214B     		ldr	r3, .L2
+  49 0008 1B78     		ldrb	r3, [r3]
+  50 000a DAB2     		uxtb	r2, r3
+  51 000c FB1D     		adds	r3, r7, #7
+  52 000e 0721     		movs	r1, #7
+  53 0010 8A43     		bics	r2, r1
+  54 0012 1A70     		strb	r2, [r3]
+  80:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_CONTROL = ctrl | QuadDec_DEFAULT_COMPARE_MODE;
+  55              		.loc 1 80 0
+  56 0014 1D4A     		ldr	r2, .L2
+  57 0016 FB1D     		adds	r3, r7, #7
+  58 0018 1B78     		ldrb	r3, [r3]
+  59 001a 0121     		movs	r1, #1
+  60 001c 0B43     		orrs	r3, r1
+  61 001e DBB2     		uxtb	r3, r3
+  62 0020 1370     		strb	r3, [r2]
+  81:Generated_Source\PSoC4/QuadDec.c ****             
+  82:Generated_Source\PSoC4/QuadDec.c ****             /* Set the default capture mode defined in the parameter */
+  83:Generated_Source\PSoC4/QuadDec.c ****             ctrl = QuadDec_CONTROL & ((uint8)(~QuadDec_CTRL_CAPMODE_MASK));
+  63              		.loc 1 83 0
+  64 0022 1A4B     		ldr	r3, .L2
+  65 0024 1B78     		ldrb	r3, [r3]
+  66 0026 DAB2     		uxtb	r2, r3
+  67 0028 FB1D     		adds	r3, r7, #7
+  68 002a 0321     		movs	r1, #3
+  69 002c 8A43     		bics	r2, r1
+  70 002e 1A70     		strb	r2, [r3]
+  84:Generated_Source\PSoC4/QuadDec.c ****             
+  85:Generated_Source\PSoC4/QuadDec.c ****             #if( 0 != QuadDec_CAPTURE_MODE_CONF)
+  86:Generated_Source\PSoC4/QuadDec.c ****                 QuadDec_CONTROL = ctrl | QuadDec_DEFAULT_CAPTURE_MODE;
+  87:Generated_Source\PSoC4/QuadDec.c ****             #else
+  88:Generated_Source\PSoC4/QuadDec.c ****                 QuadDec_CONTROL = ctrl;
+  71              		.loc 1 88 0
+  72 0030 164A     		ldr	r2, .L2
+  73 0032 FB1D     		adds	r3, r7, #7
+  74 0034 1B78     		ldrb	r3, [r3]
+  75 0036 1370     		strb	r3, [r2]
+  89:Generated_Source\PSoC4/QuadDec.c ****             #endif /* 0 != QuadDec_CAPTURE_MODE */ 
+  90:Generated_Source\PSoC4/QuadDec.c ****             
+  91:Generated_Source\PSoC4/QuadDec.c ****             #endif /* (!QuadDec_ControlRegRemoved) */
+  92:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (QuadDec_UsingFixedFunction) */
+  93:Generated_Source\PSoC4/QuadDec.c ****         
+  94:Generated_Source\PSoC4/QuadDec.c ****         /* Clear all data in the FIFO's */
+  95:Generated_Source\PSoC4/QuadDec.c ****         #if (!QuadDec_UsingFixedFunction)
+  96:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_ClearFIFO();
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 4
+
+
+  76              		.loc 1 96 0
+  77 0038 FFF7FEFF 		bl	QuadDec_ClearFIFO
+  97:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (!QuadDec_UsingFixedFunction) */
+  98:Generated_Source\PSoC4/QuadDec.c ****         
+  99:Generated_Source\PSoC4/QuadDec.c ****         /* Set Initial values from Configuration */
+ 100:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_WritePeriod(QuadDec_INIT_PERIOD_VALUE);
+  78              		.loc 1 100 0
+  79 003c 144B     		ldr	r3, .L2+4
+  80 003e 1800     		movs	r0, r3
+  81 0040 FFF7FEFF 		bl	QuadDec_WritePeriod
+ 101:Generated_Source\PSoC4/QuadDec.c ****         #if (!(QuadDec_UsingFixedFunction && (CY_PSOC5A)))
+ 102:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_WriteCounter(QuadDec_INIT_COUNTER_VALUE);
+  82              		.loc 1 102 0
+  83 0044 124B     		ldr	r3, .L2+4
+  84 0046 1800     		movs	r0, r3
+  85 0048 FFF7FEFF 		bl	QuadDec_WriteCounter
+ 103:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (!(QuadDec_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_SetInterruptMode(QuadDec_INIT_INTERRUPTS_MASK);
+  86              		.loc 1 104 0
+  87 004c 0020     		movs	r0, #0
+  88 004e FFF7FEFF 		bl	QuadDec_SetInterruptMode
+ 105:Generated_Source\PSoC4/QuadDec.c ****         
+ 106:Generated_Source\PSoC4/QuadDec.c ****         #if (!QuadDec_UsingFixedFunction)
+ 107:Generated_Source\PSoC4/QuadDec.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:Generated_Source\PSoC4/QuadDec.c ****             (void)QuadDec_ReadStatusRegister();
+  89              		.loc 1 108 0
+  90 0052 FFF7FEFF 		bl	QuadDec_ReadStatusRegister
+ 109:Generated_Source\PSoC4/QuadDec.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_WriteCompare(QuadDec_INIT_COMPARE_VALUE);
+  91              		.loc 1 110 0
+  92 0056 0F4B     		ldr	r3, .L2+8
+  93 0058 1800     		movs	r0, r3
+  94 005a FFF7FEFF 		bl	QuadDec_WriteCompare
+ 111:Generated_Source\PSoC4/QuadDec.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:Generated_Source\PSoC4/QuadDec.c ****             
+ 113:Generated_Source\PSoC4/QuadDec.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:Generated_Source\PSoC4/QuadDec.c ****             /* Enter Critical Region*/
+ 115:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_interruptState = CyEnterCriticalSection();
+  95              		.loc 1 115 0
+  96 005e BC1D     		adds	r4, r7, #6
+  97 0060 FFF7FEFF 		bl	CyEnterCriticalSection
+  98 0064 0300     		movs	r3, r0
+  99 0066 2370     		strb	r3, [r4]
+ 116:Generated_Source\PSoC4/QuadDec.c ****             
+ 117:Generated_Source\PSoC4/QuadDec.c ****             QuadDec_STATUS_AUX_CTRL |= QuadDec_STATUS_ACTL_INT_EN_MASK;
+ 100              		.loc 1 117 0
+ 101 0068 0B4A     		ldr	r2, .L2+12
+ 102 006a 0B4B     		ldr	r3, .L2+12
+ 103 006c 1B78     		ldrb	r3, [r3]
+ 104 006e DBB2     		uxtb	r3, r3
+ 105 0070 1021     		movs	r1, #16
+ 106 0072 0B43     		orrs	r3, r1
+ 107 0074 DBB2     		uxtb	r3, r3
+ 108 0076 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC4/QuadDec.c ****             
+ 119:Generated_Source\PSoC4/QuadDec.c ****             /* Exit Critical Region*/
+ 120:Generated_Source\PSoC4/QuadDec.c ****             CyExitCriticalSection(QuadDec_interruptState);
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 5
+
+
+ 109              		.loc 1 120 0
+ 110 0078 BB1D     		adds	r3, r7, #6
+ 111 007a 1B78     		ldrb	r3, [r3]
+ 112 007c 1800     		movs	r0, r3
+ 113 007e FFF7FEFF 		bl	CyExitCriticalSection
+ 121:Generated_Source\PSoC4/QuadDec.c ****             
+ 122:Generated_Source\PSoC4/QuadDec.c ****         #endif /* (!QuadDec_UsingFixedFunction) */
+ 123:Generated_Source\PSoC4/QuadDec.c **** }
+ 114              		.loc 1 123 0
+ 115 0082 C046     		nop
+ 116 0084 BD46     		mov	sp, r7
+ 117 0086 03B0     		add	sp, sp, #12
+ 118              		@ sp needed
+ 119 0088 90BD     		pop	{r4, r7, pc}
+ 120              	.L3:
+ 121 008a C046     		.align	2
+ 122              	.L2:
+ 123 008c 70000F40 		.word	1074724976
+ 124 0090 FEFF0000 		.word	65534
+ 125 0094 FFFF0000 		.word	65535
+ 126 0098 91000F40 		.word	1074725009
+ 127              		.cfi_endproc
+ 128              	.LFE0:
+ 129              		.size	QuadDec_Init, .-QuadDec_Init
+ 130              		.section	.text.QuadDec_Enable,"ax",%progbits
+ 131              		.align	2
+ 132              		.global	QuadDec_Enable
+ 133              		.code	16
+ 134              		.thumb_func
+ 135              		.type	QuadDec_Enable, %function
+ 136              	QuadDec_Enable:
+ 137              	.LFB1:
+ 124:Generated_Source\PSoC4/QuadDec.c **** 
+ 125:Generated_Source\PSoC4/QuadDec.c **** 
+ 126:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 127:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_Enable
+ 128:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 129:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 130:Generated_Source\PSoC4/QuadDec.c **** *     Enable the Counter
+ 131:Generated_Source\PSoC4/QuadDec.c **** * 
+ 132:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 133:Generated_Source\PSoC4/QuadDec.c **** *  void  
+ 134:Generated_Source\PSoC4/QuadDec.c **** *
+ 135:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 136:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 137:Generated_Source\PSoC4/QuadDec.c **** *
+ 138:Generated_Source\PSoC4/QuadDec.c **** * Side Effects: 
+ 139:Generated_Source\PSoC4/QuadDec.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:Generated_Source\PSoC4/QuadDec.c **** *   on the operation of the counter.
+ 141:Generated_Source\PSoC4/QuadDec.c **** *
+ 142:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 143:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_Enable(void) 
+ 144:Generated_Source\PSoC4/QuadDec.c **** {
+ 138              		.loc 1 144 0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 6
+
+
+ 142 0000 80B5     		push	{r7, lr}
+ 143              		.cfi_def_cfa_offset 8
+ 144              		.cfi_offset 7, -8
+ 145              		.cfi_offset 14, -4
+ 146 0002 00AF     		add	r7, sp, #0
+ 147              		.cfi_def_cfa_register 7
+ 145:Generated_Source\PSoC4/QuadDec.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:Generated_Source\PSoC4/QuadDec.c ****     #if (QuadDec_UsingFixedFunction)
+ 147:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_ENABLE |= QuadDec_BLOCK_EN_MASK;
+ 148:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_STBY_ENABLE |= QuadDec_BLOCK_STBY_EN_MASK;
+ 149:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */  
+ 150:Generated_Source\PSoC4/QuadDec.c ****         
+ 151:Generated_Source\PSoC4/QuadDec.c ****     /* Enable the counter from the control register  */
+ 152:Generated_Source\PSoC4/QuadDec.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:Generated_Source\PSoC4/QuadDec.c ****     /* else make sure reset is clear */
+ 154:Generated_Source\PSoC4/QuadDec.c ****     #if(!QuadDec_ControlRegRemoved || QuadDec_UsingFixedFunction)
+ 155:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_CONTROL |= QuadDec_CTRL_ENABLE;                
+ 148              		.loc 1 155 0
+ 149 0004 0549     		ldr	r1, .L5
+ 150 0006 054B     		ldr	r3, .L5
+ 151 0008 1B78     		ldrb	r3, [r3]
+ 152 000a DBB2     		uxtb	r3, r3
+ 153 000c 8022     		movs	r2, #128
+ 154 000e 5242     		rsbs	r2, r2, #0
+ 155 0010 1343     		orrs	r3, r2
+ 156 0012 DBB2     		uxtb	r3, r3
+ 157 0014 0B70     		strb	r3, [r1]
+ 156:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (!QuadDec_ControlRegRemoved || QuadDec_UsingFixedFunction) */
+ 157:Generated_Source\PSoC4/QuadDec.c ****     
+ 158:Generated_Source\PSoC4/QuadDec.c **** }
+ 158              		.loc 1 158 0
+ 159 0016 C046     		nop
+ 160 0018 BD46     		mov	sp, r7
+ 161              		@ sp needed
+ 162 001a 80BD     		pop	{r7, pc}
+ 163              	.L6:
+ 164              		.align	2
+ 165              	.L5:
+ 166 001c 70000F40 		.word	1074724976
+ 167              		.cfi_endproc
+ 168              	.LFE1:
+ 169              		.size	QuadDec_Enable, .-QuadDec_Enable
+ 170              		.section	.text.QuadDec_Start,"ax",%progbits
+ 171              		.align	2
+ 172              		.global	QuadDec_Start
+ 173              		.code	16
+ 174              		.thumb_func
+ 175              		.type	QuadDec_Start, %function
+ 176              	QuadDec_Start:
+ 177              	.LFB2:
+ 159:Generated_Source\PSoC4/QuadDec.c **** 
+ 160:Generated_Source\PSoC4/QuadDec.c **** 
+ 161:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 162:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_Start
+ 163:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 164:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 165:Generated_Source\PSoC4/QuadDec.c **** *  Enables the counter for operation 
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 7
+
+
+ 166:Generated_Source\PSoC4/QuadDec.c **** *
+ 167:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 168:Generated_Source\PSoC4/QuadDec.c **** *  void  
+ 169:Generated_Source\PSoC4/QuadDec.c **** *
+ 170:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 171:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 172:Generated_Source\PSoC4/QuadDec.c **** *
+ 173:Generated_Source\PSoC4/QuadDec.c **** * Global variables:
+ 174:Generated_Source\PSoC4/QuadDec.c **** *  QuadDec_initVar: Is modified when this function is called for the  
+ 175:Generated_Source\PSoC4/QuadDec.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:Generated_Source\PSoC4/QuadDec.c **** *
+ 177:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 178:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_Start(void) 
+ 179:Generated_Source\PSoC4/QuadDec.c **** {
+ 178              		.loc 1 179 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 1, uses_anonymous_args = 0
+ 182 0000 80B5     		push	{r7, lr}
+ 183              		.cfi_def_cfa_offset 8
+ 184              		.cfi_offset 7, -8
+ 185              		.cfi_offset 14, -4
+ 186 0002 00AF     		add	r7, sp, #0
+ 187              		.cfi_def_cfa_register 7
+ 180:Generated_Source\PSoC4/QuadDec.c ****     if(QuadDec_initVar == 0u)
+ 188              		.loc 1 180 0
+ 189 0004 064B     		ldr	r3, .L9
+ 190 0006 1B78     		ldrb	r3, [r3]
+ 191 0008 002B     		cmp	r3, #0
+ 192 000a 04D1     		bne	.L8
+ 181:Generated_Source\PSoC4/QuadDec.c ****     {
+ 182:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_Init();
+ 193              		.loc 1 182 0
+ 194 000c FFF7FEFF 		bl	QuadDec_Init
+ 183:Generated_Source\PSoC4/QuadDec.c ****         
+ 184:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_initVar = 1u; /* Clear this bit for Initialization */        
+ 195              		.loc 1 184 0
+ 196 0010 034B     		ldr	r3, .L9
+ 197 0012 0122     		movs	r2, #1
+ 198 0014 1A70     		strb	r2, [r3]
+ 199              	.L8:
+ 185:Generated_Source\PSoC4/QuadDec.c ****     }
+ 186:Generated_Source\PSoC4/QuadDec.c ****     
+ 187:Generated_Source\PSoC4/QuadDec.c ****     /* Enable the Counter */
+ 188:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_Enable();        
+ 200              		.loc 1 188 0
+ 201 0016 FFF7FEFF 		bl	QuadDec_Enable
+ 189:Generated_Source\PSoC4/QuadDec.c **** }
+ 202              		.loc 1 189 0
+ 203 001a C046     		nop
+ 204 001c BD46     		mov	sp, r7
+ 205              		@ sp needed
+ 206 001e 80BD     		pop	{r7, pc}
+ 207              	.L10:
+ 208              		.align	2
+ 209              	.L9:
+ 210 0020 00000000 		.word	QuadDec_initVar
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 8
+
+
+ 211              		.cfi_endproc
+ 212              	.LFE2:
+ 213              		.size	QuadDec_Start, .-QuadDec_Start
+ 214              		.section	.text.QuadDec_Stop,"ax",%progbits
+ 215              		.align	2
+ 216              		.global	QuadDec_Stop
+ 217              		.code	16
+ 218              		.thumb_func
+ 219              		.type	QuadDec_Stop, %function
+ 220              	QuadDec_Stop:
+ 221              	.LFB3:
+ 190:Generated_Source\PSoC4/QuadDec.c **** 
+ 191:Generated_Source\PSoC4/QuadDec.c **** 
+ 192:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 193:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_Stop
+ 194:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 195:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 196:Generated_Source\PSoC4/QuadDec.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:Generated_Source\PSoC4/QuadDec.c **** *
+ 198:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 199:Generated_Source\PSoC4/QuadDec.c **** *  void  
+ 200:Generated_Source\PSoC4/QuadDec.c **** *
+ 201:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 202:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 203:Generated_Source\PSoC4/QuadDec.c **** *
+ 204:Generated_Source\PSoC4/QuadDec.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:Generated_Source\PSoC4/QuadDec.c **** *               has no effect on the operation of the counter.
+ 206:Generated_Source\PSoC4/QuadDec.c **** *
+ 207:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 208:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_Stop(void) 
+ 209:Generated_Source\PSoC4/QuadDec.c **** {
+ 222              		.loc 1 209 0
+ 223              		.cfi_startproc
+ 224              		@ args = 0, pretend = 0, frame = 0
+ 225              		@ frame_needed = 1, uses_anonymous_args = 0
+ 226 0000 80B5     		push	{r7, lr}
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 7, -8
+ 229              		.cfi_offset 14, -4
+ 230 0002 00AF     		add	r7, sp, #0
+ 231              		.cfi_def_cfa_register 7
+ 210:Generated_Source\PSoC4/QuadDec.c ****     /* Disable Counter */
+ 211:Generated_Source\PSoC4/QuadDec.c ****     #if(!QuadDec_ControlRegRemoved || QuadDec_UsingFixedFunction)
+ 212:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_CONTROL &= ((uint8)(~QuadDec_CTRL_ENABLE));        
+ 232              		.loc 1 212 0
+ 233 0004 054A     		ldr	r2, .L12
+ 234 0006 054B     		ldr	r3, .L12
+ 235 0008 1B78     		ldrb	r3, [r3]
+ 236 000a DBB2     		uxtb	r3, r3
+ 237 000c 7F21     		movs	r1, #127
+ 238 000e 0B40     		ands	r3, r1
+ 239 0010 DBB2     		uxtb	r3, r3
+ 240 0012 1370     		strb	r3, [r2]
+ 213:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (!QuadDec_ControlRegRemoved || QuadDec_UsingFixedFunction) */
+ 214:Generated_Source\PSoC4/QuadDec.c ****     
+ 215:Generated_Source\PSoC4/QuadDec.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:Generated_Source\PSoC4/QuadDec.c ****     #if (QuadDec_UsingFixedFunction)
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 9
+
+
+ 217:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_ENABLE &= ((uint8)(~QuadDec_BLOCK_EN_MASK));
+ 218:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_STBY_ENABLE &= ((uint8)(~QuadDec_BLOCK_STBY_EN_MASK));
+ 219:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 220:Generated_Source\PSoC4/QuadDec.c **** }
+ 241              		.loc 1 220 0
+ 242 0014 C046     		nop
+ 243 0016 BD46     		mov	sp, r7
+ 244              		@ sp needed
+ 245 0018 80BD     		pop	{r7, pc}
+ 246              	.L13:
+ 247 001a C046     		.align	2
+ 248              	.L12:
+ 249 001c 70000F40 		.word	1074724976
+ 250              		.cfi_endproc
+ 251              	.LFE3:
+ 252              		.size	QuadDec_Stop, .-QuadDec_Stop
+ 253              		.section	.text.QuadDec_SetInterruptMode,"ax",%progbits
+ 254              		.align	2
+ 255              		.global	QuadDec_SetInterruptMode
+ 256              		.code	16
+ 257              		.thumb_func
+ 258              		.type	QuadDec_SetInterruptMode, %function
+ 259              	QuadDec_SetInterruptMode:
+ 260              	.LFB4:
+ 221:Generated_Source\PSoC4/QuadDec.c **** 
+ 222:Generated_Source\PSoC4/QuadDec.c **** 
+ 223:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 224:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_SetInterruptMode
+ 225:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 226:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 227:Generated_Source\PSoC4/QuadDec.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:Generated_Source\PSoC4/QuadDec.c **** *
+ 229:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 230:Generated_Source\PSoC4/QuadDec.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:Generated_Source\PSoC4/QuadDec.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:Generated_Source\PSoC4/QuadDec.c **** *
+ 233:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 234:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 235:Generated_Source\PSoC4/QuadDec.c **** *
+ 236:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 237:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_SetInterruptMode(uint8 interruptsMask) 
+ 238:Generated_Source\PSoC4/QuadDec.c **** {
+ 261              		.loc 1 238 0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 8
+ 264              		@ frame_needed = 1, uses_anonymous_args = 0
+ 265 0000 80B5     		push	{r7, lr}
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 7, -8
+ 268              		.cfi_offset 14, -4
+ 269 0002 82B0     		sub	sp, sp, #8
+ 270              		.cfi_def_cfa_offset 16
+ 271 0004 00AF     		add	r7, sp, #0
+ 272              		.cfi_def_cfa_register 7
+ 273 0006 0200     		movs	r2, r0
+ 274 0008 FB1D     		adds	r3, r7, #7
+ 275 000a 1A70     		strb	r2, [r3]
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 10
+
+
+ 239:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_STATUS_MASK = interruptsMask;
+ 276              		.loc 1 239 0
+ 277 000c 034A     		ldr	r2, .L15
+ 278 000e FB1D     		adds	r3, r7, #7
+ 279 0010 1B78     		ldrb	r3, [r3]
+ 280 0012 1370     		strb	r3, [r2]
+ 240:Generated_Source\PSoC4/QuadDec.c **** }
+ 281              		.loc 1 240 0
+ 282 0014 C046     		nop
+ 283 0016 BD46     		mov	sp, r7
+ 284 0018 02B0     		add	sp, sp, #8
+ 285              		@ sp needed
+ 286 001a 80BD     		pop	{r7, pc}
+ 287              	.L16:
+ 288              		.align	2
+ 289              	.L15:
+ 290 001c 81000F40 		.word	1074724993
+ 291              		.cfi_endproc
+ 292              	.LFE4:
+ 293              		.size	QuadDec_SetInterruptMode, .-QuadDec_SetInterruptMode
+ 294              		.section	.text.QuadDec_ReadStatusRegister,"ax",%progbits
+ 295              		.align	2
+ 296              		.global	QuadDec_ReadStatusRegister
+ 297              		.code	16
+ 298              		.thumb_func
+ 299              		.type	QuadDec_ReadStatusRegister, %function
+ 300              	QuadDec_ReadStatusRegister:
+ 301              	.LFB5:
+ 241:Generated_Source\PSoC4/QuadDec.c **** 
+ 242:Generated_Source\PSoC4/QuadDec.c **** 
+ 243:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 244:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadStatusRegister
+ 245:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 246:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 247:Generated_Source\PSoC4/QuadDec.c **** *   Reads the status register and returns it's state. This function should use
+ 248:Generated_Source\PSoC4/QuadDec.c **** *       defined types for the bit-field information as the bits in this
+ 249:Generated_Source\PSoC4/QuadDec.c **** *       register may be permuteable.
+ 250:Generated_Source\PSoC4/QuadDec.c **** *
+ 251:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 252:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 253:Generated_Source\PSoC4/QuadDec.c **** *
+ 254:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 255:Generated_Source\PSoC4/QuadDec.c **** *  (uint8) The contents of the status register
+ 256:Generated_Source\PSoC4/QuadDec.c **** *
+ 257:Generated_Source\PSoC4/QuadDec.c **** * Side Effects:
+ 258:Generated_Source\PSoC4/QuadDec.c **** *   Status register bits may be clear on read. 
+ 259:Generated_Source\PSoC4/QuadDec.c **** *
+ 260:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 261:Generated_Source\PSoC4/QuadDec.c **** uint8   QuadDec_ReadStatusRegister(void) 
+ 262:Generated_Source\PSoC4/QuadDec.c **** {
+ 302              		.loc 1 262 0
+ 303              		.cfi_startproc
+ 304              		@ args = 0, pretend = 0, frame = 0
+ 305              		@ frame_needed = 1, uses_anonymous_args = 0
+ 306 0000 80B5     		push	{r7, lr}
+ 307              		.cfi_def_cfa_offset 8
+ 308              		.cfi_offset 7, -8
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 11
+
+
+ 309              		.cfi_offset 14, -4
+ 310 0002 00AF     		add	r7, sp, #0
+ 311              		.cfi_def_cfa_register 7
+ 263:Generated_Source\PSoC4/QuadDec.c ****     return QuadDec_STATUS;
+ 312              		.loc 1 263 0
+ 313 0004 024B     		ldr	r3, .L19
+ 314 0006 1B78     		ldrb	r3, [r3]
+ 315 0008 DBB2     		uxtb	r3, r3
+ 264:Generated_Source\PSoC4/QuadDec.c **** }
+ 316              		.loc 1 264 0
+ 317 000a 1800     		movs	r0, r3
+ 318 000c BD46     		mov	sp, r7
+ 319              		@ sp needed
+ 320 000e 80BD     		pop	{r7, pc}
+ 321              	.L20:
+ 322              		.align	2
+ 323              	.L19:
+ 324 0010 61000F40 		.word	1074724961
+ 325              		.cfi_endproc
+ 326              	.LFE5:
+ 327              		.size	QuadDec_ReadStatusRegister, .-QuadDec_ReadStatusRegister
+ 328              		.section	.text.QuadDec_ReadControlRegister,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	QuadDec_ReadControlRegister
+ 331              		.code	16
+ 332              		.thumb_func
+ 333              		.type	QuadDec_ReadControlRegister, %function
+ 334              	QuadDec_ReadControlRegister:
+ 335              	.LFB6:
+ 265:Generated_Source\PSoC4/QuadDec.c **** 
+ 266:Generated_Source\PSoC4/QuadDec.c **** 
+ 267:Generated_Source\PSoC4/QuadDec.c **** #if(!QuadDec_ControlRegRemoved)
+ 268:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadControlRegister
+ 270:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 271:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 272:Generated_Source\PSoC4/QuadDec.c **** *   Reads the control register and returns it's state. This function should use
+ 273:Generated_Source\PSoC4/QuadDec.c **** *       defined types for the bit-field information as the bits in this
+ 274:Generated_Source\PSoC4/QuadDec.c **** *       register may be permuteable.
+ 275:Generated_Source\PSoC4/QuadDec.c **** *
+ 276:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 277:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 278:Generated_Source\PSoC4/QuadDec.c **** *
+ 279:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 280:Generated_Source\PSoC4/QuadDec.c **** *  (uint8) The contents of the control register
+ 281:Generated_Source\PSoC4/QuadDec.c **** *
+ 282:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 283:Generated_Source\PSoC4/QuadDec.c **** uint8   QuadDec_ReadControlRegister(void) 
+ 284:Generated_Source\PSoC4/QuadDec.c **** {
+ 336              		.loc 1 284 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 1, uses_anonymous_args = 0
+ 340 0000 80B5     		push	{r7, lr}
+ 341              		.cfi_def_cfa_offset 8
+ 342              		.cfi_offset 7, -8
+ 343              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 12
+
+
+ 344 0002 00AF     		add	r7, sp, #0
+ 345              		.cfi_def_cfa_register 7
+ 285:Generated_Source\PSoC4/QuadDec.c ****     return QuadDec_CONTROL;
+ 346              		.loc 1 285 0
+ 347 0004 024B     		ldr	r3, .L23
+ 348 0006 1B78     		ldrb	r3, [r3]
+ 349 0008 DBB2     		uxtb	r3, r3
+ 286:Generated_Source\PSoC4/QuadDec.c **** }
+ 350              		.loc 1 286 0
+ 351 000a 1800     		movs	r0, r3
+ 352 000c BD46     		mov	sp, r7
+ 353              		@ sp needed
+ 354 000e 80BD     		pop	{r7, pc}
+ 355              	.L24:
+ 356              		.align	2
+ 357              	.L23:
+ 358 0010 70000F40 		.word	1074724976
+ 359              		.cfi_endproc
+ 360              	.LFE6:
+ 361              		.size	QuadDec_ReadControlRegister, .-QuadDec_ReadControlRegister
+ 362              		.section	.text.QuadDec_WriteControlRegister,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	QuadDec_WriteControlRegister
+ 365              		.code	16
+ 366              		.thumb_func
+ 367              		.type	QuadDec_WriteControlRegister, %function
+ 368              	QuadDec_WriteControlRegister:
+ 369              	.LFB7:
+ 287:Generated_Source\PSoC4/QuadDec.c **** 
+ 288:Generated_Source\PSoC4/QuadDec.c **** 
+ 289:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 290:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_WriteControlRegister
+ 291:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 292:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 293:Generated_Source\PSoC4/QuadDec.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:Generated_Source\PSoC4/QuadDec.c **** *       defined types for the bit-field information as the bits in this
+ 295:Generated_Source\PSoC4/QuadDec.c **** *       register may be permuteable.
+ 296:Generated_Source\PSoC4/QuadDec.c **** *
+ 297:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 298:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 299:Generated_Source\PSoC4/QuadDec.c **** *
+ 300:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 301:Generated_Source\PSoC4/QuadDec.c **** *  (uint8) The contents of the control register
+ 302:Generated_Source\PSoC4/QuadDec.c **** *
+ 303:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC4/QuadDec.c **** void    QuadDec_WriteControlRegister(uint8 control) 
+ 305:Generated_Source\PSoC4/QuadDec.c **** {
+ 370              		.loc 1 305 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 8
+ 373              		@ frame_needed = 1, uses_anonymous_args = 0
+ 374 0000 80B5     		push	{r7, lr}
+ 375              		.cfi_def_cfa_offset 8
+ 376              		.cfi_offset 7, -8
+ 377              		.cfi_offset 14, -4
+ 378 0002 82B0     		sub	sp, sp, #8
+ 379              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 13
+
+
+ 380 0004 00AF     		add	r7, sp, #0
+ 381              		.cfi_def_cfa_register 7
+ 382 0006 0200     		movs	r2, r0
+ 383 0008 FB1D     		adds	r3, r7, #7
+ 384 000a 1A70     		strb	r2, [r3]
+ 306:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_CONTROL = control;
+ 385              		.loc 1 306 0
+ 386 000c 034A     		ldr	r2, .L26
+ 387 000e FB1D     		adds	r3, r7, #7
+ 388 0010 1B78     		ldrb	r3, [r3]
+ 389 0012 1370     		strb	r3, [r2]
+ 307:Generated_Source\PSoC4/QuadDec.c **** }
+ 390              		.loc 1 307 0
+ 391 0014 C046     		nop
+ 392 0016 BD46     		mov	sp, r7
+ 393 0018 02B0     		add	sp, sp, #8
+ 394              		@ sp needed
+ 395 001a 80BD     		pop	{r7, pc}
+ 396              	.L27:
+ 397              		.align	2
+ 398              	.L26:
+ 399 001c 70000F40 		.word	1074724976
+ 400              		.cfi_endproc
+ 401              	.LFE7:
+ 402              		.size	QuadDec_WriteControlRegister, .-QuadDec_WriteControlRegister
+ 403              		.section	.text.QuadDec_WriteCounter,"ax",%progbits
+ 404              		.align	2
+ 405              		.global	QuadDec_WriteCounter
+ 406              		.code	16
+ 407              		.thumb_func
+ 408              		.type	QuadDec_WriteCounter, %function
+ 409              	QuadDec_WriteCounter:
+ 410              	.LFB8:
+ 308:Generated_Source\PSoC4/QuadDec.c **** 
+ 309:Generated_Source\PSoC4/QuadDec.c **** #endif  /* (!QuadDec_ControlRegRemoved) */
+ 310:Generated_Source\PSoC4/QuadDec.c **** 
+ 311:Generated_Source\PSoC4/QuadDec.c **** 
+ 312:Generated_Source\PSoC4/QuadDec.c **** #if (!(QuadDec_UsingFixedFunction && (CY_PSOC5A)))
+ 313:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 314:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_WriteCounter
+ 315:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 316:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 317:Generated_Source\PSoC4/QuadDec.c **** *   This funtion is used to set the counter to a specific value
+ 318:Generated_Source\PSoC4/QuadDec.c **** *
+ 319:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 320:Generated_Source\PSoC4/QuadDec.c **** *  counter:  New counter value. 
+ 321:Generated_Source\PSoC4/QuadDec.c **** *
+ 322:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 323:Generated_Source\PSoC4/QuadDec.c **** *  void 
+ 324:Generated_Source\PSoC4/QuadDec.c **** *
+ 325:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 326:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_WriteCounter(uint16 counter) \
+ 327:Generated_Source\PSoC4/QuadDec.c ****                                    
+ 328:Generated_Source\PSoC4/QuadDec.c **** {
+ 411              		.loc 1 328 0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 14
+
+
+ 414              		@ frame_needed = 1, uses_anonymous_args = 0
+ 415 0000 80B5     		push	{r7, lr}
+ 416              		.cfi_def_cfa_offset 8
+ 417              		.cfi_offset 7, -8
+ 418              		.cfi_offset 14, -4
+ 419 0002 82B0     		sub	sp, sp, #8
+ 420              		.cfi_def_cfa_offset 16
+ 421 0004 00AF     		add	r7, sp, #0
+ 422              		.cfi_def_cfa_register 7
+ 423 0006 0200     		movs	r2, r0
+ 424 0008 BB1D     		adds	r3, r7, #6
+ 425 000a 1A80     		strh	r2, [r3]
+ 329:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 330:Generated_Source\PSoC4/QuadDec.c ****         /* assert if block is already enabled */
+ 331:Generated_Source\PSoC4/QuadDec.c ****         CYASSERT (0u == (QuadDec_GLOBAL_ENABLE & QuadDec_BLOCK_EN_MASK));
+ 332:Generated_Source\PSoC4/QuadDec.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_ENABLE |= QuadDec_BLOCK_EN_MASK;
+ 334:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_COUNTER_LSB_PTR, (uint16)counter);
+ 335:Generated_Source\PSoC4/QuadDec.c ****         QuadDec_GLOBAL_ENABLE &= ((uint8)(~QuadDec_BLOCK_EN_MASK));
+ 336:Generated_Source\PSoC4/QuadDec.c ****     #else
+ 337:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_COUNTER_LSB_PTR, counter);
+ 426              		.loc 1 337 0
+ 427 000c 034A     		ldr	r2, .L29
+ 428 000e BB1D     		adds	r3, r7, #6
+ 429 0010 1B88     		ldrh	r3, [r3]
+ 430 0012 1380     		strh	r3, [r2]
+ 338:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 339:Generated_Source\PSoC4/QuadDec.c **** }
+ 431              		.loc 1 339 0
+ 432 0014 C046     		nop
+ 433 0016 BD46     		mov	sp, r7
+ 434 0018 02B0     		add	sp, sp, #8
+ 435              		@ sp needed
+ 436 001a 80BD     		pop	{r7, pc}
+ 437              	.L30:
+ 438              		.align	2
+ 439              	.L29:
+ 440 001c 00100F40 		.word	1074728960
+ 441              		.cfi_endproc
+ 442              	.LFE8:
+ 443              		.size	QuadDec_WriteCounter, .-QuadDec_WriteCounter
+ 444              		.section	.text.QuadDec_ReadCounter,"ax",%progbits
+ 445              		.align	2
+ 446              		.global	QuadDec_ReadCounter
+ 447              		.code	16
+ 448              		.thumb_func
+ 449              		.type	QuadDec_ReadCounter, %function
+ 450              	QuadDec_ReadCounter:
+ 451              	.LFB9:
+ 340:Generated_Source\PSoC4/QuadDec.c **** #endif /* (!(QuadDec_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:Generated_Source\PSoC4/QuadDec.c **** 
+ 342:Generated_Source\PSoC4/QuadDec.c **** 
+ 343:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 344:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadCounter
+ 345:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 346:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 347:Generated_Source\PSoC4/QuadDec.c **** * Returns the current value of the counter.  It doesn't matter
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 15
+
+
+ 348:Generated_Source\PSoC4/QuadDec.c **** * if the counter is enabled or running.
+ 349:Generated_Source\PSoC4/QuadDec.c **** *
+ 350:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 351:Generated_Source\PSoC4/QuadDec.c **** *  void:  
+ 352:Generated_Source\PSoC4/QuadDec.c **** *
+ 353:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 354:Generated_Source\PSoC4/QuadDec.c **** *  (uint16) The present value of the counter.
+ 355:Generated_Source\PSoC4/QuadDec.c **** *
+ 356:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 357:Generated_Source\PSoC4/QuadDec.c **** uint16 QuadDec_ReadCounter(void) 
+ 358:Generated_Source\PSoC4/QuadDec.c **** {
+ 452              		.loc 1 358 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 1, uses_anonymous_args = 0
+ 456 0000 80B5     		push	{r7, lr}
+ 457              		.cfi_def_cfa_offset 8
+ 458              		.cfi_offset 7, -8
+ 459              		.cfi_offset 14, -4
+ 460 0002 00AF     		add	r7, sp, #0
+ 461              		.cfi_def_cfa_register 7
+ 359:Generated_Source\PSoC4/QuadDec.c ****     /* Force capture by reading Accumulator */
+ 360:Generated_Source\PSoC4/QuadDec.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:Generated_Source\PSoC4/QuadDec.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 363:Generated_Source\PSoC4/QuadDec.c **** 		(void)CY_GET_REG16(QuadDec_COUNTER_LSB_PTR);
+ 364:Generated_Source\PSoC4/QuadDec.c **** 	#else
+ 365:Generated_Source\PSoC4/QuadDec.c **** 		(void)CY_GET_REG8(QuadDec_COUNTER_LSB_PTR_8BIT);
+ 462              		.loc 1 365 0
+ 463 0004 034B     		ldr	r3, .L33
+ 464 0006 1B78     		ldrb	r3, [r3]
+ 366:Generated_Source\PSoC4/QuadDec.c **** 	#endif/* (QuadDec_UsingFixedFunction) */
+ 367:Generated_Source\PSoC4/QuadDec.c ****     
+ 368:Generated_Source\PSoC4/QuadDec.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 370:Generated_Source\PSoC4/QuadDec.c ****         return ((uint16)CY_GET_REG16(QuadDec_STATICCOUNT_LSB_PTR));
+ 371:Generated_Source\PSoC4/QuadDec.c ****     #else
+ 372:Generated_Source\PSoC4/QuadDec.c ****         return (CY_GET_REG16(QuadDec_STATICCOUNT_LSB_PTR));
+ 465              		.loc 1 372 0
+ 466 0008 034B     		ldr	r3, .L33+4
+ 467 000a 1B88     		ldrh	r3, [r3]
+ 468 000c 9BB2     		uxth	r3, r3
+ 373:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 374:Generated_Source\PSoC4/QuadDec.c **** }
+ 469              		.loc 1 374 0
+ 470 000e 1800     		movs	r0, r3
+ 471 0010 BD46     		mov	sp, r7
+ 472              		@ sp needed
+ 473 0012 80BD     		pop	{r7, pc}
+ 474              	.L34:
+ 475              		.align	2
+ 476              	.L33:
+ 477 0014 00000F40 		.word	1074724864
+ 478 0018 80100F40 		.word	1074729088
+ 479              		.cfi_endproc
+ 480              	.LFE9:
+ 481              		.size	QuadDec_ReadCounter, .-QuadDec_ReadCounter
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 16
+
+
+ 482              		.section	.text.QuadDec_ReadCapture,"ax",%progbits
+ 483              		.align	2
+ 484              		.global	QuadDec_ReadCapture
+ 485              		.code	16
+ 486              		.thumb_func
+ 487              		.type	QuadDec_ReadCapture, %function
+ 488              	QuadDec_ReadCapture:
+ 489              	.LFB10:
+ 375:Generated_Source\PSoC4/QuadDec.c **** 
+ 376:Generated_Source\PSoC4/QuadDec.c **** 
+ 377:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 378:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadCapture
+ 379:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 380:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 381:Generated_Source\PSoC4/QuadDec.c **** *   This function returns the last value captured.
+ 382:Generated_Source\PSoC4/QuadDec.c **** *
+ 383:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 384:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 385:Generated_Source\PSoC4/QuadDec.c **** *
+ 386:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 387:Generated_Source\PSoC4/QuadDec.c **** *  (uint16) Present Capture value.
+ 388:Generated_Source\PSoC4/QuadDec.c **** *
+ 389:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 390:Generated_Source\PSoC4/QuadDec.c **** uint16 QuadDec_ReadCapture(void) 
+ 391:Generated_Source\PSoC4/QuadDec.c **** {
+ 490              		.loc 1 391 0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 0
+ 493              		@ frame_needed = 1, uses_anonymous_args = 0
+ 494 0000 80B5     		push	{r7, lr}
+ 495              		.cfi_def_cfa_offset 8
+ 496              		.cfi_offset 7, -8
+ 497              		.cfi_offset 14, -4
+ 498 0002 00AF     		add	r7, sp, #0
+ 499              		.cfi_def_cfa_register 7
+ 392:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 393:Generated_Source\PSoC4/QuadDec.c ****         return ((uint16)CY_GET_REG16(QuadDec_STATICCOUNT_LSB_PTR));
+ 394:Generated_Source\PSoC4/QuadDec.c ****     #else
+ 395:Generated_Source\PSoC4/QuadDec.c ****         return (CY_GET_REG16(QuadDec_STATICCOUNT_LSB_PTR));
+ 500              		.loc 1 395 0
+ 501 0004 024B     		ldr	r3, .L37
+ 502 0006 1B88     		ldrh	r3, [r3]
+ 503 0008 9BB2     		uxth	r3, r3
+ 396:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 397:Generated_Source\PSoC4/QuadDec.c **** }
+ 504              		.loc 1 397 0
+ 505 000a 1800     		movs	r0, r3
+ 506 000c BD46     		mov	sp, r7
+ 507              		@ sp needed
+ 508 000e 80BD     		pop	{r7, pc}
+ 509              	.L38:
+ 510              		.align	2
+ 511              	.L37:
+ 512 0010 80100F40 		.word	1074729088
+ 513              		.cfi_endproc
+ 514              	.LFE10:
+ 515              		.size	QuadDec_ReadCapture, .-QuadDec_ReadCapture
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 17
+
+
+ 516              		.section	.text.QuadDec_WritePeriod,"ax",%progbits
+ 517              		.align	2
+ 518              		.global	QuadDec_WritePeriod
+ 519              		.code	16
+ 520              		.thumb_func
+ 521              		.type	QuadDec_WritePeriod, %function
+ 522              	QuadDec_WritePeriod:
+ 523              	.LFB11:
+ 398:Generated_Source\PSoC4/QuadDec.c **** 
+ 399:Generated_Source\PSoC4/QuadDec.c **** 
+ 400:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 401:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_WritePeriod
+ 402:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 403:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 404:Generated_Source\PSoC4/QuadDec.c **** * Changes the period of the counter.  The new period 
+ 405:Generated_Source\PSoC4/QuadDec.c **** * will be loaded the next time terminal count is detected.
+ 406:Generated_Source\PSoC4/QuadDec.c **** *
+ 407:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 408:Generated_Source\PSoC4/QuadDec.c **** *  period: (uint16) A value of 0 will result in
+ 409:Generated_Source\PSoC4/QuadDec.c **** *         the counter remaining at zero.  
+ 410:Generated_Source\PSoC4/QuadDec.c **** *
+ 411:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 412:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 413:Generated_Source\PSoC4/QuadDec.c **** *
+ 414:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 415:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_WritePeriod(uint16 period) 
+ 416:Generated_Source\PSoC4/QuadDec.c **** {
+ 524              		.loc 1 416 0
+ 525              		.cfi_startproc
+ 526              		@ args = 0, pretend = 0, frame = 8
+ 527              		@ frame_needed = 1, uses_anonymous_args = 0
+ 528 0000 80B5     		push	{r7, lr}
+ 529              		.cfi_def_cfa_offset 8
+ 530              		.cfi_offset 7, -8
+ 531              		.cfi_offset 14, -4
+ 532 0002 82B0     		sub	sp, sp, #8
+ 533              		.cfi_def_cfa_offset 16
+ 534 0004 00AF     		add	r7, sp, #0
+ 535              		.cfi_def_cfa_register 7
+ 536 0006 0200     		movs	r2, r0
+ 537 0008 BB1D     		adds	r3, r7, #6
+ 538 000a 1A80     		strh	r2, [r3]
+ 417:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 418:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_PERIOD_LSB_PTR,(uint16)period);
+ 419:Generated_Source\PSoC4/QuadDec.c ****     #else
+ 420:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_PERIOD_LSB_PTR, period);
+ 539              		.loc 1 420 0
+ 540 000c 034A     		ldr	r2, .L40
+ 541 000e BB1D     		adds	r3, r7, #6
+ 542 0010 1B88     		ldrh	r3, [r3]
+ 543 0012 1380     		strh	r3, [r2]
+ 421:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 422:Generated_Source\PSoC4/QuadDec.c **** }
+ 544              		.loc 1 422 0
+ 545 0014 C046     		nop
+ 546 0016 BD46     		mov	sp, r7
+ 547 0018 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 18
+
+
+ 548              		@ sp needed
+ 549 001a 80BD     		pop	{r7, pc}
+ 550              	.L41:
+ 551              		.align	2
+ 552              	.L40:
+ 553 001c 40100F40 		.word	1074729024
+ 554              		.cfi_endproc
+ 555              	.LFE11:
+ 556              		.size	QuadDec_WritePeriod, .-QuadDec_WritePeriod
+ 557              		.section	.text.QuadDec_ReadPeriod,"ax",%progbits
+ 558              		.align	2
+ 559              		.global	QuadDec_ReadPeriod
+ 560              		.code	16
+ 561              		.thumb_func
+ 562              		.type	QuadDec_ReadPeriod, %function
+ 563              	QuadDec_ReadPeriod:
+ 564              	.LFB12:
+ 423:Generated_Source\PSoC4/QuadDec.c **** 
+ 424:Generated_Source\PSoC4/QuadDec.c **** 
+ 425:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 426:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadPeriod
+ 427:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 428:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 429:Generated_Source\PSoC4/QuadDec.c **** * Reads the current period value without affecting counter operation.
+ 430:Generated_Source\PSoC4/QuadDec.c **** *
+ 431:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 432:Generated_Source\PSoC4/QuadDec.c **** *  void:  
+ 433:Generated_Source\PSoC4/QuadDec.c **** *
+ 434:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 435:Generated_Source\PSoC4/QuadDec.c **** *  (uint16) Present period value.
+ 436:Generated_Source\PSoC4/QuadDec.c **** *
+ 437:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 438:Generated_Source\PSoC4/QuadDec.c **** uint16 QuadDec_ReadPeriod(void) 
+ 439:Generated_Source\PSoC4/QuadDec.c **** {
+ 565              		.loc 1 439 0
+ 566              		.cfi_startproc
+ 567              		@ args = 0, pretend = 0, frame = 0
+ 568              		@ frame_needed = 1, uses_anonymous_args = 0
+ 569 0000 80B5     		push	{r7, lr}
+ 570              		.cfi_def_cfa_offset 8
+ 571              		.cfi_offset 7, -8
+ 572              		.cfi_offset 14, -4
+ 573 0002 00AF     		add	r7, sp, #0
+ 574              		.cfi_def_cfa_register 7
+ 440:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 441:Generated_Source\PSoC4/QuadDec.c ****         return ((uint16)CY_GET_REG16(QuadDec_PERIOD_LSB_PTR));
+ 442:Generated_Source\PSoC4/QuadDec.c ****     #else
+ 443:Generated_Source\PSoC4/QuadDec.c ****         return (CY_GET_REG16(QuadDec_PERIOD_LSB_PTR));
+ 575              		.loc 1 443 0
+ 576 0004 024B     		ldr	r3, .L44
+ 577 0006 1B88     		ldrh	r3, [r3]
+ 578 0008 9BB2     		uxth	r3, r3
+ 444:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 445:Generated_Source\PSoC4/QuadDec.c **** }
+ 579              		.loc 1 445 0
+ 580 000a 1800     		movs	r0, r3
+ 581 000c BD46     		mov	sp, r7
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 19
+
+
+ 582              		@ sp needed
+ 583 000e 80BD     		pop	{r7, pc}
+ 584              	.L45:
+ 585              		.align	2
+ 586              	.L44:
+ 587 0010 40100F40 		.word	1074729024
+ 588              		.cfi_endproc
+ 589              	.LFE12:
+ 590              		.size	QuadDec_ReadPeriod, .-QuadDec_ReadPeriod
+ 591              		.section	.text.QuadDec_WriteCompare,"ax",%progbits
+ 592              		.align	2
+ 593              		.global	QuadDec_WriteCompare
+ 594              		.code	16
+ 595              		.thumb_func
+ 596              		.type	QuadDec_WriteCompare, %function
+ 597              	QuadDec_WriteCompare:
+ 598              	.LFB13:
+ 446:Generated_Source\PSoC4/QuadDec.c **** 
+ 447:Generated_Source\PSoC4/QuadDec.c **** 
+ 448:Generated_Source\PSoC4/QuadDec.c **** #if (!QuadDec_UsingFixedFunction)
+ 449:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 450:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_WriteCompare
+ 451:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 452:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 453:Generated_Source\PSoC4/QuadDec.c **** * Changes the compare value.  The compare output will 
+ 454:Generated_Source\PSoC4/QuadDec.c **** * reflect the new value on the next UDB clock.  The compare output will be 
+ 455:Generated_Source\PSoC4/QuadDec.c **** * driven high when the present counter value compares true based on the 
+ 456:Generated_Source\PSoC4/QuadDec.c **** * configured compare mode setting. 
+ 457:Generated_Source\PSoC4/QuadDec.c **** *
+ 458:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 459:Generated_Source\PSoC4/QuadDec.c **** *  Compare:  New compare value. 
+ 460:Generated_Source\PSoC4/QuadDec.c **** *
+ 461:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 462:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 463:Generated_Source\PSoC4/QuadDec.c **** *
+ 464:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 465:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_WriteCompare(uint16 compare) \
+ 466:Generated_Source\PSoC4/QuadDec.c ****                                    
+ 467:Generated_Source\PSoC4/QuadDec.c **** {
+ 599              		.loc 1 467 0
+ 600              		.cfi_startproc
+ 601              		@ args = 0, pretend = 0, frame = 8
+ 602              		@ frame_needed = 1, uses_anonymous_args = 0
+ 603 0000 80B5     		push	{r7, lr}
+ 604              		.cfi_def_cfa_offset 8
+ 605              		.cfi_offset 7, -8
+ 606              		.cfi_offset 14, -4
+ 607 0002 82B0     		sub	sp, sp, #8
+ 608              		.cfi_def_cfa_offset 16
+ 609 0004 00AF     		add	r7, sp, #0
+ 610              		.cfi_def_cfa_register 7
+ 611 0006 0200     		movs	r2, r0
+ 612 0008 BB1D     		adds	r3, r7, #6
+ 613 000a 1A80     		strh	r2, [r3]
+ 468:Generated_Source\PSoC4/QuadDec.c ****     #if(QuadDec_UsingFixedFunction)
+ 469:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_COMPARE_LSB_PTR, (uint16)compare);
+ 470:Generated_Source\PSoC4/QuadDec.c ****     #else
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 20
+
+
+ 471:Generated_Source\PSoC4/QuadDec.c ****         CY_SET_REG16(QuadDec_COMPARE_LSB_PTR, compare);
+ 614              		.loc 1 471 0
+ 615 000c 034A     		ldr	r2, .L47
+ 616 000e BB1D     		adds	r3, r7, #6
+ 617 0010 1B88     		ldrh	r3, [r3]
+ 618 0012 1380     		strh	r3, [r2]
+ 472:Generated_Source\PSoC4/QuadDec.c ****     #endif /* (QuadDec_UsingFixedFunction) */
+ 473:Generated_Source\PSoC4/QuadDec.c **** }
+ 619              		.loc 1 473 0
+ 620 0014 C046     		nop
+ 621 0016 BD46     		mov	sp, r7
+ 622 0018 02B0     		add	sp, sp, #8
+ 623              		@ sp needed
+ 624 001a 80BD     		pop	{r7, pc}
+ 625              	.L48:
+ 626              		.align	2
+ 627              	.L47:
+ 628 001c 60100F40 		.word	1074729056
+ 629              		.cfi_endproc
+ 630              	.LFE13:
+ 631              		.size	QuadDec_WriteCompare, .-QuadDec_WriteCompare
+ 632              		.section	.text.QuadDec_ReadCompare,"ax",%progbits
+ 633              		.align	2
+ 634              		.global	QuadDec_ReadCompare
+ 635              		.code	16
+ 636              		.thumb_func
+ 637              		.type	QuadDec_ReadCompare, %function
+ 638              	QuadDec_ReadCompare:
+ 639              	.LFB14:
+ 474:Generated_Source\PSoC4/QuadDec.c **** 
+ 475:Generated_Source\PSoC4/QuadDec.c **** 
+ 476:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 477:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ReadCompare
+ 478:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 479:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 480:Generated_Source\PSoC4/QuadDec.c **** * Returns the compare value.
+ 481:Generated_Source\PSoC4/QuadDec.c **** *
+ 482:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 483:Generated_Source\PSoC4/QuadDec.c **** *  void:
+ 484:Generated_Source\PSoC4/QuadDec.c **** *
+ 485:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 486:Generated_Source\PSoC4/QuadDec.c **** *  (uint16) Present compare value.
+ 487:Generated_Source\PSoC4/QuadDec.c **** *
+ 488:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 489:Generated_Source\PSoC4/QuadDec.c **** uint16 QuadDec_ReadCompare(void) 
+ 490:Generated_Source\PSoC4/QuadDec.c **** {
+ 640              		.loc 1 490 0
+ 641              		.cfi_startproc
+ 642              		@ args = 0, pretend = 0, frame = 0
+ 643              		@ frame_needed = 1, uses_anonymous_args = 0
+ 644 0000 80B5     		push	{r7, lr}
+ 645              		.cfi_def_cfa_offset 8
+ 646              		.cfi_offset 7, -8
+ 647              		.cfi_offset 14, -4
+ 648 0002 00AF     		add	r7, sp, #0
+ 649              		.cfi_def_cfa_register 7
+ 491:Generated_Source\PSoC4/QuadDec.c ****     return (CY_GET_REG16(QuadDec_COMPARE_LSB_PTR));
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 21
+
+
+ 650              		.loc 1 491 0
+ 651 0004 024B     		ldr	r3, .L51
+ 652 0006 1B88     		ldrh	r3, [r3]
+ 653 0008 9BB2     		uxth	r3, r3
+ 492:Generated_Source\PSoC4/QuadDec.c **** }
+ 654              		.loc 1 492 0
+ 655 000a 1800     		movs	r0, r3
+ 656 000c BD46     		mov	sp, r7
+ 657              		@ sp needed
+ 658 000e 80BD     		pop	{r7, pc}
+ 659              	.L52:
+ 660              		.align	2
+ 661              	.L51:
+ 662 0010 60100F40 		.word	1074729056
+ 663              		.cfi_endproc
+ 664              	.LFE14:
+ 665              		.size	QuadDec_ReadCompare, .-QuadDec_ReadCompare
+ 666              		.section	.text.QuadDec_ClearFIFO,"ax",%progbits
+ 667              		.align	2
+ 668              		.global	QuadDec_ClearFIFO
+ 669              		.code	16
+ 670              		.thumb_func
+ 671              		.type	QuadDec_ClearFIFO, %function
+ 672              	QuadDec_ClearFIFO:
+ 673              	.LFB15:
+ 493:Generated_Source\PSoC4/QuadDec.c **** 
+ 494:Generated_Source\PSoC4/QuadDec.c **** 
+ 495:Generated_Source\PSoC4/QuadDec.c **** #if (QuadDec_COMPARE_MODE_SOFTWARE)
+ 496:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 497:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_SetCompareMode
+ 498:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 499:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 500:Generated_Source\PSoC4/QuadDec.c **** *  Sets the software controlled Compare Mode.
+ 501:Generated_Source\PSoC4/QuadDec.c **** *
+ 502:Generated_Source\PSoC4/QuadDec.c **** * Parameters:
+ 503:Generated_Source\PSoC4/QuadDec.c **** *  compareMode:  Compare Mode Enumerated Type.
+ 504:Generated_Source\PSoC4/QuadDec.c **** *
+ 505:Generated_Source\PSoC4/QuadDec.c **** * Return:
+ 506:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 507:Generated_Source\PSoC4/QuadDec.c **** *
+ 508:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 509:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_SetCompareMode(uint8 compareMode) 
+ 510:Generated_Source\PSoC4/QuadDec.c **** {
+ 511:Generated_Source\PSoC4/QuadDec.c ****     /* Clear the compare mode bits in the control register */
+ 512:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_CONTROL &= ((uint8)(~QuadDec_CTRL_CMPMODE_MASK));
+ 513:Generated_Source\PSoC4/QuadDec.c ****     
+ 514:Generated_Source\PSoC4/QuadDec.c ****     /* Write the new setting */
+ 515:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_CONTROL |= compareMode;
+ 516:Generated_Source\PSoC4/QuadDec.c **** }
+ 517:Generated_Source\PSoC4/QuadDec.c **** #endif  /* (QuadDec_COMPARE_MODE_SOFTWARE) */
+ 518:Generated_Source\PSoC4/QuadDec.c **** 
+ 519:Generated_Source\PSoC4/QuadDec.c **** 
+ 520:Generated_Source\PSoC4/QuadDec.c **** #if (QuadDec_CAPTURE_MODE_SOFTWARE)
+ 521:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 522:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_SetCaptureMode
+ 523:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 524:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 22
+
+
+ 525:Generated_Source\PSoC4/QuadDec.c **** *  Sets the software controlled Capture Mode.
+ 526:Generated_Source\PSoC4/QuadDec.c **** *
+ 527:Generated_Source\PSoC4/QuadDec.c **** * Parameters:
+ 528:Generated_Source\PSoC4/QuadDec.c **** *  captureMode:  Capture Mode Enumerated Type.
+ 529:Generated_Source\PSoC4/QuadDec.c **** *
+ 530:Generated_Source\PSoC4/QuadDec.c **** * Return:
+ 531:Generated_Source\PSoC4/QuadDec.c **** *  void
+ 532:Generated_Source\PSoC4/QuadDec.c **** *
+ 533:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 534:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_SetCaptureMode(uint8 captureMode) 
+ 535:Generated_Source\PSoC4/QuadDec.c **** {
+ 536:Generated_Source\PSoC4/QuadDec.c ****     /* Clear the capture mode bits in the control register */
+ 537:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_CONTROL &= ((uint8)(~QuadDec_CTRL_CAPMODE_MASK));
+ 538:Generated_Source\PSoC4/QuadDec.c ****     
+ 539:Generated_Source\PSoC4/QuadDec.c ****     /* Write the new setting */
+ 540:Generated_Source\PSoC4/QuadDec.c ****     QuadDec_CONTROL |= ((uint8)((uint8)captureMode << QuadDec_CTRL_CAPMODE0_SHIFT));
+ 541:Generated_Source\PSoC4/QuadDec.c **** }
+ 542:Generated_Source\PSoC4/QuadDec.c **** #endif  /* (QuadDec_CAPTURE_MODE_SOFTWARE) */
+ 543:Generated_Source\PSoC4/QuadDec.c **** 
+ 544:Generated_Source\PSoC4/QuadDec.c **** 
+ 545:Generated_Source\PSoC4/QuadDec.c **** /*******************************************************************************
+ 546:Generated_Source\PSoC4/QuadDec.c **** * Function Name: QuadDec_ClearFIFO
+ 547:Generated_Source\PSoC4/QuadDec.c **** ********************************************************************************
+ 548:Generated_Source\PSoC4/QuadDec.c **** * Summary:
+ 549:Generated_Source\PSoC4/QuadDec.c **** *   This function clears all capture data from the capture FIFO
+ 550:Generated_Source\PSoC4/QuadDec.c **** *
+ 551:Generated_Source\PSoC4/QuadDec.c **** * Parameters:  
+ 552:Generated_Source\PSoC4/QuadDec.c **** *  void:
+ 553:Generated_Source\PSoC4/QuadDec.c **** *
+ 554:Generated_Source\PSoC4/QuadDec.c **** * Return: 
+ 555:Generated_Source\PSoC4/QuadDec.c **** *  None
+ 556:Generated_Source\PSoC4/QuadDec.c **** *
+ 557:Generated_Source\PSoC4/QuadDec.c **** *******************************************************************************/
+ 558:Generated_Source\PSoC4/QuadDec.c **** void QuadDec_ClearFIFO(void) 
+ 559:Generated_Source\PSoC4/QuadDec.c **** {
+ 674              		.loc 1 559 0
+ 675              		.cfi_startproc
+ 676              		@ args = 0, pretend = 0, frame = 0
+ 677              		@ frame_needed = 1, uses_anonymous_args = 0
+ 678 0000 80B5     		push	{r7, lr}
+ 679              		.cfi_def_cfa_offset 8
+ 680              		.cfi_offset 7, -8
+ 681              		.cfi_offset 14, -4
+ 682 0002 00AF     		add	r7, sp, #0
+ 683              		.cfi_def_cfa_register 7
+ 560:Generated_Source\PSoC4/QuadDec.c **** 
+ 561:Generated_Source\PSoC4/QuadDec.c ****     while(0u != (QuadDec_ReadStatusRegister() & QuadDec_STATUS_FIFONEMP))
+ 684              		.loc 1 561 0
+ 685 0004 01E0     		b	.L54
+ 686              	.L55:
+ 562:Generated_Source\PSoC4/QuadDec.c ****     {
+ 563:Generated_Source\PSoC4/QuadDec.c ****         (void)QuadDec_ReadCapture();
+ 687              		.loc 1 563 0
+ 688 0006 FFF7FEFF 		bl	QuadDec_ReadCapture
+ 689              	.L54:
+ 561:Generated_Source\PSoC4/QuadDec.c ****     {
+ 690              		.loc 1 561 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 23
+
+
+ 691 000a FFF7FEFF 		bl	QuadDec_ReadStatusRegister
+ 692 000e 0300     		movs	r3, r0
+ 693 0010 1A00     		movs	r2, r3
+ 694 0012 4023     		movs	r3, #64
+ 695 0014 1340     		ands	r3, r2
+ 696 0016 F6D1     		bne	.L55
+ 564:Generated_Source\PSoC4/QuadDec.c ****     }
+ 565:Generated_Source\PSoC4/QuadDec.c **** 
+ 566:Generated_Source\PSoC4/QuadDec.c **** }
+ 697              		.loc 1 566 0
+ 698 0018 C046     		nop
+ 699 001a BD46     		mov	sp, r7
+ 700              		@ sp needed
+ 701 001c 80BD     		pop	{r7, pc}
+ 702              		.cfi_endproc
+ 703              	.LFE15:
+ 704              		.size	QuadDec_ClearFIFO, .-QuadDec_ClearFIFO
+ 705 001e C046     		.text
+ 706              	.Letext0:
+ 707              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 708              		.section	.debug_info,"",%progbits
+ 709              	.Ldebug_info0:
+ 710 0000 8D020000 		.4byte	0x28d
+ 711 0004 0400     		.2byte	0x4
+ 712 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 713 000a 04       		.byte	0x4
+ 714 000b 01       		.uleb128 0x1
+ 715 000c 44010000 		.4byte	.LASF41
+ 716 0010 0C       		.byte	0xc
+ 717 0011 8B000000 		.4byte	.LASF42
+ 718 0015 C0020000 		.4byte	.LASF43
+ 719 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 720 001d 00000000 		.4byte	0
+ 721 0021 00000000 		.4byte	.Ldebug_line0
+ 722 0025 02       		.uleb128 0x2
+ 723 0026 01       		.byte	0x1
+ 724 0027 06       		.byte	0x6
+ 725 0028 1F030000 		.4byte	.LASF0
+ 726 002c 02       		.uleb128 0x2
+ 727 002d 01       		.byte	0x1
+ 728 002e 08       		.byte	0x8
+ 729 002f E4000000 		.4byte	.LASF1
+ 730 0033 02       		.uleb128 0x2
+ 731 0034 02       		.byte	0x2
+ 732 0035 05       		.byte	0x5
+ 733 0036 91020000 		.4byte	.LASF2
+ 734 003a 02       		.uleb128 0x2
+ 735 003b 02       		.byte	0x2
+ 736 003c 07       		.byte	0x7
+ 737 003d 5A000000 		.4byte	.LASF3
+ 738 0041 02       		.uleb128 0x2
+ 739 0042 04       		.byte	0x4
+ 740 0043 05       		.byte	0x5
+ 741 0044 B7020000 		.4byte	.LASF4
+ 742 0048 02       		.uleb128 0x2
+ 743 0049 04       		.byte	0x4
+ 744 004a 07       		.byte	0x7
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 24
+
+
+ 745 004b F7000000 		.4byte	.LASF5
+ 746 004f 02       		.uleb128 0x2
+ 747 0050 08       		.byte	0x8
+ 748 0051 05       		.byte	0x5
+ 749 0052 71020000 		.4byte	.LASF6
+ 750 0056 02       		.uleb128 0x2
+ 751 0057 08       		.byte	0x8
+ 752 0058 07       		.byte	0x7
+ 753 0059 1E020000 		.4byte	.LASF7
+ 754 005d 03       		.uleb128 0x3
+ 755 005e 04       		.byte	0x4
+ 756 005f 05       		.byte	0x5
+ 757 0060 696E7400 		.ascii	"int\000"
+ 758 0064 02       		.uleb128 0x2
+ 759 0065 04       		.byte	0x4
+ 760 0066 07       		.byte	0x7
+ 761 0067 11020000 		.4byte	.LASF8
+ 762 006b 04       		.uleb128 0x4
+ 763 006c 1D010000 		.4byte	.LASF9
+ 764 0070 02       		.byte	0x2
+ 765 0071 E601     		.2byte	0x1e6
+ 766 0073 2C000000 		.4byte	0x2c
+ 767 0077 04       		.uleb128 0x4
+ 768 0078 D9010000 		.4byte	.LASF10
+ 769 007c 02       		.byte	0x2
+ 770 007d E701     		.2byte	0x1e7
+ 771 007f 3A000000 		.4byte	0x3a
+ 772 0083 02       		.uleb128 0x2
+ 773 0084 04       		.byte	0x4
+ 774 0085 04       		.byte	0x4
+ 775 0086 D6000000 		.4byte	.LASF11
+ 776 008a 02       		.uleb128 0x2
+ 777 008b 08       		.byte	0x8
+ 778 008c 04       		.byte	0x4
+ 779 008d D2010000 		.4byte	.LASF12
+ 780 0091 02       		.uleb128 0x2
+ 781 0092 01       		.byte	0x1
+ 782 0093 08       		.byte	0x8
+ 783 0094 7F020000 		.4byte	.LASF13
+ 784 0098 04       		.uleb128 0x4
+ 785 0099 F2000000 		.4byte	.LASF14
+ 786 009d 02       		.byte	0x2
+ 787 009e 9002     		.2byte	0x290
+ 788 00a0 A4000000 		.4byte	0xa4
+ 789 00a4 05       		.uleb128 0x5
+ 790 00a5 6B000000 		.4byte	0x6b
+ 791 00a9 04       		.uleb128 0x4
+ 792 00aa 00000000 		.4byte	.LASF15
+ 793 00ae 02       		.byte	0x2
+ 794 00af 9102     		.2byte	0x291
+ 795 00b1 B5000000 		.4byte	0xb5
+ 796 00b5 05       		.uleb128 0x5
+ 797 00b6 77000000 		.4byte	0x77
+ 798 00ba 02       		.uleb128 0x2
+ 799 00bb 08       		.byte	0x8
+ 800 00bc 04       		.byte	0x4
+ 801 00bd 13030000 		.4byte	.LASF16
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 25
+
+
+ 802 00c1 02       		.uleb128 0x2
+ 803 00c2 04       		.byte	0x4
+ 804 00c3 07       		.byte	0x7
+ 805 00c4 68020000 		.4byte	.LASF17
+ 806 00c8 06       		.uleb128 0x6
+ 807 00c9 84020000 		.4byte	.LASF23
+ 808 00cd 01       		.byte	0x1
+ 809 00ce 25       		.byte	0x25
+ 810 00cf 00000000 		.4byte	.LFB0
+ 811 00d3 9C000000 		.4byte	.LFE0-.LFB0
+ 812 00d7 01       		.uleb128 0x1
+ 813 00d8 9C       		.byte	0x9c
+ 814 00d9 FA000000 		.4byte	0xfa
+ 815 00dd 07       		.uleb128 0x7
+ 816 00de 4E020000 		.4byte	.LASF18
+ 817 00e2 01       		.byte	0x1
+ 818 00e3 28       		.byte	0x28
+ 819 00e4 6B000000 		.4byte	0x6b
+ 820 00e8 02       		.uleb128 0x2
+ 821 00e9 91       		.byte	0x91
+ 822 00ea 6F       		.sleb128 -17
+ 823 00eb 07       		.uleb128 0x7
+ 824 00ec 06000000 		.4byte	.LASF19
+ 825 00f0 01       		.byte	0x1
+ 826 00f1 2D       		.byte	0x2d
+ 827 00f2 6B000000 		.4byte	0x6b
+ 828 00f6 02       		.uleb128 0x2
+ 829 00f7 91       		.byte	0x91
+ 830 00f8 6E       		.sleb128 -18
+ 831 00f9 00       		.byte	0
+ 832 00fa 08       		.uleb128 0x8
+ 833 00fb C7000000 		.4byte	.LASF20
+ 834 00ff 01       		.byte	0x1
+ 835 0100 8F       		.byte	0x8f
+ 836 0101 00000000 		.4byte	.LFB1
+ 837 0105 20000000 		.4byte	.LFE1-.LFB1
+ 838 0109 01       		.uleb128 0x1
+ 839 010a 9C       		.byte	0x9c
+ 840 010b 09       		.uleb128 0x9
+ 841 010c 7D000000 		.4byte	.LASF21
+ 842 0110 01       		.byte	0x1
+ 843 0111 B2       		.byte	0xb2
+ 844 0112 00000000 		.4byte	.LFB2
+ 845 0116 24000000 		.4byte	.LFE2-.LFB2
+ 846 011a 01       		.uleb128 0x1
+ 847 011b 9C       		.byte	0x9c
+ 848 011c 08       		.uleb128 0x8
+ 849 011d 46000000 		.4byte	.LASF22
+ 850 0121 01       		.byte	0x1
+ 851 0122 D0       		.byte	0xd0
+ 852 0123 00000000 		.4byte	.LFB3
+ 853 0127 20000000 		.4byte	.LFE3-.LFB3
+ 854 012b 01       		.uleb128 0x1
+ 855 012c 9C       		.byte	0x9c
+ 856 012d 0A       		.uleb128 0xa
+ 857 012e 35020000 		.4byte	.LASF24
+ 858 0132 01       		.byte	0x1
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 26
+
+
+ 859 0133 ED       		.byte	0xed
+ 860 0134 00000000 		.4byte	.LFB4
+ 861 0138 20000000 		.4byte	.LFE4-.LFB4
+ 862 013c 01       		.uleb128 0x1
+ 863 013d 9C       		.byte	0x9c
+ 864 013e 51010000 		.4byte	0x151
+ 865 0142 0B       		.uleb128 0xb
+ 866 0143 35010000 		.4byte	.LASF28
+ 867 0147 01       		.byte	0x1
+ 868 0148 ED       		.byte	0xed
+ 869 0149 6B000000 		.4byte	0x6b
+ 870 014d 02       		.uleb128 0x2
+ 871 014e 91       		.byte	0x91
+ 872 014f 77       		.sleb128 -9
+ 873 0150 00       		.byte	0
+ 874 0151 0C       		.uleb128 0xc
+ 875 0152 AC000000 		.4byte	.LASF25
+ 876 0156 01       		.byte	0x1
+ 877 0157 0501     		.2byte	0x105
+ 878 0159 6B000000 		.4byte	0x6b
+ 879 015d 00000000 		.4byte	.LFB5
+ 880 0161 14000000 		.4byte	.LFE5-.LFB5
+ 881 0165 01       		.uleb128 0x1
+ 882 0166 9C       		.byte	0x9c
+ 883 0167 0C       		.uleb128 0xc
+ 884 0168 33030000 		.4byte	.LASF26
+ 885 016c 01       		.byte	0x1
+ 886 016d 1B01     		.2byte	0x11b
+ 887 016f 6B000000 		.4byte	0x6b
+ 888 0173 00000000 		.4byte	.LFB6
+ 889 0177 14000000 		.4byte	.LFE6-.LFB6
+ 890 017b 01       		.uleb128 0x1
+ 891 017c 9C       		.byte	0x9c
+ 892 017d 0D       		.uleb128 0xd
+ 893 017e E0010000 		.4byte	.LASF27
+ 894 0182 01       		.byte	0x1
+ 895 0183 3001     		.2byte	0x130
+ 896 0185 00000000 		.4byte	.LFB7
+ 897 0189 20000000 		.4byte	.LFE7-.LFB7
+ 898 018d 01       		.uleb128 0x1
+ 899 018e 9C       		.byte	0x9c
+ 900 018f A3010000 		.4byte	0x1a3
+ 901 0193 0E       		.uleb128 0xe
+ 902 0194 9B020000 		.4byte	.LASF29
+ 903 0198 01       		.byte	0x1
+ 904 0199 3001     		.2byte	0x130
+ 905 019b 6B000000 		.4byte	0x6b
+ 906 019f 02       		.uleb128 0x2
+ 907 01a0 91       		.byte	0x91
+ 908 01a1 77       		.sleb128 -9
+ 909 01a2 00       		.byte	0
+ 910 01a3 0D       		.uleb128 0xd
+ 911 01a4 1D000000 		.4byte	.LASF30
+ 912 01a8 01       		.byte	0x1
+ 913 01a9 4601     		.2byte	0x146
+ 914 01ab 00000000 		.4byte	.LFB8
+ 915 01af 20000000 		.4byte	.LFE8-.LFB8
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 27
+
+
+ 916 01b3 01       		.uleb128 0x1
+ 917 01b4 9C       		.byte	0x9c
+ 918 01b5 C9010000 		.4byte	0x1c9
+ 919 01b9 0E       		.uleb128 0xe
+ 920 01ba DC000000 		.4byte	.LASF31
+ 921 01be 01       		.byte	0x1
+ 922 01bf 4601     		.2byte	0x146
+ 923 01c1 77000000 		.4byte	0x77
+ 924 01c5 02       		.uleb128 0x2
+ 925 01c6 91       		.byte	0x91
+ 926 01c7 76       		.sleb128 -10
+ 927 01c8 00       		.byte	0
+ 928 01c9 0C       		.uleb128 0xc
+ 929 01ca A3020000 		.4byte	.LASF32
+ 930 01ce 01       		.byte	0x1
+ 931 01cf 6501     		.2byte	0x165
+ 932 01d1 77000000 		.4byte	0x77
+ 933 01d5 00000000 		.4byte	.LFB9
+ 934 01d9 1C000000 		.4byte	.LFE9-.LFB9
+ 935 01dd 01       		.uleb128 0x1
+ 936 01de 9C       		.byte	0x9c
+ 937 01df 0C       		.uleb128 0xc
+ 938 01e0 09010000 		.4byte	.LASF33
+ 939 01e4 01       		.byte	0x1
+ 940 01e5 8601     		.2byte	0x186
+ 941 01e7 77000000 		.4byte	0x77
+ 942 01eb 00000000 		.4byte	.LFB10
+ 943 01ef 14000000 		.4byte	.LFE10-.LFB10
+ 944 01f3 01       		.uleb128 0x1
+ 945 01f4 9C       		.byte	0x9c
+ 946 01f5 0D       		.uleb128 0xd
+ 947 01f6 32000000 		.4byte	.LASF34
+ 948 01fa 01       		.byte	0x1
+ 949 01fb 9F01     		.2byte	0x19f
+ 950 01fd 00000000 		.4byte	.LFB11
+ 951 0201 20000000 		.4byte	.LFE11-.LFB11
+ 952 0205 01       		.uleb128 0x1
+ 953 0206 9C       		.byte	0x9c
+ 954 0207 1B020000 		.4byte	0x21b
+ 955 020b 0E       		.uleb128 0xe
+ 956 020c 53000000 		.4byte	.LASF35
+ 957 0210 01       		.byte	0x1
+ 958 0211 9F01     		.2byte	0x19f
+ 959 0213 77000000 		.4byte	0x77
+ 960 0217 02       		.uleb128 0x2
+ 961 0218 91       		.byte	0x91
+ 962 0219 76       		.sleb128 -10
+ 963 021a 00       		.byte	0
+ 964 021b 0C       		.uleb128 0xc
+ 965 021c 4F030000 		.4byte	.LASF36
+ 966 0220 01       		.byte	0x1
+ 967 0221 B601     		.2byte	0x1b6
+ 968 0223 77000000 		.4byte	0x77
+ 969 0227 00000000 		.4byte	.LFB12
+ 970 022b 14000000 		.4byte	.LFE12-.LFB12
+ 971 022f 01       		.uleb128 0x1
+ 972 0230 9C       		.byte	0x9c
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 28
+
+
+ 973 0231 0D       		.uleb128 0xd
+ 974 0232 53020000 		.4byte	.LASF37
+ 975 0236 01       		.byte	0x1
+ 976 0237 D101     		.2byte	0x1d1
+ 977 0239 00000000 		.4byte	.LFB13
+ 978 023d 20000000 		.4byte	.LFE13-.LFB13
+ 979 0241 01       		.uleb128 0x1
+ 980 0242 9C       		.byte	0x9c
+ 981 0243 57020000 		.4byte	0x257
+ 982 0247 0E       		.uleb128 0xe
+ 983 0248 2B030000 		.4byte	.LASF38
+ 984 024c 01       		.byte	0x1
+ 985 024d D101     		.2byte	0x1d1
+ 986 024f 77000000 		.4byte	0x77
+ 987 0253 02       		.uleb128 0x2
+ 988 0254 91       		.byte	0x91
+ 989 0255 76       		.sleb128 -10
+ 990 0256 00       		.byte	0
+ 991 0257 0C       		.uleb128 0xc
+ 992 0258 FD010000 		.4byte	.LASF39
+ 993 025c 01       		.byte	0x1
+ 994 025d E901     		.2byte	0x1e9
+ 995 025f 77000000 		.4byte	0x77
+ 996 0263 00000000 		.4byte	.LFB14
+ 997 0267 14000000 		.4byte	.LFE14-.LFB14
+ 998 026b 01       		.uleb128 0x1
+ 999 026c 9C       		.byte	0x9c
+ 1000 026d 0F       		.uleb128 0xf
+ 1001 026e 23010000 		.4byte	.LASF40
+ 1002 0272 01       		.byte	0x1
+ 1003 0273 2E02     		.2byte	0x22e
+ 1004 0275 00000000 		.4byte	.LFB15
+ 1005 0279 1E000000 		.4byte	.LFE15-.LFB15
+ 1006 027d 01       		.uleb128 0x1
+ 1007 027e 9C       		.byte	0x9c
+ 1008 027f 10       		.uleb128 0x10
+ 1009 0280 6D000000 		.4byte	.LASF44
+ 1010 0284 01       		.byte	0x1
+ 1011 0285 15       		.byte	0x15
+ 1012 0286 6B000000 		.4byte	0x6b
+ 1013 028a 05       		.uleb128 0x5
+ 1014 028b 03       		.byte	0x3
+ 1015 028c 00000000 		.4byte	QuadDec_initVar
+ 1016 0290 00       		.byte	0
+ 1017              		.section	.debug_abbrev,"",%progbits
+ 1018              	.Ldebug_abbrev0:
+ 1019 0000 01       		.uleb128 0x1
+ 1020 0001 11       		.uleb128 0x11
+ 1021 0002 01       		.byte	0x1
+ 1022 0003 25       		.uleb128 0x25
+ 1023 0004 0E       		.uleb128 0xe
+ 1024 0005 13       		.uleb128 0x13
+ 1025 0006 0B       		.uleb128 0xb
+ 1026 0007 03       		.uleb128 0x3
+ 1027 0008 0E       		.uleb128 0xe
+ 1028 0009 1B       		.uleb128 0x1b
+ 1029 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 29
+
+
+ 1030 000b 55       		.uleb128 0x55
+ 1031 000c 17       		.uleb128 0x17
+ 1032 000d 11       		.uleb128 0x11
+ 1033 000e 01       		.uleb128 0x1
+ 1034 000f 10       		.uleb128 0x10
+ 1035 0010 17       		.uleb128 0x17
+ 1036 0011 00       		.byte	0
+ 1037 0012 00       		.byte	0
+ 1038 0013 02       		.uleb128 0x2
+ 1039 0014 24       		.uleb128 0x24
+ 1040 0015 00       		.byte	0
+ 1041 0016 0B       		.uleb128 0xb
+ 1042 0017 0B       		.uleb128 0xb
+ 1043 0018 3E       		.uleb128 0x3e
+ 1044 0019 0B       		.uleb128 0xb
+ 1045 001a 03       		.uleb128 0x3
+ 1046 001b 0E       		.uleb128 0xe
+ 1047 001c 00       		.byte	0
+ 1048 001d 00       		.byte	0
+ 1049 001e 03       		.uleb128 0x3
+ 1050 001f 24       		.uleb128 0x24
+ 1051 0020 00       		.byte	0
+ 1052 0021 0B       		.uleb128 0xb
+ 1053 0022 0B       		.uleb128 0xb
+ 1054 0023 3E       		.uleb128 0x3e
+ 1055 0024 0B       		.uleb128 0xb
+ 1056 0025 03       		.uleb128 0x3
+ 1057 0026 08       		.uleb128 0x8
+ 1058 0027 00       		.byte	0
+ 1059 0028 00       		.byte	0
+ 1060 0029 04       		.uleb128 0x4
+ 1061 002a 16       		.uleb128 0x16
+ 1062 002b 00       		.byte	0
+ 1063 002c 03       		.uleb128 0x3
+ 1064 002d 0E       		.uleb128 0xe
+ 1065 002e 3A       		.uleb128 0x3a
+ 1066 002f 0B       		.uleb128 0xb
+ 1067 0030 3B       		.uleb128 0x3b
+ 1068 0031 05       		.uleb128 0x5
+ 1069 0032 49       		.uleb128 0x49
+ 1070 0033 13       		.uleb128 0x13
+ 1071 0034 00       		.byte	0
+ 1072 0035 00       		.byte	0
+ 1073 0036 05       		.uleb128 0x5
+ 1074 0037 35       		.uleb128 0x35
+ 1075 0038 00       		.byte	0
+ 1076 0039 49       		.uleb128 0x49
+ 1077 003a 13       		.uleb128 0x13
+ 1078 003b 00       		.byte	0
+ 1079 003c 00       		.byte	0
+ 1080 003d 06       		.uleb128 0x6
+ 1081 003e 2E       		.uleb128 0x2e
+ 1082 003f 01       		.byte	0x1
+ 1083 0040 3F       		.uleb128 0x3f
+ 1084 0041 19       		.uleb128 0x19
+ 1085 0042 03       		.uleb128 0x3
+ 1086 0043 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 30
+
+
+ 1087 0044 3A       		.uleb128 0x3a
+ 1088 0045 0B       		.uleb128 0xb
+ 1089 0046 3B       		.uleb128 0x3b
+ 1090 0047 0B       		.uleb128 0xb
+ 1091 0048 27       		.uleb128 0x27
+ 1092 0049 19       		.uleb128 0x19
+ 1093 004a 11       		.uleb128 0x11
+ 1094 004b 01       		.uleb128 0x1
+ 1095 004c 12       		.uleb128 0x12
+ 1096 004d 06       		.uleb128 0x6
+ 1097 004e 40       		.uleb128 0x40
+ 1098 004f 18       		.uleb128 0x18
+ 1099 0050 9642     		.uleb128 0x2116
+ 1100 0052 19       		.uleb128 0x19
+ 1101 0053 01       		.uleb128 0x1
+ 1102 0054 13       		.uleb128 0x13
+ 1103 0055 00       		.byte	0
+ 1104 0056 00       		.byte	0
+ 1105 0057 07       		.uleb128 0x7
+ 1106 0058 34       		.uleb128 0x34
+ 1107 0059 00       		.byte	0
+ 1108 005a 03       		.uleb128 0x3
+ 1109 005b 0E       		.uleb128 0xe
+ 1110 005c 3A       		.uleb128 0x3a
+ 1111 005d 0B       		.uleb128 0xb
+ 1112 005e 3B       		.uleb128 0x3b
+ 1113 005f 0B       		.uleb128 0xb
+ 1114 0060 49       		.uleb128 0x49
+ 1115 0061 13       		.uleb128 0x13
+ 1116 0062 02       		.uleb128 0x2
+ 1117 0063 18       		.uleb128 0x18
+ 1118 0064 00       		.byte	0
+ 1119 0065 00       		.byte	0
+ 1120 0066 08       		.uleb128 0x8
+ 1121 0067 2E       		.uleb128 0x2e
+ 1122 0068 00       		.byte	0
+ 1123 0069 3F       		.uleb128 0x3f
+ 1124 006a 19       		.uleb128 0x19
+ 1125 006b 03       		.uleb128 0x3
+ 1126 006c 0E       		.uleb128 0xe
+ 1127 006d 3A       		.uleb128 0x3a
+ 1128 006e 0B       		.uleb128 0xb
+ 1129 006f 3B       		.uleb128 0x3b
+ 1130 0070 0B       		.uleb128 0xb
+ 1131 0071 27       		.uleb128 0x27
+ 1132 0072 19       		.uleb128 0x19
+ 1133 0073 11       		.uleb128 0x11
+ 1134 0074 01       		.uleb128 0x1
+ 1135 0075 12       		.uleb128 0x12
+ 1136 0076 06       		.uleb128 0x6
+ 1137 0077 40       		.uleb128 0x40
+ 1138 0078 18       		.uleb128 0x18
+ 1139 0079 9742     		.uleb128 0x2117
+ 1140 007b 19       		.uleb128 0x19
+ 1141 007c 00       		.byte	0
+ 1142 007d 00       		.byte	0
+ 1143 007e 09       		.uleb128 0x9
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 31
+
+
+ 1144 007f 2E       		.uleb128 0x2e
+ 1145 0080 00       		.byte	0
+ 1146 0081 3F       		.uleb128 0x3f
+ 1147 0082 19       		.uleb128 0x19
+ 1148 0083 03       		.uleb128 0x3
+ 1149 0084 0E       		.uleb128 0xe
+ 1150 0085 3A       		.uleb128 0x3a
+ 1151 0086 0B       		.uleb128 0xb
+ 1152 0087 3B       		.uleb128 0x3b
+ 1153 0088 0B       		.uleb128 0xb
+ 1154 0089 27       		.uleb128 0x27
+ 1155 008a 19       		.uleb128 0x19
+ 1156 008b 11       		.uleb128 0x11
+ 1157 008c 01       		.uleb128 0x1
+ 1158 008d 12       		.uleb128 0x12
+ 1159 008e 06       		.uleb128 0x6
+ 1160 008f 40       		.uleb128 0x40
+ 1161 0090 18       		.uleb128 0x18
+ 1162 0091 9642     		.uleb128 0x2116
+ 1163 0093 19       		.uleb128 0x19
+ 1164 0094 00       		.byte	0
+ 1165 0095 00       		.byte	0
+ 1166 0096 0A       		.uleb128 0xa
+ 1167 0097 2E       		.uleb128 0x2e
+ 1168 0098 01       		.byte	0x1
+ 1169 0099 3F       		.uleb128 0x3f
+ 1170 009a 19       		.uleb128 0x19
+ 1171 009b 03       		.uleb128 0x3
+ 1172 009c 0E       		.uleb128 0xe
+ 1173 009d 3A       		.uleb128 0x3a
+ 1174 009e 0B       		.uleb128 0xb
+ 1175 009f 3B       		.uleb128 0x3b
+ 1176 00a0 0B       		.uleb128 0xb
+ 1177 00a1 27       		.uleb128 0x27
+ 1178 00a2 19       		.uleb128 0x19
+ 1179 00a3 11       		.uleb128 0x11
+ 1180 00a4 01       		.uleb128 0x1
+ 1181 00a5 12       		.uleb128 0x12
+ 1182 00a6 06       		.uleb128 0x6
+ 1183 00a7 40       		.uleb128 0x40
+ 1184 00a8 18       		.uleb128 0x18
+ 1185 00a9 9742     		.uleb128 0x2117
+ 1186 00ab 19       		.uleb128 0x19
+ 1187 00ac 01       		.uleb128 0x1
+ 1188 00ad 13       		.uleb128 0x13
+ 1189 00ae 00       		.byte	0
+ 1190 00af 00       		.byte	0
+ 1191 00b0 0B       		.uleb128 0xb
+ 1192 00b1 05       		.uleb128 0x5
+ 1193 00b2 00       		.byte	0
+ 1194 00b3 03       		.uleb128 0x3
+ 1195 00b4 0E       		.uleb128 0xe
+ 1196 00b5 3A       		.uleb128 0x3a
+ 1197 00b6 0B       		.uleb128 0xb
+ 1198 00b7 3B       		.uleb128 0x3b
+ 1199 00b8 0B       		.uleb128 0xb
+ 1200 00b9 49       		.uleb128 0x49
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 32
+
+
+ 1201 00ba 13       		.uleb128 0x13
+ 1202 00bb 02       		.uleb128 0x2
+ 1203 00bc 18       		.uleb128 0x18
+ 1204 00bd 00       		.byte	0
+ 1205 00be 00       		.byte	0
+ 1206 00bf 0C       		.uleb128 0xc
+ 1207 00c0 2E       		.uleb128 0x2e
+ 1208 00c1 00       		.byte	0
+ 1209 00c2 3F       		.uleb128 0x3f
+ 1210 00c3 19       		.uleb128 0x19
+ 1211 00c4 03       		.uleb128 0x3
+ 1212 00c5 0E       		.uleb128 0xe
+ 1213 00c6 3A       		.uleb128 0x3a
+ 1214 00c7 0B       		.uleb128 0xb
+ 1215 00c8 3B       		.uleb128 0x3b
+ 1216 00c9 05       		.uleb128 0x5
+ 1217 00ca 27       		.uleb128 0x27
+ 1218 00cb 19       		.uleb128 0x19
+ 1219 00cc 49       		.uleb128 0x49
+ 1220 00cd 13       		.uleb128 0x13
+ 1221 00ce 11       		.uleb128 0x11
+ 1222 00cf 01       		.uleb128 0x1
+ 1223 00d0 12       		.uleb128 0x12
+ 1224 00d1 06       		.uleb128 0x6
+ 1225 00d2 40       		.uleb128 0x40
+ 1226 00d3 18       		.uleb128 0x18
+ 1227 00d4 9742     		.uleb128 0x2117
+ 1228 00d6 19       		.uleb128 0x19
+ 1229 00d7 00       		.byte	0
+ 1230 00d8 00       		.byte	0
+ 1231 00d9 0D       		.uleb128 0xd
+ 1232 00da 2E       		.uleb128 0x2e
+ 1233 00db 01       		.byte	0x1
+ 1234 00dc 3F       		.uleb128 0x3f
+ 1235 00dd 19       		.uleb128 0x19
+ 1236 00de 03       		.uleb128 0x3
+ 1237 00df 0E       		.uleb128 0xe
+ 1238 00e0 3A       		.uleb128 0x3a
+ 1239 00e1 0B       		.uleb128 0xb
+ 1240 00e2 3B       		.uleb128 0x3b
+ 1241 00e3 05       		.uleb128 0x5
+ 1242 00e4 27       		.uleb128 0x27
+ 1243 00e5 19       		.uleb128 0x19
+ 1244 00e6 11       		.uleb128 0x11
+ 1245 00e7 01       		.uleb128 0x1
+ 1246 00e8 12       		.uleb128 0x12
+ 1247 00e9 06       		.uleb128 0x6
+ 1248 00ea 40       		.uleb128 0x40
+ 1249 00eb 18       		.uleb128 0x18
+ 1250 00ec 9742     		.uleb128 0x2117
+ 1251 00ee 19       		.uleb128 0x19
+ 1252 00ef 01       		.uleb128 0x1
+ 1253 00f0 13       		.uleb128 0x13
+ 1254 00f1 00       		.byte	0
+ 1255 00f2 00       		.byte	0
+ 1256 00f3 0E       		.uleb128 0xe
+ 1257 00f4 05       		.uleb128 0x5
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 33
+
+
+ 1258 00f5 00       		.byte	0
+ 1259 00f6 03       		.uleb128 0x3
+ 1260 00f7 0E       		.uleb128 0xe
+ 1261 00f8 3A       		.uleb128 0x3a
+ 1262 00f9 0B       		.uleb128 0xb
+ 1263 00fa 3B       		.uleb128 0x3b
+ 1264 00fb 05       		.uleb128 0x5
+ 1265 00fc 49       		.uleb128 0x49
+ 1266 00fd 13       		.uleb128 0x13
+ 1267 00fe 02       		.uleb128 0x2
+ 1268 00ff 18       		.uleb128 0x18
+ 1269 0100 00       		.byte	0
+ 1270 0101 00       		.byte	0
+ 1271 0102 0F       		.uleb128 0xf
+ 1272 0103 2E       		.uleb128 0x2e
+ 1273 0104 00       		.byte	0
+ 1274 0105 3F       		.uleb128 0x3f
+ 1275 0106 19       		.uleb128 0x19
+ 1276 0107 03       		.uleb128 0x3
+ 1277 0108 0E       		.uleb128 0xe
+ 1278 0109 3A       		.uleb128 0x3a
+ 1279 010a 0B       		.uleb128 0xb
+ 1280 010b 3B       		.uleb128 0x3b
+ 1281 010c 05       		.uleb128 0x5
+ 1282 010d 27       		.uleb128 0x27
+ 1283 010e 19       		.uleb128 0x19
+ 1284 010f 11       		.uleb128 0x11
+ 1285 0110 01       		.uleb128 0x1
+ 1286 0111 12       		.uleb128 0x12
+ 1287 0112 06       		.uleb128 0x6
+ 1288 0113 40       		.uleb128 0x40
+ 1289 0114 18       		.uleb128 0x18
+ 1290 0115 9642     		.uleb128 0x2116
+ 1291 0117 19       		.uleb128 0x19
+ 1292 0118 00       		.byte	0
+ 1293 0119 00       		.byte	0
+ 1294 011a 10       		.uleb128 0x10
+ 1295 011b 34       		.uleb128 0x34
+ 1296 011c 00       		.byte	0
+ 1297 011d 03       		.uleb128 0x3
+ 1298 011e 0E       		.uleb128 0xe
+ 1299 011f 3A       		.uleb128 0x3a
+ 1300 0120 0B       		.uleb128 0xb
+ 1301 0121 3B       		.uleb128 0x3b
+ 1302 0122 0B       		.uleb128 0xb
+ 1303 0123 49       		.uleb128 0x49
+ 1304 0124 13       		.uleb128 0x13
+ 1305 0125 3F       		.uleb128 0x3f
+ 1306 0126 19       		.uleb128 0x19
+ 1307 0127 02       		.uleb128 0x2
+ 1308 0128 18       		.uleb128 0x18
+ 1309 0129 00       		.byte	0
+ 1310 012a 00       		.byte	0
+ 1311 012b 00       		.byte	0
+ 1312              		.section	.debug_aranges,"",%progbits
+ 1313 0000 94000000 		.4byte	0x94
+ 1314 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 34
+
+
+ 1315 0006 00000000 		.4byte	.Ldebug_info0
+ 1316 000a 04       		.byte	0x4
+ 1317 000b 00       		.byte	0
+ 1318 000c 0000     		.2byte	0
+ 1319 000e 0000     		.2byte	0
+ 1320 0010 00000000 		.4byte	.LFB0
+ 1321 0014 9C000000 		.4byte	.LFE0-.LFB0
+ 1322 0018 00000000 		.4byte	.LFB1
+ 1323 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1324 0020 00000000 		.4byte	.LFB2
+ 1325 0024 24000000 		.4byte	.LFE2-.LFB2
+ 1326 0028 00000000 		.4byte	.LFB3
+ 1327 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1328 0030 00000000 		.4byte	.LFB4
+ 1329 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1330 0038 00000000 		.4byte	.LFB5
+ 1331 003c 14000000 		.4byte	.LFE5-.LFB5
+ 1332 0040 00000000 		.4byte	.LFB6
+ 1333 0044 14000000 		.4byte	.LFE6-.LFB6
+ 1334 0048 00000000 		.4byte	.LFB7
+ 1335 004c 20000000 		.4byte	.LFE7-.LFB7
+ 1336 0050 00000000 		.4byte	.LFB8
+ 1337 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1338 0058 00000000 		.4byte	.LFB9
+ 1339 005c 1C000000 		.4byte	.LFE9-.LFB9
+ 1340 0060 00000000 		.4byte	.LFB10
+ 1341 0064 14000000 		.4byte	.LFE10-.LFB10
+ 1342 0068 00000000 		.4byte	.LFB11
+ 1343 006c 20000000 		.4byte	.LFE11-.LFB11
+ 1344 0070 00000000 		.4byte	.LFB12
+ 1345 0074 14000000 		.4byte	.LFE12-.LFB12
+ 1346 0078 00000000 		.4byte	.LFB13
+ 1347 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1348 0080 00000000 		.4byte	.LFB14
+ 1349 0084 14000000 		.4byte	.LFE14-.LFB14
+ 1350 0088 00000000 		.4byte	.LFB15
+ 1351 008c 1E000000 		.4byte	.LFE15-.LFB15
+ 1352 0090 00000000 		.4byte	0
+ 1353 0094 00000000 		.4byte	0
+ 1354              		.section	.debug_ranges,"",%progbits
+ 1355              	.Ldebug_ranges0:
+ 1356 0000 00000000 		.4byte	.LFB0
+ 1357 0004 9C000000 		.4byte	.LFE0
+ 1358 0008 00000000 		.4byte	.LFB1
+ 1359 000c 20000000 		.4byte	.LFE1
+ 1360 0010 00000000 		.4byte	.LFB2
+ 1361 0014 24000000 		.4byte	.LFE2
+ 1362 0018 00000000 		.4byte	.LFB3
+ 1363 001c 20000000 		.4byte	.LFE3
+ 1364 0020 00000000 		.4byte	.LFB4
+ 1365 0024 20000000 		.4byte	.LFE4
+ 1366 0028 00000000 		.4byte	.LFB5
+ 1367 002c 14000000 		.4byte	.LFE5
+ 1368 0030 00000000 		.4byte	.LFB6
+ 1369 0034 14000000 		.4byte	.LFE6
+ 1370 0038 00000000 		.4byte	.LFB7
+ 1371 003c 20000000 		.4byte	.LFE7
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 35
+
+
+ 1372 0040 00000000 		.4byte	.LFB8
+ 1373 0044 20000000 		.4byte	.LFE8
+ 1374 0048 00000000 		.4byte	.LFB9
+ 1375 004c 1C000000 		.4byte	.LFE9
+ 1376 0050 00000000 		.4byte	.LFB10
+ 1377 0054 14000000 		.4byte	.LFE10
+ 1378 0058 00000000 		.4byte	.LFB11
+ 1379 005c 20000000 		.4byte	.LFE11
+ 1380 0060 00000000 		.4byte	.LFB12
+ 1381 0064 14000000 		.4byte	.LFE12
+ 1382 0068 00000000 		.4byte	.LFB13
+ 1383 006c 20000000 		.4byte	.LFE13
+ 1384 0070 00000000 		.4byte	.LFB14
+ 1385 0074 14000000 		.4byte	.LFE14
+ 1386 0078 00000000 		.4byte	.LFB15
+ 1387 007c 1E000000 		.4byte	.LFE15
+ 1388 0080 00000000 		.4byte	0
+ 1389 0084 00000000 		.4byte	0
+ 1390              		.section	.debug_line,"",%progbits
+ 1391              	.Ldebug_line0:
+ 1392 0000 81010000 		.section	.debug_str,"MS",%progbits,1
+ 1392      02004400 
+ 1392      00000201 
+ 1392      FB0E0D00 
+ 1392      01010101 
+ 1393              	.LASF15:
+ 1394 0000 72656731 		.ascii	"reg16\000"
+ 1394      3600
+ 1395              	.LASF19:
+ 1396 0006 51756164 		.ascii	"QuadDec_interruptState\000"
+ 1396      4465635F 
+ 1396      696E7465 
+ 1396      72727570 
+ 1396      74537461 
+ 1397              	.LASF30:
+ 1398 001d 51756164 		.ascii	"QuadDec_WriteCounter\000"
+ 1398      4465635F 
+ 1398      57726974 
+ 1398      65436F75 
+ 1398      6E746572 
+ 1399              	.LASF34:
+ 1400 0032 51756164 		.ascii	"QuadDec_WritePeriod\000"
+ 1400      4465635F 
+ 1400      57726974 
+ 1400      65506572 
+ 1400      696F6400 
+ 1401              	.LASF22:
+ 1402 0046 51756164 		.ascii	"QuadDec_Stop\000"
+ 1402      4465635F 
+ 1402      53746F70 
+ 1402      00
+ 1403              	.LASF35:
+ 1404 0053 70657269 		.ascii	"period\000"
+ 1404      6F6400
+ 1405              	.LASF3:
+ 1406 005a 73686F72 		.ascii	"short unsigned int\000"
+ 1406      7420756E 
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 36
+
+
+ 1406      7369676E 
+ 1406      65642069 
+ 1406      6E7400
+ 1407              	.LASF44:
+ 1408 006d 51756164 		.ascii	"QuadDec_initVar\000"
+ 1408      4465635F 
+ 1408      696E6974 
+ 1408      56617200 
+ 1409              	.LASF21:
+ 1410 007d 51756164 		.ascii	"QuadDec_Start\000"
+ 1410      4465635F 
+ 1410      53746172 
+ 1410      7400
+ 1411              	.LASF42:
+ 1412 008b 47656E65 		.ascii	"Generated_Source\\PSoC4\\QuadDec.c\000"
+ 1412      72617465 
+ 1412      645F536F 
+ 1412      75726365 
+ 1412      5C50536F 
+ 1413              	.LASF25:
+ 1414 00ac 51756164 		.ascii	"QuadDec_ReadStatusRegister\000"
+ 1414      4465635F 
+ 1414      52656164 
+ 1414      53746174 
+ 1414      75735265 
+ 1415              	.LASF20:
+ 1416 00c7 51756164 		.ascii	"QuadDec_Enable\000"
+ 1416      4465635F 
+ 1416      456E6162 
+ 1416      6C6500
+ 1417              	.LASF11:
+ 1418 00d6 666C6F61 		.ascii	"float\000"
+ 1418      7400
+ 1419              	.LASF31:
+ 1420 00dc 636F756E 		.ascii	"counter\000"
+ 1420      74657200 
+ 1421              	.LASF1:
+ 1422 00e4 756E7369 		.ascii	"unsigned char\000"
+ 1422      676E6564 
+ 1422      20636861 
+ 1422      7200
+ 1423              	.LASF14:
+ 1424 00f2 72656738 		.ascii	"reg8\000"
+ 1424      00
+ 1425              	.LASF5:
+ 1426 00f7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1426      20756E73 
+ 1426      69676E65 
+ 1426      6420696E 
+ 1426      7400
+ 1427              	.LASF33:
+ 1428 0109 51756164 		.ascii	"QuadDec_ReadCapture\000"
+ 1428      4465635F 
+ 1428      52656164 
+ 1428      43617074 
+ 1428      75726500 
+ 1429              	.LASF9:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 37
+
+
+ 1430 011d 75696E74 		.ascii	"uint8\000"
+ 1430      3800
+ 1431              	.LASF40:
+ 1432 0123 51756164 		.ascii	"QuadDec_ClearFIFO\000"
+ 1432      4465635F 
+ 1432      436C6561 
+ 1432      72464946 
+ 1432      4F00
+ 1433              	.LASF28:
+ 1434 0135 696E7465 		.ascii	"interruptsMask\000"
+ 1434      72727570 
+ 1434      74734D61 
+ 1434      736B00
+ 1435              	.LASF41:
+ 1436 0144 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1436      43313120 
+ 1436      352E342E 
+ 1436      31203230 
+ 1436      31363036 
+ 1437 0177 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1437      20726576 
+ 1437      6973696F 
+ 1437      6E203233 
+ 1437      37373135 
+ 1438 01aa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1438      66756E63 
+ 1438      74696F6E 
+ 1438      2D736563 
+ 1438      74696F6E 
+ 1439              	.LASF12:
+ 1440 01d2 646F7562 		.ascii	"double\000"
+ 1440      6C6500
+ 1441              	.LASF10:
+ 1442 01d9 75696E74 		.ascii	"uint16\000"
+ 1442      313600
+ 1443              	.LASF27:
+ 1444 01e0 51756164 		.ascii	"QuadDec_WriteControlRegister\000"
+ 1444      4465635F 
+ 1444      57726974 
+ 1444      65436F6E 
+ 1444      74726F6C 
+ 1445              	.LASF39:
+ 1446 01fd 51756164 		.ascii	"QuadDec_ReadCompare\000"
+ 1446      4465635F 
+ 1446      52656164 
+ 1446      436F6D70 
+ 1446      61726500 
+ 1447              	.LASF8:
+ 1448 0211 756E7369 		.ascii	"unsigned int\000"
+ 1448      676E6564 
+ 1448      20696E74 
+ 1448      00
+ 1449              	.LASF7:
+ 1450 021e 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1450      206C6F6E 
+ 1450      6720756E 
+ 1450      7369676E 
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 38
+
+
+ 1450      65642069 
+ 1451              	.LASF24:
+ 1452 0235 51756164 		.ascii	"QuadDec_SetInterruptMode\000"
+ 1452      4465635F 
+ 1452      53657449 
+ 1452      6E746572 
+ 1452      72757074 
+ 1453              	.LASF18:
+ 1454 024e 6374726C 		.ascii	"ctrl\000"
+ 1454      00
+ 1455              	.LASF37:
+ 1456 0253 51756164 		.ascii	"QuadDec_WriteCompare\000"
+ 1456      4465635F 
+ 1456      57726974 
+ 1456      65436F6D 
+ 1456      70617265 
+ 1457              	.LASF17:
+ 1458 0268 73697A65 		.ascii	"sizetype\000"
+ 1458      74797065 
+ 1458      00
+ 1459              	.LASF6:
+ 1460 0271 6C6F6E67 		.ascii	"long long int\000"
+ 1460      206C6F6E 
+ 1460      6720696E 
+ 1460      7400
+ 1461              	.LASF13:
+ 1462 027f 63686172 		.ascii	"char\000"
+ 1462      00
+ 1463              	.LASF23:
+ 1464 0284 51756164 		.ascii	"QuadDec_Init\000"
+ 1464      4465635F 
+ 1464      496E6974 
+ 1464      00
+ 1465              	.LASF2:
+ 1466 0291 73686F72 		.ascii	"short int\000"
+ 1466      7420696E 
+ 1466      7400
+ 1467              	.LASF29:
+ 1468 029b 636F6E74 		.ascii	"control\000"
+ 1468      726F6C00 
+ 1469              	.LASF32:
+ 1470 02a3 51756164 		.ascii	"QuadDec_ReadCounter\000"
+ 1470      4465635F 
+ 1470      52656164 
+ 1470      436F756E 
+ 1470      74657200 
+ 1471              	.LASF4:
+ 1472 02b7 6C6F6E67 		.ascii	"long int\000"
+ 1472      20696E74 
+ 1472      00
+ 1473              	.LASF43:
+ 1474 02c0 433A5C55 		.ascii	"C:\\Users\\Laurent\\Documents\\PSoC Creator\\4.4\\V"
+ 1474      73657273 
+ 1474      5C4C6175 
+ 1474      72656E74 
+ 1474      5C446F63 
+ 1475 02ed 484E3730 		.ascii	"HN7040AY\\Labo_Autom\\VNH7040-and.cydsn\000"
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\cc5wqJgM.s 			page 39
+
+
+ 1475      34304159 
+ 1475      5C4C6162 
+ 1475      6F5F4175 
+ 1475      746F6D5C 
+ 1476              	.LASF16:
+ 1477 0313 6C6F6E67 		.ascii	"long double\000"
+ 1477      20646F75 
+ 1477      626C6500 
+ 1478              	.LASF0:
+ 1479 031f 7369676E 		.ascii	"signed char\000"
+ 1479      65642063 
+ 1479      68617200 
+ 1480              	.LASF38:
+ 1481 032b 636F6D70 		.ascii	"compare\000"
+ 1481      61726500 
+ 1482              	.LASF26:
+ 1483 0333 51756164 		.ascii	"QuadDec_ReadControlRegister\000"
+ 1483      4465635F 
+ 1483      52656164 
+ 1483      436F6E74 
+ 1483      726F6C52 
+ 1484              	.LASF36:
+ 1485 034f 51756164 		.ascii	"QuadDec_ReadPeriod\000"
+ 1485      4465635F 
+ 1485      52656164 
+ 1485      50657269 
+ 1485      6F6400
+ 1486              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

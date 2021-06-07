@@ -1,0 +1,3699 @@
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"State_machine.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	N
+  20              		.data
+  21              		.align	2
+  22              		.type	N, %object
+  23              		.size	N, 4
+  24              	N:
+  25 0000 04000000 		.word	4
+  26              		.section	.text.systick_delayms,"ax",%progbits
+  27              		.align	2
+  28              		.global	systick_delayms
+  29              		.code	16
+  30              		.thumb_func
+  31              		.type	systick_delayms, %function
+  32              	systick_delayms:
+  33              	.LFB32:
+  34              		.file 1 "State_machine.c"
+   1:State_machine.c **** /* ========================================
+   2:State_machine.c ****  *
+   3:State_machine.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:State_machine.c ****  * All Rights Reserved
+   5:State_machine.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:State_machine.c ****  *
+   7:State_machine.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:State_machine.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:State_machine.c ****  *
+  10:State_machine.c ****  * ========================================
+  11:State_machine.c **** */
+  12:State_machine.c **** 
+  13:State_machine.c **** #include "State_machine.h"
+  14:State_machine.c **** #include "UART_XG.h"
+  15:State_machine.c **** 
+  16:State_machine.c **** int32 N=4;
+  17:State_machine.c **** 
+  18:State_machine.c **** void systick_delayms(uint32 attente)
+  19:State_machine.c **** {
+  35              		.loc 1 19 0
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 16
+  38              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 2
+
+
+  39 0000 80B5     		push	{r7, lr}
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 84B0     		sub	sp, sp, #16
+  44              		.cfi_def_cfa_offset 24
+  45 0004 00AF     		add	r7, sp, #0
+  46              		.cfi_def_cfa_register 7
+  47 0006 7860     		str	r0, [r7, #4]
+  20:State_machine.c ****     uint32 temp;
+  21:State_machine.c ****     temp=time;
+  48              		.loc 1 21 0
+  49 0008 074B     		ldr	r3, .L3
+  50 000a 1B68     		ldr	r3, [r3]
+  51 000c FB60     		str	r3, [r7, #12]
+  22:State_machine.c ****     while(time-temp<attente);
+  52              		.loc 1 22 0
+  53 000e C046     		nop
+  54              	.L2:
+  55              		.loc 1 22 0 is_stmt 0 discriminator 1
+  56 0010 054B     		ldr	r3, .L3
+  57 0012 1A68     		ldr	r2, [r3]
+  58 0014 FB68     		ldr	r3, [r7, #12]
+  59 0016 D21A     		subs	r2, r2, r3
+  60 0018 7B68     		ldr	r3, [r7, #4]
+  61 001a 9A42     		cmp	r2, r3
+  62 001c F8D3     		bcc	.L2
+  23:State_machine.c **** }
+  63              		.loc 1 23 0 is_stmt 1
+  64 001e C046     		nop
+  65 0020 BD46     		mov	sp, r7
+  66 0022 04B0     		add	sp, sp, #16
+  67              		@ sp needed
+  68 0024 80BD     		pop	{r7, pc}
+  69              	.L4:
+  70 0026 C046     		.align	2
+  71              	.L3:
+  72 0028 00000000 		.word	time
+  73              		.cfi_endproc
+  74              	.LFE32:
+  75              		.size	systick_delayms, .-systick_delayms
+  76              		.section	.text.init,"ax",%progbits
+  77              		.align	2
+  78              		.global	init
+  79              		.code	16
+  80              		.thumb_func
+  81              		.type	init, %function
+  82              	init:
+  83              	.LFB33:
+  24:State_machine.c **** 
+  25:State_machine.c **** void init(){
+  84              		.loc 1 25 0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 0
+  87              		@ frame_needed = 1, uses_anonymous_args = 0
+  88 0000 80B5     		push	{r7, lr}
+  89              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 3
+
+
+  90              		.cfi_offset 7, -8
+  91              		.cfi_offset 14, -4
+  92 0002 00AF     		add	r7, sp, #0
+  93              		.cfi_def_cfa_register 7
+  26:State_machine.c ****     CySysTickStart();
+  94              		.loc 1 26 0
+  95 0004 FFF7FEFF 		bl	CySysTickStart
+  27:State_machine.c ****     CySysTickSetReload(NUMBER_OF_TICKS);
+  96              		.loc 1 27 0
+  97 0008 134B     		ldr	r3, .L6
+  98 000a 1800     		movs	r0, r3
+  99 000c FFF7FEFF 		bl	CySysTickSetReload
+  28:State_machine.c ****     CySysTickSetCallback(0, SYSTICK_ISR);
+ 100              		.loc 1 28 0
+ 101 0010 124B     		ldr	r3, .L6+4
+ 102 0012 1900     		movs	r1, r3
+ 103 0014 0020     		movs	r0, #0
+ 104 0016 FFF7FEFF 		bl	CySysTickSetCallback
+  29:State_machine.c ****     UART_Start();
+ 105              		.loc 1 29 0
+ 106 001a FFF7FEFF 		bl	UART_Start
+  30:State_machine.c ****  //   ADC_SetChanMask(0x0003); // seulement voie 0 et 1 ( on a besoin que de val1 et val2 tout le r
+  31:State_machine.c ****  //   ADC_Start();
+  32:State_machine.c ****  //   ADC_StartConvert();
+  33:State_machine.c ****     param_ok=false;
+ 107              		.loc 1 33 0
+ 108 001e 104B     		ldr	r3, .L6+8
+ 109 0020 0022     		movs	r2, #0
+ 110 0022 1A70     		strb	r2, [r3]
+  34:State_machine.c ****     Clock_2_Start();
+ 111              		.loc 1 34 0
+ 112 0024 FFF7FEFF 		bl	Clock_2_Start
+  35:State_machine.c ****     isr_fech_StartEx(FECH_ISR);
+ 113              		.loc 1 35 0
+ 114 0028 0E4B     		ldr	r3, .L6+12
+ 115 002a 1800     		movs	r0, r3
+ 116 002c FFF7FEFF 		bl	isr_fech_StartEx
+  36:State_machine.c ****     FECH_Start(); //on initialise le timer pour FECH
+ 117              		.loc 1 36 0
+ 118 0030 FFF7FEFF 		bl	FECH_Start
+  37:State_machine.c ****     FECH_Stop(); // on le disable, mais la config reste
+ 119              		.loc 1 37 0
+ 120 0034 FFF7FEFF 		bl	FECH_Stop
+  38:State_machine.c ****     // debut recherche pt origine
+  39:State_machine.c ****  /*   param.cons_per_den=100;
+  40:State_machine.c ****     param.cons_per_num=100;
+  41:State_machine.c ****     param.cons_initiale=0;
+  42:State_machine.c ****     param.cons_finale=15;
+  43:State_machine.c ****     gain_idac=((param.cons_finale-param.cons_initiale)/100.0)*256/1000;
+  44:State_machine.c ****     offset_idac=(uint32)(param.cons_initiale*256/100);//(uint32)(((param.cons_initiale+param.cons_f
+  45:State_machine.c ****     gain_pwm1=((param.cons_finale-param.cons_initiale)/100.0)*PWM_PERIOD/1000;
+  46:State_machine.c ****     offset_pwm1=(uint32)(param.cons_initiale*PWM_PERIOD/100);
+  47:State_machine.c ****     IDAC_Start(); */
+  48:State_machine.c ****     PWM_Start();
+ 121              		.loc 1 48 0
+ 122 0038 FFF7FEFF 		bl	PWM_Start
+  49:State_machine.c ****     PWM_WritePeriod(PWM_PERIOD);
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 4
+
+
+ 123              		.loc 1 49 0
+ 124 003c FA23     		movs	r3, #250
+ 125 003e 9B00     		lsls	r3, r3, #2
+ 126 0040 1800     		movs	r0, r3
+ 127 0042 FFF7FEFF 		bl	PWM_WritePeriod
+  50:State_machine.c ****     PWM_WriteCompare(0); // on met 0 de rapport cyclique en sortie
+ 128              		.loc 1 50 0
+ 129 0046 0020     		movs	r0, #0
+ 130 0048 FFF7FEFF 		bl	PWM_WriteCompare
+  51:State_machine.c ****     //PWM_WriteCompare2(0); // on met 0 de rapport cyclique en sortie
+  52:State_machine.c ****     // Ok config terminée
+  53:State_machine.c ****     statefunc=arret; //arret;
+ 131              		.loc 1 53 0
+ 132 004c 064B     		ldr	r3, .L6+16
+ 133 004e 074A     		ldr	r2, .L6+20
+ 134 0050 1A60     		str	r2, [r3]
+  54:State_machine.c ****     //debug
+  55:State_machine.c **** /*    offset_pwm1=0;
+  56:State_machine.c ****     gain_pwm1=1;
+  57:State_machine.c ****     FECH_Start();
+  58:State_machine.c ****     param.Tech=20;
+  59:State_machine.c ****     param.cons_per_num=20;
+  60:State_machine.c ****     param.cons_per_den=1;
+  61:State_machine.c ****     param.Kd1_den=100;
+  62:State_machine.c ****     param.Kd1_num=30;
+  63:State_machine.c ****     param.Kd2_den=1;
+  64:State_machine.c ****     param.Kd2_num=0;
+  65:State_machine.c ****     param.Ki1_den=1;
+  66:State_machine.c ****     param.Ki1_num=0;
+  67:State_machine.c ****     param.Ki2_den=1;
+  68:State_machine.c ****     param.Ki2_num=0;
+  69:State_machine.c ****     param.Kp1_den=1;
+  70:State_machine.c ****     param.Kp1_num=0;
+  71:State_machine.c ****     param.Kp2_den=1;
+  72:State_machine.c ****     param.Kp2_num=0;
+  73:State_machine.c ****     param.nb_boucles='3';
+  74:State_machine.c ****     param.type_consigne='C';
+  75:State_machine.c ****     pointeur_gen=carree;
+  76:State_machine.c ****     FECH_WritePeriod((param.Tech<<2)-1); */
+  77:State_machine.c **** }
+ 135              		.loc 1 77 0
+ 136 0052 C046     		nop
+ 137 0054 BD46     		mov	sp, r7
+ 138              		@ sp needed
+ 139 0056 80BD     		pop	{r7, pc}
+ 140              	.L7:
+ 141              		.align	2
+ 142              	.L6:
+ 143 0058 E8800000 		.word	33000
+ 144 005c 00000000 		.word	SYSTICK_ISR
+ 145 0060 00000000 		.word	param_ok
+ 146 0064 00000000 		.word	FECH_ISR
+ 147 0068 00000000 		.word	statefunc
+ 148 006c 00000000 		.word	arret
+ 149              		.cfi_endproc
+ 150              	.LFE33:
+ 151              		.size	init, .-init
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 5
+
+
+ 152              		.global	__aeabi_i2f
+ 153              		.global	__aeabi_fsub
+ 154              		.global	__aeabi_f2d
+ 155              		.global	__aeabi_ddiv
+ 156              		.global	__aeabi_dmul
+ 157              		.global	__aeabi_d2f
+ 158              		.global	__aeabi_idiv
+ 159              		.section	.text.arret,"ax",%progbits
+ 160              		.align	2
+ 161              		.global	arret
+ 162              		.code	16
+ 163              		.thumb_func
+ 164              		.type	arret, %function
+ 165              	arret:
+ 166              	.LFB34:
+  78:State_machine.c **** 
+  79:State_machine.c **** void arret() {
+ 167              		.loc 1 79 0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 1, uses_anonymous_args = 0
+ 171 0000 B0B5     		push	{r4, r5, r7, lr}
+ 172              		.cfi_def_cfa_offset 16
+ 173              		.cfi_offset 4, -16
+ 174              		.cfi_offset 5, -12
+ 175              		.cfi_offset 7, -8
+ 176              		.cfi_offset 14, -4
+ 177 0002 00AF     		add	r7, sp, #0
+ 178              		.cfi_def_cfa_register 7
+  80:State_machine.c ****     if(!DI_ATU_Read()) //ATU ?
+ 179              		.loc 1 80 0
+ 180 0004 FFF7FEFF 		bl	DI_ATU_Read
+ 181 0008 031E     		subs	r3, r0, #0
+ 182 000a 09D1     		bne	.L9
+  81:State_machine.c ****     {
+  82:State_machine.c ****         statefunc = arret_urg;
+ 183              		.loc 1 82 0
+ 184 000c 724B     		ldr	r3, .L22
+ 185 000e 734A     		ldr	r2, .L22+4
+ 186 0010 1A60     		str	r2, [r3]
+  83:State_machine.c ****         marche_bool=false;
+ 187              		.loc 1 83 0
+ 188 0012 734B     		ldr	r3, .L22+8
+ 189 0014 0022     		movs	r2, #0
+ 190 0016 1A70     		strb	r2, [r3]
+  84:State_machine.c ****         send_control_frame(ATU);
+ 191              		.loc 1 84 0
+ 192 0018 0220     		movs	r0, #2
+ 193 001a FFF7FEFF 		bl	send_control_frame
+  85:State_machine.c ****         return;
+ 194              		.loc 1 85 0
+ 195 001e D9E0     		b	.L8
+ 196              	.L9:
+  86:State_machine.c ****     }
+  87:State_machine.c ****     // ATTENTE Données du PC
+  88:State_machine.c ****     LED_Write(0);
+ 197              		.loc 1 88 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 6
+
+
+ 198 0020 0020     		movs	r0, #0
+ 199 0022 FFF7FEFF 		bl	LED_Write
+  89:State_machine.c ****     // CyDelay(100);
+  90:State_machine.c ****     systick_delayms(100);
+ 200              		.loc 1 90 0
+ 201 0026 6420     		movs	r0, #100
+ 202 0028 FFF7FEFF 		bl	systick_delayms
+  91:State_machine.c ****     LED_Write(1);
+ 203              		.loc 1 91 0
+ 204 002c 0120     		movs	r0, #1
+ 205 002e FFF7FEFF 		bl	LED_Write
+  92:State_machine.c ****     //CyDelay(100);
+  93:State_machine.c ****     systick_delayms(100);
+ 206              		.loc 1 93 0
+ 207 0032 6420     		movs	r0, #100
+ 208 0034 FFF7FEFF 		bl	systick_delayms
+  94:State_machine.c ****     LED_Write(0);
+ 209              		.loc 1 94 0
+ 210 0038 0020     		movs	r0, #0
+ 211 003a FFF7FEFF 		bl	LED_Write
+  95:State_machine.c ****     //CyDelay(100);
+  96:State_machine.c ****     systick_delayms(100);
+ 212              		.loc 1 96 0
+ 213 003e 6420     		movs	r0, #100
+ 214 0040 FFF7FEFF 		bl	systick_delayms
+  97:State_machine.c ****     LED_Write(1);
+ 215              		.loc 1 97 0
+ 216 0044 0120     		movs	r0, #1
+ 217 0046 FFF7FEFF 		bl	LED_Write
+  98:State_machine.c ****     //CyDelay(500);
+  99:State_machine.c ****     systick_delayms(500);
+ 218              		.loc 1 99 0
+ 219 004a FA23     		movs	r3, #250
+ 220 004c 5B00     		lsls	r3, r3, #1
+ 221 004e 1800     		movs	r0, r3
+ 222 0050 FFF7FEFF 		bl	systick_delayms
+ 100:State_machine.c ****     LED_Write(0);
+ 223              		.loc 1 100 0
+ 224 0054 0020     		movs	r0, #0
+ 225 0056 FFF7FEFF 		bl	LED_Write
+ 101:State_machine.c ****     param_ok=Get_trame();
+ 226              		.loc 1 101 0
+ 227 005a FFF7FEFF 		bl	Get_trame
+ 228 005e 0300     		movs	r3, r0
+ 229 0060 1A00     		movs	r2, r3
+ 230 0062 604B     		ldr	r3, .L22+12
+ 231 0064 1A70     		strb	r2, [r3]
+ 102:State_machine.c ****     if(param_ok)
+ 232              		.loc 1 102 0
+ 233 0066 5F4B     		ldr	r3, .L22+12
+ 234 0068 1B78     		ldrb	r3, [r3]
+ 235 006a DBB2     		uxtb	r3, r3
+ 236 006c 002B     		cmp	r3, #0
+ 237 006e 00D1     		bne	.LCB157
+ 238 0070 ADE0     		b	.L11	@long jump
+ 239              	.LCB157:
+ 103:State_machine.c ****     {
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 7
+
+
+ 104:State_machine.c ****         if(marche_bool==true) //APPUIE btn M/A
+ 240              		.loc 1 104 0
+ 241 0072 5B4B     		ldr	r3, .L22+8
+ 242 0074 1B78     		ldrb	r3, [r3]
+ 243 0076 012B     		cmp	r3, #1
+ 244 0078 00D0     		beq	.LCB161
+ 245 007a ABE0     		b	.L8	@long jump
+ 246              	.LCB161:
+ 105:State_machine.c ****         {
+ 106:State_machine.c ****        /*     CyDelay(10); // debounce bouton M/A
+ 107:State_machine.c ****             while(DI_7_Read()); // Attente Bouton M/A plus appuye
+ 108:State_machine.c ****             CyDelay(10); // debounce bouton M/A  */
+ 109:State_machine.c ****             statefunc =marche; // on change d'état
+ 247              		.loc 1 109 0
+ 248 007c 564B     		ldr	r3, .L22
+ 249 007e 5A4A     		ldr	r2, .L22+16
+ 250 0080 1A60     		str	r2, [r3]
+ 110:State_machine.c ****             // calcul coefficient
+ 111:State_machine.c ****            /* gain_pwm1=(((float)param.cons_finale-(float)param.cons_initiale)/100.0)*PWM_PERIOD/10
+ 112:State_machine.c ****             offset_pwm1=((int32)param.cons_initiale*PWM_PERIOD/100); */
+ 113:State_machine.c ****             gain_pwm1=(((float)param.cons_finale-(float)param.cons_initiale)/100.0)*PWM_PERIOD/1000
+ 251              		.loc 1 113 0
+ 252 0082 5A4B     		ldr	r3, .L22+20
+ 253 0084 1B8C     		ldrh	r3, [r3, #32]
+ 254 0086 1BB2     		sxth	r3, r3
+ 255 0088 1800     		movs	r0, r3
+ 256 008a FFF7FEFF 		bl	__aeabi_i2f
+ 257 008e 041C     		adds	r4, r0, #0
+ 258 0090 564B     		ldr	r3, .L22+20
+ 259 0092 DB8B     		ldrh	r3, [r3, #30]
+ 260 0094 1BB2     		sxth	r3, r3
+ 261 0096 1800     		movs	r0, r3
+ 262 0098 FFF7FEFF 		bl	__aeabi_i2f
+ 263 009c 031C     		adds	r3, r0, #0
+ 264 009e 191C     		adds	r1, r3, #0
+ 265 00a0 201C     		adds	r0, r4, #0
+ 266 00a2 FFF7FEFF 		bl	__aeabi_fsub
+ 267 00a6 031C     		adds	r3, r0, #0
+ 268 00a8 181C     		adds	r0, r3, #0
+ 269 00aa FFF7FEFF 		bl	__aeabi_f2d
+ 270 00ae 0022     		movs	r2, #0
+ 271 00b0 4F4B     		ldr	r3, .L22+24
+ 272 00b2 FFF7FEFF 		bl	__aeabi_ddiv
+ 273 00b6 0300     		movs	r3, r0
+ 274 00b8 0C00     		movs	r4, r1
+ 275 00ba 1800     		movs	r0, r3
+ 276 00bc 2100     		movs	r1, r4
+ 277 00be 0022     		movs	r2, #0
+ 278 00c0 4C4B     		ldr	r3, .L22+28
+ 279 00c2 FFF7FEFF 		bl	__aeabi_dmul
+ 280 00c6 0300     		movs	r3, r0
+ 281 00c8 0C00     		movs	r4, r1
+ 282 00ca 1800     		movs	r0, r3
+ 283 00cc 2100     		movs	r1, r4
+ 284 00ce 0022     		movs	r2, #0
+ 285 00d0 484B     		ldr	r3, .L22+28
+ 286 00d2 FFF7FEFF 		bl	__aeabi_ddiv
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 8
+
+
+ 287 00d6 0300     		movs	r3, r0
+ 288 00d8 0C00     		movs	r4, r1
+ 289 00da 1800     		movs	r0, r3
+ 290 00dc 2100     		movs	r1, r4
+ 291 00de FFF7FEFF 		bl	__aeabi_d2f
+ 292 00e2 021C     		adds	r2, r0, #0
+ 293 00e4 444B     		ldr	r3, .L22+32
+ 294 00e6 1A60     		str	r2, [r3]
+ 114:State_machine.c ****             offset_pwm1=((int32)param.cons_initiale*PWM_PERIOD/100);
+ 295              		.loc 1 114 0
+ 296 00e8 404B     		ldr	r3, .L22+20
+ 297 00ea DB8B     		ldrh	r3, [r3, #30]
+ 298 00ec 1BB2     		sxth	r3, r3
+ 299 00ee 1A00     		movs	r2, r3
+ 300 00f0 FA23     		movs	r3, #250
+ 301 00f2 9B00     		lsls	r3, r3, #2
+ 302 00f4 5343     		muls	r3, r2
+ 303 00f6 6421     		movs	r1, #100
+ 304 00f8 1800     		movs	r0, r3
+ 305 00fa FFF7FEFF 		bl	__aeabi_idiv
+ 306 00fe 0300     		movs	r3, r0
+ 307 0100 1A00     		movs	r2, r3
+ 308 0102 3E4B     		ldr	r3, .L22+36
+ 309 0104 1A60     		str	r2, [r3]
+ 115:State_machine.c ****             switch (param.type_consigne)
+ 310              		.loc 1 115 0
+ 311 0106 394B     		ldr	r3, .L22+20
+ 312 0108 1B7F     		ldrb	r3, [r3, #28]
+ 313 010a DBB2     		uxtb	r3, r3
+ 314 010c 413B     		subs	r3, r3, #65
+ 315 010e 052B     		cmp	r3, #5
+ 316 0110 1CD8     		bhi	.L13
+ 317 0112 9A00     		lsls	r2, r3, #2
+ 318 0114 3A4B     		ldr	r3, .L22+40
+ 319 0116 D318     		adds	r3, r2, r3
+ 320 0118 1B68     		ldr	r3, [r3]
+ 321 011a 9F46     		mov	pc, r3
+ 322              		.section	.rodata
+ 323              		.align	2
+ 324              	.L15:
+ 325 0000 1C010000 		.word	.L14
+ 326 0004 24010000 		.word	.L16
+ 327 0008 2C010000 		.word	.L17
+ 328 000c 34010000 		.word	.L18
+ 329 0010 3C010000 		.word	.L19
+ 330 0014 44010000 		.word	.L20
+ 331              		.section	.text.arret
+ 332              	.L14:
+ 116:State_machine.c ****             {
+ 117:State_machine.c ****                 case 'A':
+ 118:State_machine.c ****                 // Carree
+ 119:State_machine.c ****                     pointeur_gen=carree;
+ 333              		.loc 1 119 0
+ 334 011c 394B     		ldr	r3, .L22+44
+ 335 011e 3A4A     		ldr	r2, .L22+48
+ 336 0120 1A60     		str	r2, [r3]
+ 120:State_machine.c ****                 break;
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 9
+
+
+ 337              		.loc 1 120 0
+ 338 0122 17E0     		b	.L21
+ 339              	.L16:
+ 121:State_machine.c ****                 case 'B':
+ 122:State_machine.c ****                 // triangle
+ 123:State_machine.c ****                     pointeur_gen=triangle;
+ 340              		.loc 1 123 0
+ 341 0124 374B     		ldr	r3, .L22+44
+ 342 0126 394A     		ldr	r2, .L22+52
+ 343 0128 1A60     		str	r2, [r3]
+ 124:State_machine.c ****                 break;
+ 344              		.loc 1 124 0
+ 345 012a 13E0     		b	.L21
+ 346              	.L17:
+ 125:State_machine.c ****                 case 'C':
+ 126:State_machine.c ****                 // Sinus
+ 127:State_machine.c ****                     pointeur_gen=sinus;
+ 347              		.loc 1 127 0
+ 348 012c 354B     		ldr	r3, .L22+44
+ 349 012e 384A     		ldr	r2, .L22+56
+ 350 0130 1A60     		str	r2, [r3]
+ 128:State_machine.c ****                 break;
+ 351              		.loc 1 128 0
+ 352 0132 0FE0     		b	.L21
+ 353              	.L18:
+ 129:State_machine.c ****                 case 'D':
+ 130:State_machine.c ****                 // Dent de scie
+ 131:State_machine.c ****                     pointeur_gen=dent_de_scie;
+ 354              		.loc 1 131 0
+ 355 0134 334B     		ldr	r3, .L22+44
+ 356 0136 374A     		ldr	r2, .L22+60
+ 357 0138 1A60     		str	r2, [r3]
+ 132:State_machine.c ****                 break;
+ 358              		.loc 1 132 0
+ 359 013a 0BE0     		b	.L21
+ 360              	.L19:
+ 133:State_machine.c ****                 case 'E':
+ 134:State_machine.c ****                 // Echellon
+ 135:State_machine.c ****                     pointeur_gen=carree;
+ 361              		.loc 1 135 0
+ 362 013c 314B     		ldr	r3, .L22+44
+ 363 013e 324A     		ldr	r2, .L22+48
+ 364 0140 1A60     		str	r2, [r3]
+ 136:State_machine.c ****                 break;
+ 365              		.loc 1 136 0
+ 366 0142 07E0     		b	.L21
+ 367              	.L20:
+ 137:State_machine.c ****                 case 'F':
+ 138:State_machine.c ****                 // Rampe
+ 139:State_machine.c ****                     pointeur_gen=dent_de_scie;
+ 368              		.loc 1 139 0
+ 369 0144 2F4B     		ldr	r3, .L22+44
+ 370 0146 334A     		ldr	r2, .L22+60
+ 371 0148 1A60     		str	r2, [r3]
+ 140:State_machine.c ****                 break;
+ 372              		.loc 1 140 0
+ 373 014a 03E0     		b	.L21
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 10
+
+
+ 374              	.L13:
+ 141:State_machine.c ****                 default:
+ 142:State_machine.c ****                 // default case
+ 143:State_machine.c ****                     pointeur_gen=sinus;
+ 375              		.loc 1 143 0
+ 376 014c 2D4B     		ldr	r3, .L22+44
+ 377 014e 304A     		ldr	r2, .L22+56
+ 378 0150 1A60     		str	r2, [r3]
+ 144:State_machine.c ****                 break;
+ 379              		.loc 1 144 0
+ 380 0152 C046     		nop
+ 381              	.L21:
+ 145:State_machine.c ****             }
+ 146:State_machine.c ****             // demarrage acquisition
+ 147:State_machine.c ****             erreur_int_pid1=0;
+ 382              		.loc 1 147 0
+ 383 0154 304B     		ldr	r3, .L22+64
+ 384 0156 0022     		movs	r2, #0
+ 385 0158 1A60     		str	r2, [r3]
+ 148:State_machine.c ****             erreur_int_pid2=0;
+ 386              		.loc 1 148 0
+ 387 015a 304B     		ldr	r3, .L22+68
+ 388 015c 0022     		movs	r2, #0
+ 389 015e 1A60     		str	r2, [r3]
+ 149:State_machine.c ****             erreur_av_pid1=0;
+ 390              		.loc 1 149 0
+ 391 0160 2F4B     		ldr	r3, .L22+72
+ 392 0162 0022     		movs	r2, #0
+ 393 0164 1A60     		str	r2, [r3]
+ 150:State_machine.c ****             out_deriv_av1=0;
+ 394              		.loc 1 150 0
+ 395 0166 2F4B     		ldr	r3, .L22+76
+ 396 0168 0022     		movs	r2, #0
+ 397 016a 1A60     		str	r2, [r3]
+ 151:State_machine.c ****             QuadDec_WriteCounter(0);
+ 398              		.loc 1 151 0
+ 399 016c 0020     		movs	r0, #0
+ 400 016e FFF7FEFF 		bl	QuadDec_WriteCounter
+ 152:State_machine.c ****             QuadDec_Start();
+ 401              		.loc 1 152 0
+ 402 0172 FFF7FEFF 		bl	QuadDec_Start
+ 153:State_machine.c ****             QuadDec_WriteCounter(32767);
+ 403              		.loc 1 153 0
+ 404 0176 2C4B     		ldr	r3, .L22+80
+ 405 0178 1800     		movs	r0, r3
+ 406 017a FFF7FEFF 		bl	QuadDec_WriteCounter
+ 154:State_machine.c ****             Speed_Start();
+ 407              		.loc 1 154 0
+ 408 017e FFF7FEFF 		bl	Speed_Start
+ 155:State_machine.c ****             FECH_WritePeriod((param.Tech<<2)-1);
+ 409              		.loc 1 155 0
+ 410 0182 1A4B     		ldr	r3, .L22+20
+ 411 0184 1B88     		ldrh	r3, [r3]
+ 412 0186 9BB2     		uxth	r3, r3
+ 413 0188 9B00     		lsls	r3, r3, #2
+ 414 018a 013B     		subs	r3, r3, #1
+ 415 018c 1800     		movs	r0, r3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 11
+
+
+ 416 018e FFF7FEFF 		bl	FECH_WritePeriod
+ 156:State_machine.c ****         IN1_L298_Write(0);
+ 417              		.loc 1 156 0
+ 418 0192 0020     		movs	r0, #0
+ 419 0194 FFF7FEFF 		bl	IN1_L298_Write
+ 157:State_machine.c ****         IN2_L298_Write(0);
+ 420              		.loc 1 157 0
+ 421 0198 0020     		movs	r0, #0
+ 422 019a FFF7FEFF 		bl	IN2_L298_Write
+ 158:State_machine.c ****         PWM_WriteCompare(0);
+ 423              		.loc 1 158 0
+ 424 019e 0020     		movs	r0, #0
+ 425 01a0 FFF7FEFF 		bl	PWM_WriteCompare
+ 159:State_machine.c ****             FECH_Start(); // on demarre le timer des ISR pour acquisition signaux
+ 426              		.loc 1 159 0
+ 427 01a4 FFF7FEFF 		bl	FECH_Start
+ 160:State_machine.c ****             //FECH_WriteCompare((param.Tech<<2)-2);
+ 161:State_machine.c ****             val1=0;
+ 428              		.loc 1 161 0
+ 429 01a8 204B     		ldr	r3, .L22+84
+ 430 01aa 0022     		movs	r2, #0
+ 431 01ac 1A60     		str	r2, [r3]
+ 162:State_machine.c ****             Speed_WriteCompare(0);
+ 432              		.loc 1 162 0
+ 433 01ae 0020     		movs	r0, #0
+ 434 01b0 FFF7FEFF 		bl	Speed_WriteCompare
+ 163:State_machine.c ****             Speed_WriteCompareBuf(0);
+ 435              		.loc 1 163 0
+ 436 01b4 0020     		movs	r0, #0
+ 437 01b6 FFF7FEFF 		bl	Speed_WriteCompareBuf
+ 164:State_machine.c ****             val2=0;
+ 438              		.loc 1 164 0
+ 439 01ba 1D4B     		ldr	r3, .L22+88
+ 440 01bc 0022     		movs	r2, #0
+ 441 01be 1A60     		str	r2, [r3]
+ 165:State_machine.c ****             time=0;
+ 442              		.loc 1 165 0
+ 443 01c0 1C4B     		ldr	r3, .L22+92
+ 444 01c2 0022     		movs	r2, #0
+ 445 01c4 1A60     		str	r2, [r3]
+ 166:State_machine.c ****             index_gen=0;          
+ 446              		.loc 1 166 0
+ 447 01c6 1C4B     		ldr	r3, .L22+96
+ 448 01c8 0022     		movs	r2, #0
+ 449 01ca 1A60     		str	r2, [r3]
+ 450 01cc 02E0     		b	.L8
+ 451              	.L11:
+ 167:State_machine.c ****         }
+ 168:State_machine.c ****      }
+ 169:State_machine.c ****     else
+ 170:State_machine.c ****     {
+ 171:State_machine.c ****         statefunc=arret;
+ 452              		.loc 1 171 0
+ 453 01ce 024B     		ldr	r3, .L22
+ 454 01d0 1A4A     		ldr	r2, .L22+100
+ 455 01d2 1A60     		str	r2, [r3]
+ 456              	.L8:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 12
+
+
+ 172:State_machine.c ****     }
+ 173:State_machine.c **** }
+ 457              		.loc 1 173 0
+ 458 01d4 BD46     		mov	sp, r7
+ 459              		@ sp needed
+ 460 01d6 B0BD     		pop	{r4, r5, r7, pc}
+ 461              	.L23:
+ 462              		.align	2
+ 463              	.L22:
+ 464 01d8 00000000 		.word	statefunc
+ 465 01dc 00000000 		.word	arret_urg
+ 466 01e0 00000000 		.word	marche_bool
+ 467 01e4 00000000 		.word	param_ok
+ 468 01e8 00000000 		.word	marche
+ 469 01ec 00000000 		.word	param
+ 470 01f0 00005940 		.word	1079574528
+ 471 01f4 00408F40 		.word	1083129856
+ 472 01f8 00000000 		.word	gain_pwm1
+ 473 01fc 00000000 		.word	offset_pwm1
+ 474 0200 00000000 		.word	.L15
+ 475 0204 00000000 		.word	pointeur_gen
+ 476 0208 00000000 		.word	carree
+ 477 020c 00000000 		.word	triangle
+ 478 0210 00000000 		.word	sinus
+ 479 0214 00000000 		.word	dent_de_scie
+ 480 0218 00000000 		.word	erreur_int_pid1
+ 481 021c 00000000 		.word	erreur_int_pid2
+ 482 0220 00000000 		.word	erreur_av_pid1
+ 483 0224 00000000 		.word	out_deriv_av1
+ 484 0228 FF7F0000 		.word	32767
+ 485 022c 00000000 		.word	val1
+ 486 0230 00000000 		.word	val2
+ 487 0234 00000000 		.word	time
+ 488 0238 00000000 		.word	index_gen
+ 489 023c 00000000 		.word	arret
+ 490              		.cfi_endproc
+ 491              	.LFE34:
+ 492              		.size	arret, .-arret
+ 493              		.global	test
+ 494              		.bss
+ 495              		.type	test, %object
+ 496              		.size	test, 1
+ 497              	test:
+ 498 0000 00       		.space	1
+ 499              		.comm	erreur_temp,4,4
+ 500              		.global	__aeabi_fmul
+ 501              		.global	__aeabi_f2iz
+ 502              		.global	__aeabi_fadd
+ 503              		.global	__aeabi_fdiv
+ 504              		.section	.text.marche,"ax",%progbits
+ 505              		.align	2
+ 506              		.global	marche
+ 507              		.code	16
+ 508              		.thumb_func
+ 509              		.type	marche, %function
+ 510              	marche:
+ 511              	.LFB35:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 13
+
+
+ 174:State_machine.c **** 
+ 175:State_machine.c ****     bool test=false;
+ 176:State_machine.c **** int32 erreur_temp;
+ 177:State_machine.c **** void marche()
+ 178:State_machine.c **** {
+ 512              		.loc 1 178 0
+ 513              		.cfi_startproc
+ 514              		@ args = 0, pretend = 0, frame = 8
+ 515              		@ frame_needed = 1, uses_anonymous_args = 0
+ 516 0000 B0B5     		push	{r4, r5, r7, lr}
+ 517              		.cfi_def_cfa_offset 16
+ 518              		.cfi_offset 4, -16
+ 519              		.cfi_offset 5, -12
+ 520              		.cfi_offset 7, -8
+ 521              		.cfi_offset 14, -4
+ 522 0002 82B0     		sub	sp, sp, #8
+ 523              		.cfi_def_cfa_offset 24
+ 524 0004 00AF     		add	r7, sp, #0
+ 525              		.cfi_def_cfa_register 7
+ 179:State_machine.c ****     int32 out_deriv=0;
+ 526              		.loc 1 179 0
+ 527 0006 0023     		movs	r3, #0
+ 528 0008 7B60     		str	r3, [r7, #4]
+ 180:State_machine.c ****     uint32 temp;
+ 181:State_machine.c **** 
+ 182:State_machine.c ****     if(!DI_ATU_Read()) // ATU ?
+ 529              		.loc 1 182 0
+ 530 000a FFF7FEFF 		bl	DI_ATU_Read
+ 531 000e 031E     		subs	r3, r0, #0
+ 532 0010 0CD1     		bne	.L25
+ 183:State_machine.c ****     {
+ 184:State_machine.c ****         statefunc = arret_urg;
+ 533              		.loc 1 184 0
+ 534 0012 D64B     		ldr	r3, .L43
+ 535 0014 D64A     		ldr	r2, .L43+4
+ 536 0016 1A60     		str	r2, [r3]
+ 185:State_machine.c ****         marche_bool=false;
+ 537              		.loc 1 185 0
+ 538 0018 D64B     		ldr	r3, .L43+8
+ 539 001a 0022     		movs	r2, #0
+ 540 001c 1A70     		strb	r2, [r3]
+ 186:State_machine.c ****         send_control_frame(ATU);
+ 541              		.loc 1 186 0
+ 542 001e 0220     		movs	r0, #2
+ 543 0020 FFF7FEFF 		bl	send_control_frame
+ 187:State_machine.c ****         FECH_Stop();
+ 544              		.loc 1 187 0
+ 545 0024 FFF7FEFF 		bl	FECH_Stop
+ 188:State_machine.c ****         return;
+ 546              		.loc 1 188 0
+ 547 0028 00F053FC 		bl	.L24	@ far jump
+ 548              	.L25:
+ 189:State_machine.c ****     }
+ 190:State_machine.c ****     LED_Write(1);
+ 549              		.loc 1 190 0
+ 550 002c 0120     		movs	r0, #1
+ 551 002e FFF7FEFF 		bl	LED_Write
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 14
+
+
+ 191:State_machine.c ****     param_ok=false;
+ 552              		.loc 1 191 0
+ 553 0032 D14B     		ldr	r3, .L43+12
+ 554 0034 0022     		movs	r2, #0
+ 555 0036 1A70     		strb	r2, [r3]
+ 192:State_machine.c ****     temp=UART_UartGetChar();
+ 556              		.loc 1 192 0
+ 557 0038 FFF7FEFF 		bl	UART_UartGetChar
+ 558 003c 0300     		movs	r3, r0
+ 559 003e 3B60     		str	r3, [r7]
+ 193:State_machine.c ****     if( temp=='S')//!DI_Stop_Read()) //APPUIE btn M/A
+ 560              		.loc 1 193 0
+ 561 0040 3B68     		ldr	r3, [r7]
+ 562 0042 532B     		cmp	r3, #83
+ 563 0044 13D1     		bne	.L27
+ 194:State_machine.c ****     {
+ 195:State_machine.c ****       //  CyDelay(10); // debounce bouton M/A
+ 196:State_machine.c ****       //  while(DI_Stop_Read()); // Attente Bouton M/A plus appuye
+ 197:State_machine.c ****         statefunc =arret; // on change d'état
+ 564              		.loc 1 197 0
+ 565 0046 C94B     		ldr	r3, .L43
+ 566 0048 CC4A     		ldr	r2, .L43+16
+ 567 004a 1A60     		str	r2, [r3]
+ 198:State_machine.c ****         send_control_frame(AT);
+ 568              		.loc 1 198 0
+ 569 004c 0120     		movs	r0, #1
+ 570 004e FFF7FEFF 		bl	send_control_frame
+ 199:State_machine.c ****         marche_bool=false;
+ 571              		.loc 1 199 0
+ 572 0052 C84B     		ldr	r3, .L43+8
+ 573 0054 0022     		movs	r2, #0
+ 574 0056 1A70     		strb	r2, [r3]
+ 200:State_machine.c ****         FECH_Stop();
+ 575              		.loc 1 200 0
+ 576 0058 FFF7FEFF 		bl	FECH_Stop
+ 201:State_machine.c ****         IN1_L298_Write(0);
+ 577              		.loc 1 201 0
+ 578 005c 0020     		movs	r0, #0
+ 579 005e FFF7FEFF 		bl	IN1_L298_Write
+ 202:State_machine.c ****         IN2_L298_Write(0);
+ 580              		.loc 1 202 0
+ 581 0062 0020     		movs	r0, #0
+ 582 0064 FFF7FEFF 		bl	IN2_L298_Write
+ 203:State_machine.c ****         PWM_WriteCompare(0);
+ 583              		.loc 1 203 0
+ 584 0068 0020     		movs	r0, #0
+ 585 006a FFF7FEFF 		bl	PWM_WriteCompare
+ 586              	.L27:
+ 204:State_machine.c ****     }    
+ 205:State_machine.c ****     if(sent==1) // FECH Interrupt has happend so : faut calculer mon vieux...
+ 587              		.loc 1 205 0
+ 588 006e C44B     		ldr	r3, .L43+20
+ 589 0070 1B78     		ldrb	r3, [r3]
+ 590 0072 DBB2     		uxtb	r3, r3
+ 591 0074 012B     		cmp	r3, #1
+ 592 0076 01D0     		beq	.LCB449
+ 593 0078 00F02BFC 		bl	.L24	@far jump
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 15
+
+
+ 594              	.LCB449:
+ 206:State_machine.c ****     {
+ 207:State_machine.c ****         // Generation PWM  Calcul PID...
+ 208:State_machine.c ****         if(param.nb_boucles=='1') // une boucle de Reg vitesse
+ 595              		.loc 1 208 0
+ 596 007c C14B     		ldr	r3, .L43+24
+ 597 007e 9B78     		ldrb	r3, [r3, #2]
+ 598 0080 DBB2     		uxtb	r3, r3
+ 599 0082 312B     		cmp	r3, #49
+ 600 0084 00D0     		beq	.LCB454
+ 601 0086 B0E0     		b	.L28	@long jump
+ 602              	.LCB454:
+ 209:State_machine.c ****         {
+ 210:State_machine.c ****             // Calcul de la consigne purement en interne car PID numerique !!!
+ 211:State_machine.c ****             consigne=(offset_pwm1+(int32)(gain_pwm1*(float)(*(pointeur_gen+index_gen))))/10;
+ 603              		.loc 1 211 0
+ 604 0088 BF4B     		ldr	r3, .L43+28
+ 605 008a 1A68     		ldr	r2, [r3]
+ 606 008c BF4B     		ldr	r3, .L43+32
+ 607 008e 1B68     		ldr	r3, [r3]
+ 608 0090 9B00     		lsls	r3, r3, #2
+ 609 0092 D318     		adds	r3, r2, r3
+ 610 0094 1B68     		ldr	r3, [r3]
+ 611 0096 1800     		movs	r0, r3
+ 612 0098 FFF7FEFF 		bl	__aeabi_i2f
+ 613 009c 021C     		adds	r2, r0, #0
+ 614 009e BC4B     		ldr	r3, .L43+36
+ 615 00a0 1B68     		ldr	r3, [r3]
+ 616 00a2 191C     		adds	r1, r3, #0
+ 617 00a4 101C     		adds	r0, r2, #0
+ 618 00a6 FFF7FEFF 		bl	__aeabi_fmul
+ 619 00aa 031C     		adds	r3, r0, #0
+ 620 00ac 181C     		adds	r0, r3, #0
+ 621 00ae FFF7FEFF 		bl	__aeabi_f2iz
+ 622 00b2 0200     		movs	r2, r0
+ 623 00b4 B74B     		ldr	r3, .L43+40
+ 624 00b6 1B68     		ldr	r3, [r3]
+ 625 00b8 D318     		adds	r3, r2, r3
+ 626 00ba 0A21     		movs	r1, #10
+ 627 00bc 1800     		movs	r0, r3
+ 628 00be FFF7FEFF 		bl	__aeabi_idiv
+ 629 00c2 0300     		movs	r3, r0
+ 630 00c4 1A00     		movs	r2, r3
+ 631 00c6 B44B     		ldr	r3, .L43+44
+ 632 00c8 1A60     		str	r2, [r3]
+ 212:State_machine.c ****             epsilon=consigne-(val1);
+ 633              		.loc 1 212 0
+ 634 00ca B34B     		ldr	r3, .L43+44
+ 635 00cc 1A68     		ldr	r2, [r3]
+ 636 00ce B34B     		ldr	r3, .L43+48
+ 637 00d0 1B68     		ldr	r3, [r3]
+ 638 00d2 D21A     		subs	r2, r2, r3
+ 639 00d4 B24B     		ldr	r3, .L43+52
+ 640 00d6 1A60     		str	r2, [r3]
+ 213:State_machine.c ****             erreur_int_pid1+=epsilon;
+ 641              		.loc 1 213 0
+ 642 00d8 B14B     		ldr	r3, .L43+52
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 16
+
+
+ 643 00da 1A68     		ldr	r2, [r3]
+ 644 00dc B14B     		ldr	r3, .L43+56
+ 645 00de 1B68     		ldr	r3, [r3]
+ 646 00e0 D218     		adds	r2, r2, r3
+ 647 00e2 B04B     		ldr	r3, .L43+56
+ 648 00e4 1A60     		str	r2, [r3]
+ 214:State_machine.c ****             out_deriv=(((epsilon-erreur_av_pid1)+out_deriv_av1/N)*((int32)param.Kd1_num))/((((((int
+ 649              		.loc 1 214 0
+ 650 00e6 AE4B     		ldr	r3, .L43+52
+ 651 00e8 1A68     		ldr	r2, [r3]
+ 652 00ea AF4B     		ldr	r3, .L43+60
+ 653 00ec 1B68     		ldr	r3, [r3]
+ 654 00ee D41A     		subs	r4, r2, r3
+ 655 00f0 AE4B     		ldr	r3, .L43+64
+ 656 00f2 1A68     		ldr	r2, [r3]
+ 657 00f4 AE4B     		ldr	r3, .L43+68
+ 658 00f6 1B68     		ldr	r3, [r3]
+ 659 00f8 1900     		movs	r1, r3
+ 660 00fa 1000     		movs	r0, r2
+ 661 00fc FFF7FEFF 		bl	__aeabi_idiv
+ 662 0100 0300     		movs	r3, r0
+ 663 0102 E318     		adds	r3, r4, r3
+ 664 0104 9F4A     		ldr	r2, .L43+24
+ 665 0106 9289     		ldrh	r2, [r2, #12]
+ 666 0108 92B2     		uxth	r2, r2
+ 667 010a 5A43     		muls	r2, r3
+ 668 010c 1400     		movs	r4, r2
+ 669 010e 9D4B     		ldr	r3, .L43+24
+ 670 0110 DB89     		ldrh	r3, [r3, #14]
+ 671 0112 9BB2     		uxth	r3, r3
+ 672 0114 1A00     		movs	r2, r3
+ 673 0116 9B4B     		ldr	r3, .L43+24
+ 674 0118 1B88     		ldrh	r3, [r3]
+ 675 011a 9BB2     		uxth	r3, r3
+ 676 011c 5A43     		muls	r2, r3
+ 677 011e FA23     		movs	r3, #250
+ 678 0120 9900     		lsls	r1, r3, #2
+ 679 0122 1000     		movs	r0, r2
+ 680 0124 FFF7FEFF 		bl	__aeabi_idiv
+ 681 0128 0300     		movs	r3, r0
+ 682 012a 1D00     		movs	r5, r3
+ 683 012c 954B     		ldr	r3, .L43+24
+ 684 012e 9B89     		ldrh	r3, [r3, #12]
+ 685 0130 9BB2     		uxth	r3, r3
+ 686 0132 1A00     		movs	r2, r3
+ 687 0134 9E4B     		ldr	r3, .L43+68
+ 688 0136 1B68     		ldr	r3, [r3]
+ 689 0138 1900     		movs	r1, r3
+ 690 013a 1000     		movs	r0, r2
+ 691 013c FFF7FEFF 		bl	__aeabi_idiv
+ 692 0140 0300     		movs	r3, r0
+ 693 0142 EB18     		adds	r3, r5, r3
+ 694 0144 1900     		movs	r1, r3
+ 695 0146 2000     		movs	r0, r4
+ 696 0148 FFF7FEFF 		bl	__aeabi_idiv
+ 697 014c 0300     		movs	r3, r0
+ 698 014e 7B60     		str	r3, [r7, #4]
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 17
+
+
+ 215:State_machine.c ****             spid1=((int32)param.Kp1_num*epsilon)/(int32)param.Kp1_den+((int32)param.Ki1_num*erreur_
+ 699              		.loc 1 215 0
+ 700 0150 8C4B     		ldr	r3, .L43+24
+ 701 0152 9B88     		ldrh	r3, [r3, #4]
+ 702 0154 9BB2     		uxth	r3, r3
+ 703 0156 1A00     		movs	r2, r3
+ 704 0158 914B     		ldr	r3, .L43+52
+ 705 015a 1B68     		ldr	r3, [r3]
+ 706 015c 5A43     		muls	r2, r3
+ 707 015e 894B     		ldr	r3, .L43+24
+ 708 0160 DB88     		ldrh	r3, [r3, #6]
+ 709 0162 9BB2     		uxth	r3, r3
+ 710 0164 1900     		movs	r1, r3
+ 711 0166 1000     		movs	r0, r2
+ 712 0168 FFF7FEFF 		bl	__aeabi_idiv
+ 713 016c 0300     		movs	r3, r0
+ 714 016e 1C00     		movs	r4, r3
+ 715 0170 844B     		ldr	r3, .L43+24
+ 716 0172 9B8A     		ldrh	r3, [r3, #20]
+ 717 0174 9BB2     		uxth	r3, r3
+ 718 0176 1A00     		movs	r2, r3
+ 719 0178 8A4B     		ldr	r3, .L43+56
+ 720 017a 1B68     		ldr	r3, [r3]
+ 721 017c 5343     		muls	r3, r2
+ 722 017e 814A     		ldr	r2, .L43+24
+ 723 0180 1288     		ldrh	r2, [r2]
+ 724 0182 92B2     		uxth	r2, r2
+ 725 0184 5A43     		muls	r2, r3
+ 726 0186 7F4B     		ldr	r3, .L43+24
+ 727 0188 DB8A     		ldrh	r3, [r3, #22]
+ 728 018a 9BB2     		uxth	r3, r3
+ 729 018c 1900     		movs	r1, r3
+ 730 018e FA23     		movs	r3, #250
+ 731 0190 9B00     		lsls	r3, r3, #2
+ 732 0192 4B43     		muls	r3, r1
+ 733 0194 1900     		movs	r1, r3
+ 734 0196 1000     		movs	r0, r2
+ 735 0198 FFF7FEFF 		bl	__aeabi_idiv
+ 736 019c 0300     		movs	r3, r0
+ 737 019e E218     		adds	r2, r4, r3
+ 738 01a0 7B68     		ldr	r3, [r7, #4]
+ 739 01a2 D218     		adds	r2, r2, r3
+ 740 01a4 834B     		ldr	r3, .L43+72
+ 741 01a6 1A60     		str	r2, [r3]
+ 216:State_machine.c ****             spid2=spid1;
+ 742              		.loc 1 216 0
+ 743 01a8 824B     		ldr	r3, .L43+72
+ 744 01aa 1A68     		ldr	r2, [r3]
+ 745 01ac 824B     		ldr	r3, .L43+76
+ 746 01ae 1A60     		str	r2, [r3]
+ 217:State_machine.c ****             erreur_av_pid1=epsilon;
+ 747              		.loc 1 217 0
+ 748 01b0 7B4B     		ldr	r3, .L43+52
+ 749 01b2 1A68     		ldr	r2, [r3]
+ 750 01b4 7C4B     		ldr	r3, .L43+60
+ 751 01b6 1A60     		str	r2, [r3]
+ 218:State_machine.c ****             out_deriv_av1=out_deriv;
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 18
+
+
+ 752              		.loc 1 218 0
+ 753 01b8 7C4B     		ldr	r3, .L43+64
+ 754 01ba 7A68     		ldr	r2, [r7, #4]
+ 755 01bc 1A60     		str	r2, [r3]
+ 219:State_machine.c ****             
+ 220:State_machine.c ****             if (spid1<0) spid1=0;
+ 756              		.loc 1 220 0
+ 757 01be 7D4B     		ldr	r3, .L43+72
+ 758 01c0 1B68     		ldr	r3, [r3]
+ 759 01c2 002B     		cmp	r3, #0
+ 760 01c4 02DA     		bge	.L29
+ 761              		.loc 1 220 0 is_stmt 0 discriminator 1
+ 762 01c6 7B4B     		ldr	r3, .L43+72
+ 763 01c8 0022     		movs	r2, #0
+ 764 01ca 1A60     		str	r2, [r3]
+ 765              	.L29:
+ 221:State_machine.c ****             if (spid1>1000) spid1=1000;
+ 766              		.loc 1 221 0 is_stmt 1
+ 767 01cc 794B     		ldr	r3, .L43+72
+ 768 01ce 1A68     		ldr	r2, [r3]
+ 769 01d0 FA23     		movs	r3, #250
+ 770 01d2 9B00     		lsls	r3, r3, #2
+ 771 01d4 9A42     		cmp	r2, r3
+ 772 01d6 03DD     		ble	.L30
+ 773              		.loc 1 221 0 is_stmt 0 discriminator 1
+ 774 01d8 764B     		ldr	r3, .L43+72
+ 775 01da FA22     		movs	r2, #250
+ 776 01dc 9200     		lsls	r2, r2, #2
+ 777 01de 1A60     		str	r2, [r3]
+ 778              	.L30:
+ 222:State_machine.c ****             pwm1_valeur=spid1;
+ 779              		.loc 1 222 0 is_stmt 1
+ 780 01e0 744B     		ldr	r3, .L43+72
+ 781 01e2 1A68     		ldr	r2, [r3]
+ 782 01e4 754B     		ldr	r3, .L43+80
+ 783 01e6 1A60     		str	r2, [r3]
+ 784 01e8 0DE3     		b	.L31
+ 785              	.L28:
+ 223:State_machine.c ****         }
+ 224:State_machine.c ****         else if(param.nb_boucles=='2') //une boucle Position
+ 786              		.loc 1 224 0
+ 787 01ea 664B     		ldr	r3, .L43+24
+ 788 01ec 9B78     		ldrb	r3, [r3, #2]
+ 789 01ee DBB2     		uxtb	r3, r3
+ 790 01f0 322B     		cmp	r3, #50
+ 791 01f2 00D0     		beq	.LCB633
+ 792 01f4 EEE0     		b	.L32	@long jump
+ 793              	.LCB633:
+ 225:State_machine.c ****         {   
+ 226:State_machine.c ****             // Calcul de la consigne purement en interne car PID numerique !!!
+ 227:State_machine.c ****             consigne=(offset_pwm1+(gain_pwm1*(float)(*(pointeur_gen+index_gen))))/10;
+ 794              		.loc 1 227 0
+ 795 01f6 674B     		ldr	r3, .L43+40
+ 796 01f8 1B68     		ldr	r3, [r3]
+ 797 01fa 1800     		movs	r0, r3
+ 798 01fc FFF7FEFF 		bl	__aeabi_i2f
+ 799 0200 041C     		adds	r4, r0, #0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 19
+
+
+ 800 0202 614B     		ldr	r3, .L43+28
+ 801 0204 1A68     		ldr	r2, [r3]
+ 802 0206 614B     		ldr	r3, .L43+32
+ 803 0208 1B68     		ldr	r3, [r3]
+ 804 020a 9B00     		lsls	r3, r3, #2
+ 805 020c D318     		adds	r3, r2, r3
+ 806 020e 1B68     		ldr	r3, [r3]
+ 807 0210 1800     		movs	r0, r3
+ 808 0212 FFF7FEFF 		bl	__aeabi_i2f
+ 809 0216 021C     		adds	r2, r0, #0
+ 810 0218 5D4B     		ldr	r3, .L43+36
+ 811 021a 1B68     		ldr	r3, [r3]
+ 812 021c 191C     		adds	r1, r3, #0
+ 813 021e 101C     		adds	r0, r2, #0
+ 814 0220 FFF7FEFF 		bl	__aeabi_fmul
+ 815 0224 031C     		adds	r3, r0, #0
+ 816 0226 191C     		adds	r1, r3, #0
+ 817 0228 201C     		adds	r0, r4, #0
+ 818 022a FFF7FEFF 		bl	__aeabi_fadd
+ 819 022e 031C     		adds	r3, r0, #0
+ 820 0230 6349     		ldr	r1, .L43+84
+ 821 0232 181C     		adds	r0, r3, #0
+ 822 0234 FFF7FEFF 		bl	__aeabi_fdiv
+ 823 0238 031C     		adds	r3, r0, #0
+ 824 023a 181C     		adds	r0, r3, #0
+ 825 023c FFF7FEFF 		bl	__aeabi_f2iz
+ 826 0240 0200     		movs	r2, r0
+ 827 0242 554B     		ldr	r3, .L43+44
+ 828 0244 1A60     		str	r2, [r3]
+ 228:State_machine.c ****             epsilon=consigne-val2;
+ 829              		.loc 1 228 0
+ 830 0246 544B     		ldr	r3, .L43+44
+ 831 0248 1A68     		ldr	r2, [r3]
+ 832 024a 5E4B     		ldr	r3, .L43+88
+ 833 024c 1B68     		ldr	r3, [r3]
+ 834 024e D21A     		subs	r2, r2, r3
+ 835 0250 534B     		ldr	r3, .L43+52
+ 836 0252 1A60     		str	r2, [r3]
+ 229:State_machine.c ****             erreur_int_pid2+=epsilon;
+ 837              		.loc 1 229 0
+ 838 0254 524B     		ldr	r3, .L43+52
+ 839 0256 1A68     		ldr	r2, [r3]
+ 840 0258 5B4B     		ldr	r3, .L43+92
+ 841 025a 1B68     		ldr	r3, [r3]
+ 842 025c D218     		adds	r2, r2, r3
+ 843 025e 5A4B     		ldr	r3, .L43+92
+ 844 0260 1A60     		str	r2, [r3]
+ 230:State_machine.c ****             out_deriv=(((epsilon-erreur_av_pid2)+out_deriv_av2/N)*((int32)param.Kd2_num))/((((((int
+ 845              		.loc 1 230 0
+ 846 0262 4F4B     		ldr	r3, .L43+52
+ 847 0264 1A68     		ldr	r2, [r3]
+ 848 0266 594B     		ldr	r3, .L43+96
+ 849 0268 1B68     		ldr	r3, [r3]
+ 850 026a D41A     		subs	r4, r2, r3
+ 851 026c 584B     		ldr	r3, .L43+100
+ 852 026e 1A68     		ldr	r2, [r3]
+ 853 0270 4F4B     		ldr	r3, .L43+68
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 20
+
+
+ 854 0272 1B68     		ldr	r3, [r3]
+ 855 0274 1900     		movs	r1, r3
+ 856 0276 1000     		movs	r0, r2
+ 857 0278 FFF7FEFF 		bl	__aeabi_idiv
+ 858 027c 0300     		movs	r3, r0
+ 859 027e E318     		adds	r3, r4, r3
+ 860 0280 404A     		ldr	r2, .L43+24
+ 861 0282 128A     		ldrh	r2, [r2, #16]
+ 862 0284 92B2     		uxth	r2, r2
+ 863 0286 5A43     		muls	r2, r3
+ 864 0288 1400     		movs	r4, r2
+ 865 028a 3E4B     		ldr	r3, .L43+24
+ 866 028c 5B8A     		ldrh	r3, [r3, #18]
+ 867 028e 9BB2     		uxth	r3, r3
+ 868 0290 1A00     		movs	r2, r3
+ 869 0292 3C4B     		ldr	r3, .L43+24
+ 870 0294 1B88     		ldrh	r3, [r3]
+ 871 0296 9BB2     		uxth	r3, r3
+ 872 0298 5A43     		muls	r2, r3
+ 873 029a FA23     		movs	r3, #250
+ 874 029c 9900     		lsls	r1, r3, #2
+ 875 029e 1000     		movs	r0, r2
+ 876 02a0 FFF7FEFF 		bl	__aeabi_idiv
+ 877 02a4 0300     		movs	r3, r0
+ 878 02a6 1D00     		movs	r5, r3
+ 879 02a8 364B     		ldr	r3, .L43+24
+ 880 02aa 1B8A     		ldrh	r3, [r3, #16]
+ 881 02ac 9BB2     		uxth	r3, r3
+ 882 02ae 1A00     		movs	r2, r3
+ 883 02b0 3F4B     		ldr	r3, .L43+68
+ 884 02b2 1B68     		ldr	r3, [r3]
+ 885 02b4 1900     		movs	r1, r3
+ 886 02b6 1000     		movs	r0, r2
+ 887 02b8 FFF7FEFF 		bl	__aeabi_idiv
+ 888 02bc 0300     		movs	r3, r0
+ 889 02be EB18     		adds	r3, r5, r3
+ 890 02c0 1900     		movs	r1, r3
+ 891 02c2 2000     		movs	r0, r4
+ 892 02c4 FFF7FEFF 		bl	__aeabi_idiv
+ 893 02c8 0300     		movs	r3, r0
+ 894 02ca 7B60     		str	r3, [r7, #4]
+ 231:State_machine.c ****             spid2=(((int32)param.Kp2_num*epsilon)/(int32)param.Kp2_den+((int32)param.Ki2_num*erreur
+ 895              		.loc 1 231 0
+ 896 02cc 2D4B     		ldr	r3, .L43+24
+ 897 02ce 1B89     		ldrh	r3, [r3, #8]
+ 898 02d0 9BB2     		uxth	r3, r3
+ 899 02d2 1A00     		movs	r2, r3
+ 900 02d4 324B     		ldr	r3, .L43+52
+ 901 02d6 1B68     		ldr	r3, [r3]
+ 902 02d8 5A43     		muls	r2, r3
+ 903 02da 2A4B     		ldr	r3, .L43+24
+ 904 02dc 5B89     		ldrh	r3, [r3, #10]
+ 905 02de 9BB2     		uxth	r3, r3
+ 906 02e0 1900     		movs	r1, r3
+ 907 02e2 1000     		movs	r0, r2
+ 908 02e4 FFF7FEFF 		bl	__aeabi_idiv
+ 909 02e8 0300     		movs	r3, r0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 21
+
+
+ 910 02ea 1C00     		movs	r4, r3
+ 911 02ec 254B     		ldr	r3, .L43+24
+ 912 02ee 1B8B     		ldrh	r3, [r3, #24]
+ 913 02f0 9BB2     		uxth	r3, r3
+ 914 02f2 1A00     		movs	r2, r3
+ 915 02f4 344B     		ldr	r3, .L43+92
+ 916 02f6 1B68     		ldr	r3, [r3]
+ 917 02f8 5343     		muls	r3, r2
+ 918 02fa 224A     		ldr	r2, .L43+24
+ 919 02fc 1288     		ldrh	r2, [r2]
+ 920 02fe 92B2     		uxth	r2, r2
+ 921 0300 5A43     		muls	r2, r3
+ 922 0302 204B     		ldr	r3, .L43+24
+ 923 0304 5B8B     		ldrh	r3, [r3, #26]
+ 924 0306 9BB2     		uxth	r3, r3
+ 925 0308 1900     		movs	r1, r3
+ 926 030a FA23     		movs	r3, #250
+ 927 030c 9B00     		lsls	r3, r3, #2
+ 928 030e 4B43     		muls	r3, r1
+ 929 0310 1900     		movs	r1, r3
+ 930 0312 1000     		movs	r0, r2
+ 931 0314 FFF7FEFF 		bl	__aeabi_idiv
+ 932 0318 0300     		movs	r3, r0
+ 933 031a E218     		adds	r2, r4, r3
+ 934 031c 7B68     		ldr	r3, [r7, #4]
+ 935 031e D318     		adds	r3, r2, r3
+ 936 0320 F533     		adds	r3, r3, #245
+ 937 0322 FF33     		adds	r3, r3, #255
+ 938 0324 1A00     		movs	r2, r3
+ 939 0326 244B     		ldr	r3, .L43+76
+ 940 0328 1A60     		str	r2, [r3]
+ 232:State_machine.c ****             if (spid2<0) spid2=0;
+ 941              		.loc 1 232 0
+ 942 032a 234B     		ldr	r3, .L43+76
+ 943 032c 1B68     		ldr	r3, [r3]
+ 944 032e 002B     		cmp	r3, #0
+ 945 0330 02DA     		bge	.L33
+ 946              		.loc 1 232 0 is_stmt 0 discriminator 1
+ 947 0332 214B     		ldr	r3, .L43+76
+ 948 0334 0022     		movs	r2, #0
+ 949 0336 1A60     		str	r2, [r3]
+ 950              	.L33:
+ 233:State_machine.c ****             if (spid2>1000) spid2=1000;
+ 951              		.loc 1 233 0 is_stmt 1
+ 952 0338 1F4B     		ldr	r3, .L43+76
+ 953 033a 1A68     		ldr	r2, [r3]
+ 954 033c FA23     		movs	r3, #250
+ 955 033e 9B00     		lsls	r3, r3, #2
+ 956 0340 9A42     		cmp	r2, r3
+ 957 0342 03DD     		ble	.L34
+ 958              		.loc 1 233 0 is_stmt 0 discriminator 1
+ 959 0344 1C4B     		ldr	r3, .L43+76
+ 960 0346 FA22     		movs	r2, #250
+ 961 0348 9200     		lsls	r2, r2, #2
+ 962 034a 1A60     		str	r2, [r3]
+ 963              	.L34:
+ 234:State_machine.c ****             spid1=spid2;
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 22
+
+
+ 964              		.loc 1 234 0 is_stmt 1
+ 965 034c 1A4B     		ldr	r3, .L43+76
+ 966 034e 1A68     		ldr	r2, [r3]
+ 967 0350 184B     		ldr	r3, .L43+72
+ 968 0352 1A60     		str	r2, [r3]
+ 235:State_machine.c ****             erreur_av_pid2=epsilon;
+ 969              		.loc 1 235 0
+ 970 0354 124B     		ldr	r3, .L43+52
+ 971 0356 1A68     		ldr	r2, [r3]
+ 972 0358 1C4B     		ldr	r3, .L43+96
+ 973 035a 1A60     		str	r2, [r3]
+ 236:State_machine.c ****             out_deriv_av2=out_deriv;
+ 974              		.loc 1 236 0
+ 975 035c 1C4B     		ldr	r3, .L43+100
+ 976 035e 7A68     		ldr	r2, [r7, #4]
+ 977 0360 1A60     		str	r2, [r3]
+ 237:State_machine.c ****             pwm1_valeur=spid1;
+ 978              		.loc 1 237 0
+ 979 0362 144B     		ldr	r3, .L43+72
+ 980 0364 1A68     		ldr	r2, [r3]
+ 981 0366 154B     		ldr	r3, .L43+80
+ 982 0368 1A60     		str	r2, [r3]
+ 983 036a 4CE2     		b	.L31
+ 984              	.L44:
+ 985              		.align	2
+ 986              	.L43:
+ 987 036c 00000000 		.word	statefunc
+ 988 0370 00000000 		.word	arret_urg
+ 989 0374 00000000 		.word	marche_bool
+ 990 0378 00000000 		.word	param_ok
+ 991 037c 00000000 		.word	arret
+ 992 0380 00000000 		.word	sent
+ 993 0384 00000000 		.word	param
+ 994 0388 00000000 		.word	pointeur_gen
+ 995 038c 00000000 		.word	index_gen
+ 996 0390 00000000 		.word	gain_pwm1
+ 997 0394 00000000 		.word	offset_pwm1
+ 998 0398 00000000 		.word	consigne
+ 999 039c 00000000 		.word	val1
+ 1000 03a0 00000000 		.word	epsilon
+ 1001 03a4 00000000 		.word	erreur_int_pid1
+ 1002 03a8 00000000 		.word	erreur_av_pid1
+ 1003 03ac 00000000 		.word	out_deriv_av1
+ 1004 03b0 00000000 		.word	N
+ 1005 03b4 00000000 		.word	spid1
+ 1006 03b8 00000000 		.word	spid2
+ 1007 03bc 00000000 		.word	pwm1_valeur
+ 1008 03c0 00002041 		.word	1092616192
+ 1009 03c4 00000000 		.word	val2
+ 1010 03c8 00000000 		.word	erreur_int_pid2
+ 1011 03cc 00000000 		.word	erreur_av_pid2
+ 1012 03d0 00000000 		.word	out_deriv_av2
+ 1013              	.L32:
+ 238:State_machine.c ****         }
+ 239:State_machine.c ****         else if(param.nb_boucles=='3') //deux boucles de Reg imbriquees Position
+ 1014              		.loc 1 239 0
+ 1015 03d4 A54B     		ldr	r3, .L45
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 23
+
+
+ 1016 03d6 9B78     		ldrb	r3, [r3, #2]
+ 1017 03d8 DBB2     		uxtb	r3, r3
+ 1018 03da 332B     		cmp	r3, #51
+ 1019 03dc 00D0     		beq	.LCB851
+ 1020 03de 3AE1     		b	.L35	@long jump
+ 1021              	.LCB851:
+ 240:State_machine.c ****         {   
+ 241:State_machine.c ****             // Calcul de la consigne purement en interne car PID numerique !!!
+ 242:State_machine.c ****             consigne=(offset_pwm1+(gain_pwm1*(float)(*(pointeur_gen+index_gen))))/10;
+ 1022              		.loc 1 242 0
+ 1023 03e0 A34B     		ldr	r3, .L45+4
+ 1024 03e2 1B68     		ldr	r3, [r3]
+ 1025 03e4 1800     		movs	r0, r3
+ 1026 03e6 FFF7FEFF 		bl	__aeabi_i2f
+ 1027 03ea 041C     		adds	r4, r0, #0
+ 1028 03ec A14B     		ldr	r3, .L45+8
+ 1029 03ee 1A68     		ldr	r2, [r3]
+ 1030 03f0 A14B     		ldr	r3, .L45+12
+ 1031 03f2 1B68     		ldr	r3, [r3]
+ 1032 03f4 9B00     		lsls	r3, r3, #2
+ 1033 03f6 D318     		adds	r3, r2, r3
+ 1034 03f8 1B68     		ldr	r3, [r3]
+ 1035 03fa 1800     		movs	r0, r3
+ 1036 03fc FFF7FEFF 		bl	__aeabi_i2f
+ 1037 0400 021C     		adds	r2, r0, #0
+ 1038 0402 9E4B     		ldr	r3, .L45+16
+ 1039 0404 1B68     		ldr	r3, [r3]
+ 1040 0406 191C     		adds	r1, r3, #0
+ 1041 0408 101C     		adds	r0, r2, #0
+ 1042 040a FFF7FEFF 		bl	__aeabi_fmul
+ 1043 040e 031C     		adds	r3, r0, #0
+ 1044 0410 191C     		adds	r1, r3, #0
+ 1045 0412 201C     		adds	r0, r4, #0
+ 1046 0414 FFF7FEFF 		bl	__aeabi_fadd
+ 1047 0418 031C     		adds	r3, r0, #0
+ 1048 041a 9949     		ldr	r1, .L45+20
+ 1049 041c 181C     		adds	r0, r3, #0
+ 1050 041e FFF7FEFF 		bl	__aeabi_fdiv
+ 1051 0422 031C     		adds	r3, r0, #0
+ 1052 0424 181C     		adds	r0, r3, #0
+ 1053 0426 FFF7FEFF 		bl	__aeabi_f2iz
+ 1054 042a 0200     		movs	r2, r0
+ 1055 042c 954B     		ldr	r3, .L45+24
+ 1056 042e 1A60     		str	r2, [r3]
+ 243:State_machine.c ****             epsilon=consigne-val2;
+ 1057              		.loc 1 243 0
+ 1058 0430 944B     		ldr	r3, .L45+24
+ 1059 0432 1A68     		ldr	r2, [r3]
+ 1060 0434 944B     		ldr	r3, .L45+28
+ 1061 0436 1B68     		ldr	r3, [r3]
+ 1062 0438 D21A     		subs	r2, r2, r3
+ 1063 043a 944B     		ldr	r3, .L45+32
+ 1064 043c 1A60     		str	r2, [r3]
+ 244:State_machine.c ****             erreur_int_pid2+=epsilon;
+ 1065              		.loc 1 244 0
+ 1066 043e 934B     		ldr	r3, .L45+32
+ 1067 0440 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 24
+
+
+ 1068 0442 934B     		ldr	r3, .L45+36
+ 1069 0444 1B68     		ldr	r3, [r3]
+ 1070 0446 D218     		adds	r2, r2, r3
+ 1071 0448 914B     		ldr	r3, .L45+36
+ 1072 044a 1A60     		str	r2, [r3]
+ 245:State_machine.c ****             out_deriv=(((epsilon-erreur_av_pid2)+out_deriv_av2/N)*((int32)param.Kd2_num))/((((((int
+ 1073              		.loc 1 245 0
+ 1074 044c 8F4B     		ldr	r3, .L45+32
+ 1075 044e 1A68     		ldr	r2, [r3]
+ 1076 0450 904B     		ldr	r3, .L45+40
+ 1077 0452 1B68     		ldr	r3, [r3]
+ 1078 0454 D41A     		subs	r4, r2, r3
+ 1079 0456 904B     		ldr	r3, .L45+44
+ 1080 0458 1A68     		ldr	r2, [r3]
+ 1081 045a 904B     		ldr	r3, .L45+48
+ 1082 045c 1B68     		ldr	r3, [r3]
+ 1083 045e 1900     		movs	r1, r3
+ 1084 0460 1000     		movs	r0, r2
+ 1085 0462 FFF7FEFF 		bl	__aeabi_idiv
+ 1086 0466 0300     		movs	r3, r0
+ 1087 0468 E318     		adds	r3, r4, r3
+ 1088 046a 804A     		ldr	r2, .L45
+ 1089 046c 128A     		ldrh	r2, [r2, #16]
+ 1090 046e 92B2     		uxth	r2, r2
+ 1091 0470 5A43     		muls	r2, r3
+ 1092 0472 1400     		movs	r4, r2
+ 1093 0474 7D4B     		ldr	r3, .L45
+ 1094 0476 5B8A     		ldrh	r3, [r3, #18]
+ 1095 0478 9BB2     		uxth	r3, r3
+ 1096 047a 1A00     		movs	r2, r3
+ 1097 047c 7B4B     		ldr	r3, .L45
+ 1098 047e 1B88     		ldrh	r3, [r3]
+ 1099 0480 9BB2     		uxth	r3, r3
+ 1100 0482 5A43     		muls	r2, r3
+ 1101 0484 FA23     		movs	r3, #250
+ 1102 0486 9900     		lsls	r1, r3, #2
+ 1103 0488 1000     		movs	r0, r2
+ 1104 048a FFF7FEFF 		bl	__aeabi_idiv
+ 1105 048e 0300     		movs	r3, r0
+ 1106 0490 1D00     		movs	r5, r3
+ 1107 0492 764B     		ldr	r3, .L45
+ 1108 0494 1B8A     		ldrh	r3, [r3, #16]
+ 1109 0496 9BB2     		uxth	r3, r3
+ 1110 0498 1A00     		movs	r2, r3
+ 1111 049a 804B     		ldr	r3, .L45+48
+ 1112 049c 1B68     		ldr	r3, [r3]
+ 1113 049e 1900     		movs	r1, r3
+ 1114 04a0 1000     		movs	r0, r2
+ 1115 04a2 FFF7FEFF 		bl	__aeabi_idiv
+ 1116 04a6 0300     		movs	r3, r0
+ 1117 04a8 EB18     		adds	r3, r5, r3
+ 1118 04aa 1900     		movs	r1, r3
+ 1119 04ac 2000     		movs	r0, r4
+ 1120 04ae FFF7FEFF 		bl	__aeabi_idiv
+ 1121 04b2 0300     		movs	r3, r0
+ 1122 04b4 7B60     		str	r3, [r7, #4]
+ 246:State_machine.c ****             spid2=((int32)param.Kp2_num*epsilon)/(int32)param.Kp2_den+((int32)param.Ki2_num*erreur_
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 25
+
+
+ 1123              		.loc 1 246 0
+ 1124 04b6 6D4B     		ldr	r3, .L45
+ 1125 04b8 1B89     		ldrh	r3, [r3, #8]
+ 1126 04ba 9BB2     		uxth	r3, r3
+ 1127 04bc 1A00     		movs	r2, r3
+ 1128 04be 734B     		ldr	r3, .L45+32
+ 1129 04c0 1B68     		ldr	r3, [r3]
+ 1130 04c2 5A43     		muls	r2, r3
+ 1131 04c4 694B     		ldr	r3, .L45
+ 1132 04c6 5B89     		ldrh	r3, [r3, #10]
+ 1133 04c8 9BB2     		uxth	r3, r3
+ 1134 04ca 1900     		movs	r1, r3
+ 1135 04cc 1000     		movs	r0, r2
+ 1136 04ce FFF7FEFF 		bl	__aeabi_idiv
+ 1137 04d2 0300     		movs	r3, r0
+ 1138 04d4 1C00     		movs	r4, r3
+ 1139 04d6 654B     		ldr	r3, .L45
+ 1140 04d8 1B8B     		ldrh	r3, [r3, #24]
+ 1141 04da 9BB2     		uxth	r3, r3
+ 1142 04dc 1A00     		movs	r2, r3
+ 1143 04de 6C4B     		ldr	r3, .L45+36
+ 1144 04e0 1B68     		ldr	r3, [r3]
+ 1145 04e2 5343     		muls	r3, r2
+ 1146 04e4 614A     		ldr	r2, .L45
+ 1147 04e6 1288     		ldrh	r2, [r2]
+ 1148 04e8 92B2     		uxth	r2, r2
+ 1149 04ea 5A43     		muls	r2, r3
+ 1150 04ec 5F4B     		ldr	r3, .L45
+ 1151 04ee 5B8B     		ldrh	r3, [r3, #26]
+ 1152 04f0 9BB2     		uxth	r3, r3
+ 1153 04f2 1900     		movs	r1, r3
+ 1154 04f4 FA23     		movs	r3, #250
+ 1155 04f6 9B00     		lsls	r3, r3, #2
+ 1156 04f8 4B43     		muls	r3, r1
+ 1157 04fa 1900     		movs	r1, r3
+ 1158 04fc 1000     		movs	r0, r2
+ 1159 04fe FFF7FEFF 		bl	__aeabi_idiv
+ 1160 0502 0300     		movs	r3, r0
+ 1161 0504 E218     		adds	r2, r4, r3
+ 1162 0506 7B68     		ldr	r3, [r7, #4]
+ 1163 0508 D218     		adds	r2, r2, r3
+ 1164 050a 654B     		ldr	r3, .L45+52
+ 1165 050c 1A60     		str	r2, [r3]
+ 247:State_machine.c ****             //spid1=spid1/100;
+ 248:State_machine.c ****             erreur_av_pid2=epsilon;
+ 1166              		.loc 1 248 0
+ 1167 050e 5F4B     		ldr	r3, .L45+32
+ 1168 0510 1A68     		ldr	r2, [r3]
+ 1169 0512 604B     		ldr	r3, .L45+40
+ 1170 0514 1A60     		str	r2, [r3]
+ 249:State_machine.c ****             out_deriv_av2=out_deriv;            
+ 1171              		.loc 1 249 0
+ 1172 0516 604B     		ldr	r3, .L45+44
+ 1173 0518 7A68     		ldr	r2, [r7, #4]
+ 1174 051a 1A60     		str	r2, [r3]
+ 250:State_machine.c ****            // spid2=((param.Kp2_num*epsilon)/param.Kp2_den+(param.Ki2_num*erreur_int_pid2*param.Tec
+ 251:State_machine.c ****             if(spid2>5000) spid2=5000;
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 26
+
+
+ 1175              		.loc 1 251 0
+ 1176 051c 604B     		ldr	r3, .L45+52
+ 1177 051e 1B68     		ldr	r3, [r3]
+ 1178 0520 604A     		ldr	r2, .L45+56
+ 1179 0522 9342     		cmp	r3, r2
+ 1180 0524 03DD     		ble	.L36
+ 1181              		.loc 1 251 0 is_stmt 0 discriminator 1
+ 1182 0526 5E4B     		ldr	r3, .L45+52
+ 1183 0528 5E4A     		ldr	r2, .L45+56
+ 1184 052a 1A60     		str	r2, [r3]
+ 1185 052c 07E0     		b	.L37
+ 1186              	.L36:
+ 252:State_machine.c ****             else if(spid2<-5000) spid2 = -5000;          
+ 1187              		.loc 1 252 0 is_stmt 1
+ 1188 052e 5C4B     		ldr	r3, .L45+52
+ 1189 0530 1B68     		ldr	r3, [r3]
+ 1190 0532 5D4A     		ldr	r2, .L45+60
+ 1191 0534 9342     		cmp	r3, r2
+ 1192 0536 02DA     		bge	.L37
+ 1193              		.loc 1 252 0 is_stmt 0 discriminator 1
+ 1194 0538 594B     		ldr	r3, .L45+52
+ 1195 053a 5B4A     		ldr	r2, .L45+60
+ 1196 053c 1A60     		str	r2, [r3]
+ 1197              	.L37:
+ 253:State_machine.c ****             erreur_temp=+spid2-val1;
+ 1198              		.loc 1 253 0 is_stmt 1
+ 1199 053e 584B     		ldr	r3, .L45+52
+ 1200 0540 1A68     		ldr	r2, [r3]
+ 1201 0542 5A4B     		ldr	r3, .L45+64
+ 1202 0544 1B68     		ldr	r3, [r3]
+ 1203 0546 D21A     		subs	r2, r2, r3
+ 1204 0548 594B     		ldr	r3, .L45+68
+ 1205 054a 1A60     		str	r2, [r3]
+ 254:State_machine.c ****             erreur_int_pid1+=erreur_temp;
+ 1206              		.loc 1 254 0
+ 1207 054c 594B     		ldr	r3, .L45+72
+ 1208 054e 1A68     		ldr	r2, [r3]
+ 1209 0550 574B     		ldr	r3, .L45+68
+ 1210 0552 1B68     		ldr	r3, [r3]
+ 1211 0554 D218     		adds	r2, r2, r3
+ 1212 0556 574B     		ldr	r3, .L45+72
+ 1213 0558 1A60     		str	r2, [r3]
+ 255:State_machine.c ****             out_deriv=(((erreur_temp-erreur_av_pid1)+out_deriv_av1/N)*((int32)param.Kd1_num))/(((((
+ 1214              		.loc 1 255 0
+ 1215 055a 554B     		ldr	r3, .L45+68
+ 1216 055c 1A68     		ldr	r2, [r3]
+ 1217 055e 564B     		ldr	r3, .L45+76
+ 1218 0560 1B68     		ldr	r3, [r3]
+ 1219 0562 D41A     		subs	r4, r2, r3
+ 1220 0564 554B     		ldr	r3, .L45+80
+ 1221 0566 1A68     		ldr	r2, [r3]
+ 1222 0568 4C4B     		ldr	r3, .L45+48
+ 1223 056a 1B68     		ldr	r3, [r3]
+ 1224 056c 1900     		movs	r1, r3
+ 1225 056e 1000     		movs	r0, r2
+ 1226 0570 FFF7FEFF 		bl	__aeabi_idiv
+ 1227 0574 0300     		movs	r3, r0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 27
+
+
+ 1228 0576 E318     		adds	r3, r4, r3
+ 1229 0578 3C4A     		ldr	r2, .L45
+ 1230 057a 9289     		ldrh	r2, [r2, #12]
+ 1231 057c 92B2     		uxth	r2, r2
+ 1232 057e 5A43     		muls	r2, r3
+ 1233 0580 1400     		movs	r4, r2
+ 1234 0582 3A4B     		ldr	r3, .L45
+ 1235 0584 DB89     		ldrh	r3, [r3, #14]
+ 1236 0586 9BB2     		uxth	r3, r3
+ 1237 0588 1A00     		movs	r2, r3
+ 1238 058a 384B     		ldr	r3, .L45
+ 1239 058c 1B88     		ldrh	r3, [r3]
+ 1240 058e 9BB2     		uxth	r3, r3
+ 1241 0590 5A43     		muls	r2, r3
+ 1242 0592 FA23     		movs	r3, #250
+ 1243 0594 9900     		lsls	r1, r3, #2
+ 1244 0596 1000     		movs	r0, r2
+ 1245 0598 FFF7FEFF 		bl	__aeabi_idiv
+ 1246 059c 0300     		movs	r3, r0
+ 1247 059e 1D00     		movs	r5, r3
+ 1248 05a0 324B     		ldr	r3, .L45
+ 1249 05a2 9B89     		ldrh	r3, [r3, #12]
+ 1250 05a4 9BB2     		uxth	r3, r3
+ 1251 05a6 1A00     		movs	r2, r3
+ 1252 05a8 3C4B     		ldr	r3, .L45+48
+ 1253 05aa 1B68     		ldr	r3, [r3]
+ 1254 05ac 1900     		movs	r1, r3
+ 1255 05ae 1000     		movs	r0, r2
+ 1256 05b0 FFF7FEFF 		bl	__aeabi_idiv
+ 1257 05b4 0300     		movs	r3, r0
+ 1258 05b6 EB18     		adds	r3, r5, r3
+ 1259 05b8 1900     		movs	r1, r3
+ 1260 05ba 2000     		movs	r0, r4
+ 1261 05bc FFF7FEFF 		bl	__aeabi_idiv
+ 1262 05c0 0300     		movs	r3, r0
+ 1263 05c2 7B60     		str	r3, [r7, #4]
+ 256:State_machine.c ****             spid1=((int32)param.Kp1_num*erreur_temp)/(int32)param.Kp1_den+((int32)param.Ki1_num*err
+ 1264              		.loc 1 256 0
+ 1265 05c4 294B     		ldr	r3, .L45
+ 1266 05c6 9B88     		ldrh	r3, [r3, #4]
+ 1267 05c8 9BB2     		uxth	r3, r3
+ 1268 05ca 1A00     		movs	r2, r3
+ 1269 05cc 384B     		ldr	r3, .L45+68
+ 1270 05ce 1B68     		ldr	r3, [r3]
+ 1271 05d0 5A43     		muls	r2, r3
+ 1272 05d2 264B     		ldr	r3, .L45
+ 1273 05d4 DB88     		ldrh	r3, [r3, #6]
+ 1274 05d6 9BB2     		uxth	r3, r3
+ 1275 05d8 1900     		movs	r1, r3
+ 1276 05da 1000     		movs	r0, r2
+ 1277 05dc FFF7FEFF 		bl	__aeabi_idiv
+ 1278 05e0 0300     		movs	r3, r0
+ 1279 05e2 1C00     		movs	r4, r3
+ 1280 05e4 214B     		ldr	r3, .L45
+ 1281 05e6 9B8A     		ldrh	r3, [r3, #20]
+ 1282 05e8 9BB2     		uxth	r3, r3
+ 1283 05ea 1A00     		movs	r2, r3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 28
+
+
+ 1284 05ec 314B     		ldr	r3, .L45+72
+ 1285 05ee 1B68     		ldr	r3, [r3]
+ 1286 05f0 5343     		muls	r3, r2
+ 1287 05f2 1E4A     		ldr	r2, .L45
+ 1288 05f4 1288     		ldrh	r2, [r2]
+ 1289 05f6 92B2     		uxth	r2, r2
+ 1290 05f8 5A43     		muls	r2, r3
+ 1291 05fa 1C4B     		ldr	r3, .L45
+ 1292 05fc DB8A     		ldrh	r3, [r3, #22]
+ 1293 05fe 9BB2     		uxth	r3, r3
+ 1294 0600 1900     		movs	r1, r3
+ 1295 0602 FA23     		movs	r3, #250
+ 1296 0604 9B00     		lsls	r3, r3, #2
+ 1297 0606 4B43     		muls	r3, r1
+ 1298 0608 1900     		movs	r1, r3
+ 1299 060a 1000     		movs	r0, r2
+ 1300 060c FFF7FEFF 		bl	__aeabi_idiv
+ 1301 0610 0300     		movs	r3, r0
+ 1302 0612 E218     		adds	r2, r4, r3
+ 1303 0614 7B68     		ldr	r3, [r7, #4]
+ 1304 0616 D218     		adds	r2, r2, r3
+ 1305 0618 294B     		ldr	r3, .L45+84
+ 1306 061a 1A60     		str	r2, [r3]
+ 257:State_machine.c ****             //spid1=spid1/100;
+ 258:State_machine.c ****             erreur_av_pid1=erreur_temp;
+ 1307              		.loc 1 258 0
+ 1308 061c 244B     		ldr	r3, .L45+68
+ 1309 061e 1A68     		ldr	r2, [r3]
+ 1310 0620 254B     		ldr	r3, .L45+76
+ 1311 0622 1A60     		str	r2, [r3]
+ 259:State_machine.c ****             out_deriv_av1=out_deriv;
+ 1312              		.loc 1 259 0
+ 1313 0624 254B     		ldr	r3, .L45+80
+ 1314 0626 7A68     		ldr	r2, [r7, #4]
+ 1315 0628 1A60     		str	r2, [r3]
+ 260:State_machine.c ****             
+ 261:State_machine.c ****             if (spid1<0) spid1=0;
+ 1316              		.loc 1 261 0
+ 1317 062a 254B     		ldr	r3, .L45+84
+ 1318 062c 1B68     		ldr	r3, [r3]
+ 1319 062e 002B     		cmp	r3, #0
+ 1320 0630 02DA     		bge	.L38
+ 1321              		.loc 1 261 0 is_stmt 0 discriminator 1
+ 1322 0632 234B     		ldr	r3, .L45+84
+ 1323 0634 0022     		movs	r2, #0
+ 1324 0636 1A60     		str	r2, [r3]
+ 1325              	.L38:
+ 262:State_machine.c ****             if (spid1>1000) spid1=1000;
+ 1326              		.loc 1 262 0 is_stmt 1
+ 1327 0638 214B     		ldr	r3, .L45+84
+ 1328 063a 1A68     		ldr	r2, [r3]
+ 1329 063c FA23     		movs	r3, #250
+ 1330 063e 9B00     		lsls	r3, r3, #2
+ 1331 0640 9A42     		cmp	r2, r3
+ 1332 0642 03DD     		ble	.L39
+ 1333              		.loc 1 262 0 is_stmt 0 discriminator 1
+ 1334 0644 1E4B     		ldr	r3, .L45+84
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 29
+
+
+ 1335 0646 FA22     		movs	r2, #250
+ 1336 0648 9200     		lsls	r2, r2, #2
+ 1337 064a 1A60     		str	r2, [r3]
+ 1338              	.L39:
+ 263:State_machine.c ****             pwm1_valeur=spid1;
+ 1339              		.loc 1 263 0 is_stmt 1
+ 1340 064c 1C4B     		ldr	r3, .L45+84
+ 1341 064e 1A68     		ldr	r2, [r3]
+ 1342 0650 1C4B     		ldr	r3, .L45+88
+ 1343 0652 1A60     		str	r2, [r3]
+ 1344 0654 D7E0     		b	.L31
+ 1345              	.L35:
+ 264:State_machine.c ****         }
+ 265:State_machine.c ****         else if(param.nb_boucles=='5')
+ 1346              		.loc 1 265 0
+ 1347 0656 054B     		ldr	r3, .L45
+ 1348 0658 9B78     		ldrb	r3, [r3, #2]
+ 1349 065a DBB2     		uxtb	r3, r3
+ 1350 065c 352B     		cmp	r3, #53
+ 1351 065e 33D1     		bne	.L40
+ 266:State_machine.c ****         {
+ 267:State_machine.c ****             pwm1_valeur=Get_trame_matlab();
+ 1352              		.loc 1 267 0
+ 1353 0660 FFF7FEFF 		bl	Get_trame_matlab
+ 1354 0664 0200     		movs	r2, r0
+ 1355 0666 174B     		ldr	r3, .L45+88
+ 1356 0668 1A60     		str	r2, [r3]
+ 1357 066a CCE0     		b	.L31
+ 1358              	.L46:
+ 1359              		.align	2
+ 1360              	.L45:
+ 1361 066c 00000000 		.word	param
+ 1362 0670 00000000 		.word	offset_pwm1
+ 1363 0674 00000000 		.word	pointeur_gen
+ 1364 0678 00000000 		.word	index_gen
+ 1365 067c 00000000 		.word	gain_pwm1
+ 1366 0680 00002041 		.word	1092616192
+ 1367 0684 00000000 		.word	consigne
+ 1368 0688 00000000 		.word	val2
+ 1369 068c 00000000 		.word	epsilon
+ 1370 0690 00000000 		.word	erreur_int_pid2
+ 1371 0694 00000000 		.word	erreur_av_pid2
+ 1372 0698 00000000 		.word	out_deriv_av2
+ 1373 069c 00000000 		.word	N
+ 1374 06a0 00000000 		.word	spid2
+ 1375 06a4 88130000 		.word	5000
+ 1376 06a8 78ECFFFF 		.word	-5000
+ 1377 06ac 00000000 		.word	val1
+ 1378 06b0 00000000 		.word	erreur_temp
+ 1379 06b4 00000000 		.word	erreur_int_pid1
+ 1380 06b8 00000000 		.word	erreur_av_pid1
+ 1381 06bc 00000000 		.word	out_deriv_av1
+ 1382 06c0 00000000 		.word	spid1
+ 1383 06c4 00000000 		.word	pwm1_valeur
+ 1384              	.L40:
+ 268:State_machine.c ****         }
+ 269:State_machine.c ****         else  // En boucle ouverte
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 30
+
+
+ 270:State_machine.c ****         {
+ 271:State_machine.c ****             // on met epsilon = consigne, car pas de soustracteur
+ 272:State_machine.c ****             consigne=(offset_pwm1+(int32)(gain_pwm1*(float)(*(pointeur_gen+index_gen))))/100;
+ 1385              		.loc 1 272 0
+ 1386 06c8 834B     		ldr	r3, .L47
+ 1387 06ca 1A68     		ldr	r2, [r3]
+ 1388 06cc 834B     		ldr	r3, .L47+4
+ 1389 06ce 1B68     		ldr	r3, [r3]
+ 1390 06d0 9B00     		lsls	r3, r3, #2
+ 1391 06d2 D318     		adds	r3, r2, r3
+ 1392 06d4 1B68     		ldr	r3, [r3]
+ 1393 06d6 1800     		movs	r0, r3
+ 1394 06d8 FFF7FEFF 		bl	__aeabi_i2f
+ 1395 06dc 021C     		adds	r2, r0, #0
+ 1396 06de 804B     		ldr	r3, .L47+8
+ 1397 06e0 1B68     		ldr	r3, [r3]
+ 1398 06e2 191C     		adds	r1, r3, #0
+ 1399 06e4 101C     		adds	r0, r2, #0
+ 1400 06e6 FFF7FEFF 		bl	__aeabi_fmul
+ 1401 06ea 031C     		adds	r3, r0, #0
+ 1402 06ec 181C     		adds	r0, r3, #0
+ 1403 06ee FFF7FEFF 		bl	__aeabi_f2iz
+ 1404 06f2 0200     		movs	r2, r0
+ 1405 06f4 7B4B     		ldr	r3, .L47+12
+ 1406 06f6 1B68     		ldr	r3, [r3]
+ 1407 06f8 D318     		adds	r3, r2, r3
+ 1408 06fa 6421     		movs	r1, #100
+ 1409 06fc 1800     		movs	r0, r3
+ 1410 06fe FFF7FEFF 		bl	__aeabi_idiv
+ 1411 0702 0300     		movs	r3, r0
+ 1412 0704 1A00     		movs	r2, r3
+ 1413 0706 784B     		ldr	r3, .L47+16
+ 1414 0708 1A60     		str	r2, [r3]
+ 273:State_machine.c ****             erreur_int_pid1+=consigne;
+ 1415              		.loc 1 273 0
+ 1416 070a 774B     		ldr	r3, .L47+16
+ 1417 070c 1A68     		ldr	r2, [r3]
+ 1418 070e 774B     		ldr	r3, .L47+20
+ 1419 0710 1B68     		ldr	r3, [r3]
+ 1420 0712 D218     		adds	r2, r2, r3
+ 1421 0714 754B     		ldr	r3, .L47+20
+ 1422 0716 1A60     		str	r2, [r3]
+ 274:State_machine.c ****             out_deriv=(((consigne-erreur_av_pid1)+out_deriv_av1/N)*((int32)param.Kd1_num))/((((((in
+ 1423              		.loc 1 274 0
+ 1424 0718 734B     		ldr	r3, .L47+16
+ 1425 071a 1A68     		ldr	r2, [r3]
+ 1426 071c 744B     		ldr	r3, .L47+24
+ 1427 071e 1B68     		ldr	r3, [r3]
+ 1428 0720 D41A     		subs	r4, r2, r3
+ 1429 0722 744B     		ldr	r3, .L47+28
+ 1430 0724 1A68     		ldr	r2, [r3]
+ 1431 0726 744B     		ldr	r3, .L47+32
+ 1432 0728 1B68     		ldr	r3, [r3]
+ 1433 072a 1900     		movs	r1, r3
+ 1434 072c 1000     		movs	r0, r2
+ 1435 072e FFF7FEFF 		bl	__aeabi_idiv
+ 1436 0732 0300     		movs	r3, r0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 31
+
+
+ 1437 0734 E318     		adds	r3, r4, r3
+ 1438 0736 714A     		ldr	r2, .L47+36
+ 1439 0738 9289     		ldrh	r2, [r2, #12]
+ 1440 073a 92B2     		uxth	r2, r2
+ 1441 073c 5A43     		muls	r2, r3
+ 1442 073e 1400     		movs	r4, r2
+ 1443 0740 6E4B     		ldr	r3, .L47+36
+ 1444 0742 DB89     		ldrh	r3, [r3, #14]
+ 1445 0744 9BB2     		uxth	r3, r3
+ 1446 0746 1A00     		movs	r2, r3
+ 1447 0748 6C4B     		ldr	r3, .L47+36
+ 1448 074a 1B88     		ldrh	r3, [r3]
+ 1449 074c 9BB2     		uxth	r3, r3
+ 1450 074e 5A43     		muls	r2, r3
+ 1451 0750 FA23     		movs	r3, #250
+ 1452 0752 9900     		lsls	r1, r3, #2
+ 1453 0754 1000     		movs	r0, r2
+ 1454 0756 FFF7FEFF 		bl	__aeabi_idiv
+ 1455 075a 0300     		movs	r3, r0
+ 1456 075c 1D00     		movs	r5, r3
+ 1457 075e 674B     		ldr	r3, .L47+36
+ 1458 0760 9B89     		ldrh	r3, [r3, #12]
+ 1459 0762 9BB2     		uxth	r3, r3
+ 1460 0764 1A00     		movs	r2, r3
+ 1461 0766 644B     		ldr	r3, .L47+32
+ 1462 0768 1B68     		ldr	r3, [r3]
+ 1463 076a 1900     		movs	r1, r3
+ 1464 076c 1000     		movs	r0, r2
+ 1465 076e FFF7FEFF 		bl	__aeabi_idiv
+ 1466 0772 0300     		movs	r3, r0
+ 1467 0774 EB18     		adds	r3, r5, r3
+ 1468 0776 0133     		adds	r3, r3, #1
+ 1469 0778 1900     		movs	r1, r3
+ 1470 077a 2000     		movs	r0, r4
+ 1471 077c FFF7FEFF 		bl	__aeabi_idiv
+ 1472 0780 0300     		movs	r3, r0
+ 1473 0782 7B60     		str	r3, [r7, #4]
+ 275:State_machine.c ****             spid1=((int32)param.Ki1_num*erreur_int_pid1*(int32)param.Tech)/((int32)param.Ki1_den*10
+ 1474              		.loc 1 275 0
+ 1475 0784 5D4B     		ldr	r3, .L47+36
+ 1476 0786 9B8A     		ldrh	r3, [r3, #20]
+ 1477 0788 9BB2     		uxth	r3, r3
+ 1478 078a 1A00     		movs	r2, r3
+ 1479 078c 574B     		ldr	r3, .L47+20
+ 1480 078e 1B68     		ldr	r3, [r3]
+ 1481 0790 5343     		muls	r3, r2
+ 1482 0792 5A4A     		ldr	r2, .L47+36
+ 1483 0794 1288     		ldrh	r2, [r2]
+ 1484 0796 92B2     		uxth	r2, r2
+ 1485 0798 5A43     		muls	r2, r3
+ 1486 079a 584B     		ldr	r3, .L47+36
+ 1487 079c DB8A     		ldrh	r3, [r3, #22]
+ 1488 079e 9BB2     		uxth	r3, r3
+ 1489 07a0 1900     		movs	r1, r3
+ 1490 07a2 FA23     		movs	r3, #250
+ 1491 07a4 9B00     		lsls	r3, r3, #2
+ 1492 07a6 4B43     		muls	r3, r1
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 32
+
+
+ 1493 07a8 1900     		movs	r1, r3
+ 1494 07aa 1000     		movs	r0, r2
+ 1495 07ac FFF7FEFF 		bl	__aeabi_idiv
+ 1496 07b0 0300     		movs	r3, r0
+ 1497 07b2 1A00     		movs	r2, r3
+ 1498 07b4 524B     		ldr	r3, .L47+40
+ 1499 07b6 1A60     		str	r2, [r3]
+ 276:State_machine.c ****             spid2=out_deriv;
+ 1500              		.loc 1 276 0
+ 1501 07b8 524B     		ldr	r3, .L47+44
+ 1502 07ba 7A68     		ldr	r2, [r7, #4]
+ 1503 07bc 1A60     		str	r2, [r3]
+ 277:State_machine.c ****             erreur_av_pid1=consigne;
+ 1504              		.loc 1 277 0
+ 1505 07be 4A4B     		ldr	r3, .L47+16
+ 1506 07c0 1A68     		ldr	r2, [r3]
+ 1507 07c2 4B4B     		ldr	r3, .L47+24
+ 1508 07c4 1A60     		str	r2, [r3]
+ 278:State_machine.c ****             out_deriv_av1=out_deriv;
+ 1509              		.loc 1 278 0
+ 1510 07c6 4B4B     		ldr	r3, .L47+28
+ 1511 07c8 7A68     		ldr	r2, [r7, #4]
+ 1512 07ca 1A60     		str	r2, [r3]
+ 279:State_machine.c ****             epsilon=(consigne>>1)+500; 
+ 1513              		.loc 1 279 0
+ 1514 07cc 464B     		ldr	r3, .L47+16
+ 1515 07ce 1B68     		ldr	r3, [r3]
+ 1516 07d0 5B10     		asrs	r3, r3, #1
+ 1517 07d2 F533     		adds	r3, r3, #245
+ 1518 07d4 FF33     		adds	r3, r3, #255
+ 1519 07d6 1A00     		movs	r2, r3
+ 1520 07d8 4B4B     		ldr	r3, .L47+48
+ 1521 07da 1A60     		str	r2, [r3]
+ 280:State_machine.c ****             if (epsilon<0) epsilon=0;
+ 1522              		.loc 1 280 0
+ 1523 07dc 4A4B     		ldr	r3, .L47+48
+ 1524 07de 1B68     		ldr	r3, [r3]
+ 1525 07e0 002B     		cmp	r3, #0
+ 1526 07e2 02DA     		bge	.L41
+ 1527              		.loc 1 280 0 is_stmt 0 discriminator 1
+ 1528 07e4 484B     		ldr	r3, .L47+48
+ 1529 07e6 0022     		movs	r2, #0
+ 1530 07e8 1A60     		str	r2, [r3]
+ 1531              	.L41:
+ 281:State_machine.c ****             if (epsilon>1000) epsilon=1000;
+ 1532              		.loc 1 281 0 is_stmt 1
+ 1533 07ea 474B     		ldr	r3, .L47+48
+ 1534 07ec 1A68     		ldr	r2, [r3]
+ 1535 07ee FA23     		movs	r3, #250
+ 1536 07f0 9B00     		lsls	r3, r3, #2
+ 1537 07f2 9A42     		cmp	r2, r3
+ 1538 07f4 03DD     		ble	.L42
+ 1539              		.loc 1 281 0 is_stmt 0 discriminator 1
+ 1540 07f6 444B     		ldr	r3, .L47+48
+ 1541 07f8 FA22     		movs	r2, #250
+ 1542 07fa 9200     		lsls	r2, r2, #2
+ 1543 07fc 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 33
+
+
+ 1544              	.L42:
+ 282:State_machine.c ****             pwm1_valeur=epsilon;      
+ 1545              		.loc 1 282 0 is_stmt 1
+ 1546 07fe 424B     		ldr	r3, .L47+48
+ 1547 0800 1A68     		ldr	r2, [r3]
+ 1548 0802 424B     		ldr	r3, .L47+52
+ 1549 0804 1A60     		str	r2, [r3]
+ 1550              	.L31:
+ 283:State_machine.c ****         }
+ 284:State_machine.c **** 
+ 285:State_machine.c ****     // Debut transmission donnée    
+ 286:State_machine.c ****         UART_UartPutChar('P'); //debut trame envoie de donnee
+ 1551              		.loc 1 286 0
+ 1552 0806 5020     		movs	r0, #80
+ 1553 0808 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 287:State_machine.c ****         UART_UartPutChar('P');
+ 1554              		.loc 1 287 0
+ 1555 080c 5020     		movs	r0, #80
+ 1556 080e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 288:State_machine.c ****         UART_UartPutChar((DI_Fdd_Read()|DI_Fdg_Read())<<2); // mot de controle fin de course actifs
+ 1557              		.loc 1 288 0
+ 1558 0812 FFF7FEFF 		bl	DI_Fdd_Read
+ 1559 0816 0300     		movs	r3, r0
+ 1560 0818 1C00     		movs	r4, r3
+ 1561 081a FFF7FEFF 		bl	DI_Fdg_Read
+ 1562 081e 0300     		movs	r3, r0
+ 1563 0820 2343     		orrs	r3, r4
+ 1564 0822 DBB2     		uxtb	r3, r3
+ 1565 0824 9B00     		lsls	r3, r3, #2
+ 1566 0826 1800     		movs	r0, r3
+ 1567 0828 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 289:State_machine.c ****         UART_UartPutChar(param.Tech>>8); //envoie Tech
+ 1568              		.loc 1 289 0
+ 1569 082c 334B     		ldr	r3, .L47+36
+ 1570 082e 1B88     		ldrh	r3, [r3]
+ 1571 0830 9BB2     		uxth	r3, r3
+ 1572 0832 1B0A     		lsrs	r3, r3, #8
+ 1573 0834 9BB2     		uxth	r3, r3
+ 1574 0836 1800     		movs	r0, r3
+ 1575 0838 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 290:State_machine.c ****         UART_UartPutChar(param.Tech);
+ 1576              		.loc 1 290 0
+ 1577 083c 2F4B     		ldr	r3, .L47+36
+ 1578 083e 1B88     		ldrh	r3, [r3]
+ 1579 0840 9BB2     		uxth	r3, r3
+ 1580 0842 1800     		movs	r0, r3
+ 1581 0844 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 291:State_machine.c ****         // ensuite envoi consigne,epsilon,spid1,spid2,val1,val2
+ 292:State_machine.c ****         UART_UartPutChar(consigne>>8); //envoie consigne
+ 1582              		.loc 1 292 0
+ 1583 0848 274B     		ldr	r3, .L47+16
+ 1584 084a 1B68     		ldr	r3, [r3]
+ 1585 084c 1B12     		asrs	r3, r3, #8
+ 1586 084e 1800     		movs	r0, r3
+ 1587 0850 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 293:State_machine.c ****         UART_UartPutChar(consigne);
+ 1588              		.loc 1 293 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 34
+
+
+ 1589 0854 244B     		ldr	r3, .L47+16
+ 1590 0856 1B68     		ldr	r3, [r3]
+ 1591 0858 1800     		movs	r0, r3
+ 1592 085a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 294:State_machine.c ****         UART_UartPutChar(epsilon>>8);
+ 1593              		.loc 1 294 0
+ 1594 085e 2A4B     		ldr	r3, .L47+48
+ 1595 0860 1B68     		ldr	r3, [r3]
+ 1596 0862 1B12     		asrs	r3, r3, #8
+ 1597 0864 1800     		movs	r0, r3
+ 1598 0866 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 295:State_machine.c ****         UART_UartPutChar(epsilon);
+ 1599              		.loc 1 295 0
+ 1600 086a 274B     		ldr	r3, .L47+48
+ 1601 086c 1B68     		ldr	r3, [r3]
+ 1602 086e 1800     		movs	r0, r3
+ 1603 0870 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 296:State_machine.c ****         UART_UartPutChar(spid1>>8);
+ 1604              		.loc 1 296 0
+ 1605 0874 224B     		ldr	r3, .L47+40
+ 1606 0876 1B68     		ldr	r3, [r3]
+ 1607 0878 1B12     		asrs	r3, r3, #8
+ 1608 087a 1800     		movs	r0, r3
+ 1609 087c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 297:State_machine.c ****         UART_UartPutChar(spid1);
+ 1610              		.loc 1 297 0
+ 1611 0880 1F4B     		ldr	r3, .L47+40
+ 1612 0882 1B68     		ldr	r3, [r3]
+ 1613 0884 1800     		movs	r0, r3
+ 1614 0886 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 298:State_machine.c ****         UART_UartPutChar(spid2>>8);
+ 1615              		.loc 1 298 0
+ 1616 088a 1E4B     		ldr	r3, .L47+44
+ 1617 088c 1B68     		ldr	r3, [r3]
+ 1618 088e 1B12     		asrs	r3, r3, #8
+ 1619 0890 1800     		movs	r0, r3
+ 1620 0892 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 299:State_machine.c ****         UART_UartPutChar(spid2);
+ 1621              		.loc 1 299 0
+ 1622 0896 1B4B     		ldr	r3, .L47+44
+ 1623 0898 1B68     		ldr	r3, [r3]
+ 1624 089a 1800     		movs	r0, r3
+ 1625 089c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 300:State_machine.c ****         UART_UartPutChar(val1>>8);
+ 1626              		.loc 1 300 0
+ 1627 08a0 1B4B     		ldr	r3, .L47+56
+ 1628 08a2 1B68     		ldr	r3, [r3]
+ 1629 08a4 1B12     		asrs	r3, r3, #8
+ 1630 08a6 1800     		movs	r0, r3
+ 1631 08a8 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 301:State_machine.c ****         UART_UartPutChar(val1);
+ 1632              		.loc 1 301 0
+ 1633 08ac 184B     		ldr	r3, .L47+56
+ 1634 08ae 1B68     		ldr	r3, [r3]
+ 1635 08b0 1800     		movs	r0, r3
+ 1636 08b2 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 302:State_machine.c ****         UART_UartPutChar(val2>>8);
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 35
+
+
+ 1637              		.loc 1 302 0
+ 1638 08b6 174B     		ldr	r3, .L47+60
+ 1639 08b8 1B68     		ldr	r3, [r3]
+ 1640 08ba 1B12     		asrs	r3, r3, #8
+ 1641 08bc 1800     		movs	r0, r3
+ 1642 08be FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 303:State_machine.c ****         UART_UartPutChar(val2);
+ 1643              		.loc 1 303 0
+ 1644 08c2 144B     		ldr	r3, .L47+60
+ 1645 08c4 1B68     		ldr	r3, [r3]
+ 1646 08c6 1800     		movs	r0, r3
+ 1647 08c8 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 304:State_machine.c ****         sent=0;
+ 1648              		.loc 1 304 0
+ 1649 08cc 124B     		ldr	r3, .L47+64
+ 1650 08ce 0022     		movs	r2, #0
+ 1651 08d0 1A70     		strb	r2, [r3]
+ 1652              	.L24:
+ 305:State_machine.c ****     }
+ 306:State_machine.c ****     else
+ 307:State_machine.c ****     {
+ 308:State_machine.c ****     }
+ 309:State_machine.c **** }
+ 1653              		.loc 1 309 0
+ 1654 08d2 BD46     		mov	sp, r7
+ 1655 08d4 02B0     		add	sp, sp, #8
+ 1656              		@ sp needed
+ 1657 08d6 B0BD     		pop	{r4, r5, r7, pc}
+ 1658              	.L48:
+ 1659              		.align	2
+ 1660              	.L47:
+ 1661 08d8 00000000 		.word	pointeur_gen
+ 1662 08dc 00000000 		.word	index_gen
+ 1663 08e0 00000000 		.word	gain_pwm1
+ 1664 08e4 00000000 		.word	offset_pwm1
+ 1665 08e8 00000000 		.word	consigne
+ 1666 08ec 00000000 		.word	erreur_int_pid1
+ 1667 08f0 00000000 		.word	erreur_av_pid1
+ 1668 08f4 00000000 		.word	out_deriv_av1
+ 1669 08f8 00000000 		.word	N
+ 1670 08fc 00000000 		.word	param
+ 1671 0900 00000000 		.word	spid1
+ 1672 0904 00000000 		.word	spid2
+ 1673 0908 00000000 		.word	epsilon
+ 1674 090c 00000000 		.word	pwm1_valeur
+ 1675 0910 00000000 		.word	val1
+ 1676 0914 00000000 		.word	val2
+ 1677 0918 00000000 		.word	sent
+ 1678              		.cfi_endproc
+ 1679              	.LFE35:
+ 1680              		.size	marche, .-marche
+ 1681              		.section	.text.arret_urg,"ax",%progbits
+ 1682              		.align	2
+ 1683              		.global	arret_urg
+ 1684              		.code	16
+ 1685              		.thumb_func
+ 1686              		.type	arret_urg, %function
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 36
+
+
+ 1687              	arret_urg:
+ 1688              	.LFB36:
+ 310:State_machine.c **** 
+ 311:State_machine.c **** void arret_urg() {
+ 1689              		.loc 1 311 0
+ 1690              		.cfi_startproc
+ 1691              		@ args = 0, pretend = 0, frame = 0
+ 1692              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1693 0000 80B5     		push	{r7, lr}
+ 1694              		.cfi_def_cfa_offset 8
+ 1695              		.cfi_offset 7, -8
+ 1696              		.cfi_offset 14, -4
+ 1697 0002 00AF     		add	r7, sp, #0
+ 1698              		.cfi_def_cfa_register 7
+ 312:State_machine.c ****     LED_Write(0);
+ 1699              		.loc 1 312 0
+ 1700 0004 0020     		movs	r0, #0
+ 1701 0006 FFF7FEFF 		bl	LED_Write
+ 313:State_machine.c ****             IN1_L298_Write(0);
+ 1702              		.loc 1 313 0
+ 1703 000a 0020     		movs	r0, #0
+ 1704 000c FFF7FEFF 		bl	IN1_L298_Write
+ 314:State_machine.c ****         IN2_L298_Write(0);
+ 1705              		.loc 1 314 0
+ 1706 0010 0020     		movs	r0, #0
+ 1707 0012 FFF7FEFF 		bl	IN2_L298_Write
+ 315:State_machine.c ****         PWM_WriteCompare(0);
+ 1708              		.loc 1 315 0
+ 1709 0016 0020     		movs	r0, #0
+ 1710 0018 FFF7FEFF 		bl	PWM_WriteCompare
+ 316:State_machine.c ****     if(DI_ATU_Read())
+ 1711              		.loc 1 316 0
+ 1712 001c FFF7FEFF 		bl	DI_ATU_Read
+ 1713 0020 031E     		subs	r3, r0, #0
+ 1714 0022 06D0     		beq	.L50
+ 317:State_machine.c ****     {
+ 318:State_machine.c ****         statefunc = arret;
+ 1715              		.loc 1 318 0
+ 1716 0024 064B     		ldr	r3, .L53
+ 1717 0026 074A     		ldr	r2, .L53+4
+ 1718 0028 1A60     		str	r2, [r3]
+ 319:State_machine.c ****         send_control_frame(AT);
+ 1719              		.loc 1 319 0
+ 1720 002a 0120     		movs	r0, #1
+ 1721 002c FFF7FEFF 		bl	send_control_frame
+ 320:State_machine.c ****     }
+ 321:State_machine.c ****     else
+ 322:State_machine.c ****     {
+ 323:State_machine.c ****         statefunc=arret_urg;
+ 324:State_machine.c ****     }
+ 325:State_machine.c **** }
+ 1722              		.loc 1 325 0
+ 1723 0030 02E0     		b	.L52
+ 1724              	.L50:
+ 323:State_machine.c ****     }
+ 1725              		.loc 1 323 0
+ 1726 0032 034B     		ldr	r3, .L53
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 37
+
+
+ 1727 0034 044A     		ldr	r2, .L53+8
+ 1728 0036 1A60     		str	r2, [r3]
+ 1729              	.L52:
+ 1730              		.loc 1 325 0
+ 1731 0038 C046     		nop
+ 1732 003a BD46     		mov	sp, r7
+ 1733              		@ sp needed
+ 1734 003c 80BD     		pop	{r7, pc}
+ 1735              	.L54:
+ 1736 003e C046     		.align	2
+ 1737              	.L53:
+ 1738 0040 00000000 		.word	statefunc
+ 1739 0044 00000000 		.word	arret
+ 1740 0048 00000000 		.word	arret_urg
+ 1741              		.cfi_endproc
+ 1742              	.LFE36:
+ 1743              		.size	arret_urg, .-arret_urg
+ 1744              		.section	.text.send_control_frame,"ax",%progbits
+ 1745              		.align	2
+ 1746              		.global	send_control_frame
+ 1747              		.code	16
+ 1748              		.thumb_func
+ 1749              		.type	send_control_frame, %function
+ 1750              	send_control_frame:
+ 1751              	.LFB37:
+ 326:State_machine.c **** 
+ 327:State_machine.c **** void send_control_frame(uint32 state)
+ 328:State_machine.c **** {
+ 1752              		.loc 1 328 0
+ 1753              		.cfi_startproc
+ 1754              		@ args = 0, pretend = 0, frame = 8
+ 1755              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1756 0000 80B5     		push	{r7, lr}
+ 1757              		.cfi_def_cfa_offset 8
+ 1758              		.cfi_offset 7, -8
+ 1759              		.cfi_offset 14, -4
+ 1760 0002 82B0     		sub	sp, sp, #8
+ 1761              		.cfi_def_cfa_offset 16
+ 1762 0004 00AF     		add	r7, sp, #0
+ 1763              		.cfi_def_cfa_register 7
+ 1764 0006 7860     		str	r0, [r7, #4]
+ 329:State_machine.c ****         UART_UartPutChar('P'); //debut trame envoie de donnee
+ 1765              		.loc 1 329 0
+ 1766 0008 5020     		movs	r0, #80
+ 1767 000a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 330:State_machine.c ****         UART_UartPutChar(state); // modifier pour envoie mot de controle (etat)
+ 1768              		.loc 1 330 0
+ 1769 000e 7B68     		ldr	r3, [r7, #4]
+ 1770 0010 1800     		movs	r0, r3
+ 1771 0012 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 331:State_machine.c ****         UART_UartPutChar(param.Tech>>8); //envoie Tech
+ 1772              		.loc 1 331 0
+ 1773 0016 1B4B     		ldr	r3, .L56
+ 1774 0018 1B88     		ldrh	r3, [r3]
+ 1775 001a 9BB2     		uxth	r3, r3
+ 1776 001c 1B0A     		lsrs	r3, r3, #8
+ 1777 001e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 38
+
+
+ 1778 0020 1800     		movs	r0, r3
+ 1779 0022 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 332:State_machine.c ****         UART_UartPutChar(param.Tech);
+ 1780              		.loc 1 332 0
+ 1781 0026 174B     		ldr	r3, .L56
+ 1782 0028 1B88     		ldrh	r3, [r3]
+ 1783 002a 9BB2     		uxth	r3, r3
+ 1784 002c 1800     		movs	r0, r3
+ 1785 002e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 333:State_machine.c ****         // ensuite envoi consigne,epsilon,spid1,spid2,val1,val2
+ 334:State_machine.c ****         UART_UartPutChar(0); //envoie dummy values
+ 1786              		.loc 1 334 0
+ 1787 0032 0020     		movs	r0, #0
+ 1788 0034 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 335:State_machine.c ****         UART_UartPutChar(0);
+ 1789              		.loc 1 335 0
+ 1790 0038 0020     		movs	r0, #0
+ 1791 003a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 336:State_machine.c ****         UART_UartPutChar(0);
+ 1792              		.loc 1 336 0
+ 1793 003e 0020     		movs	r0, #0
+ 1794 0040 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 337:State_machine.c ****         UART_UartPutChar(0);
+ 1795              		.loc 1 337 0
+ 1796 0044 0020     		movs	r0, #0
+ 1797 0046 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 338:State_machine.c ****         UART_UartPutChar(0);
+ 1798              		.loc 1 338 0
+ 1799 004a 0020     		movs	r0, #0
+ 1800 004c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 339:State_machine.c ****         UART_UartPutChar(0);
+ 1801              		.loc 1 339 0
+ 1802 0050 0020     		movs	r0, #0
+ 1803 0052 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 340:State_machine.c ****         UART_UartPutChar(0);
+ 1804              		.loc 1 340 0
+ 1805 0056 0020     		movs	r0, #0
+ 1806 0058 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 341:State_machine.c ****         UART_UartPutChar(0);
+ 1807              		.loc 1 341 0
+ 1808 005c 0020     		movs	r0, #0
+ 1809 005e FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 342:State_machine.c ****         UART_UartPutChar(0);
+ 1810              		.loc 1 342 0
+ 1811 0062 0020     		movs	r0, #0
+ 1812 0064 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 343:State_machine.c ****         UART_UartPutChar(0);
+ 1813              		.loc 1 343 0
+ 1814 0068 0020     		movs	r0, #0
+ 1815 006a FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 344:State_machine.c ****         UART_UartPutChar(0);
+ 1816              		.loc 1 344 0
+ 1817 006e 0020     		movs	r0, #0
+ 1818 0070 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 345:State_machine.c ****         UART_UartPutChar(0);
+ 1819              		.loc 1 345 0
+ 1820 0074 0020     		movs	r0, #0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 39
+
+
+ 1821 0076 FFF7FEFF 		bl	UART_SpiUartWriteTxData
+ 346:State_machine.c **** }
+ 1822              		.loc 1 346 0
+ 1823 007a C046     		nop
+ 1824 007c BD46     		mov	sp, r7
+ 1825 007e 02B0     		add	sp, sp, #8
+ 1826              		@ sp needed
+ 1827 0080 80BD     		pop	{r7, pc}
+ 1828              	.L57:
+ 1829 0082 C046     		.align	2
+ 1830              	.L56:
+ 1831 0084 00000000 		.word	param
+ 1832              		.cfi_endproc
+ 1833              	.LFE37:
+ 1834              		.size	send_control_frame, .-send_control_frame
+ 1835              		.text
+ 1836              	.Letext0:
+ 1837              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 1838              		.file 3 "proj_types.h"
+ 1839              		.file 4 "UART_XG.h"
+ 1840              		.file 5 "State_machine.h"
+ 1841              		.section	.debug_info,"",%progbits
+ 1842              	.Ldebug_info0:
+ 1843 0000 62040000 		.4byte	0x462
+ 1844 0004 0400     		.2byte	0x4
+ 1845 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1846 000a 04       		.byte	0x4
+ 1847 000b 01       		.uleb128 0x1
+ 1848 000c 27010000 		.4byte	.LASF80
+ 1849 0010 0C       		.byte	0xc
+ 1850 0011 4F030000 		.4byte	.LASF81
+ 1851 0015 A6030000 		.4byte	.LASF82
+ 1852 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1853 001d 00000000 		.4byte	0
+ 1854 0021 00000000 		.4byte	.Ldebug_line0
+ 1855 0025 02       		.uleb128 0x2
+ 1856 0026 01       		.byte	0x1
+ 1857 0027 06       		.byte	0x6
+ 1858 0028 FB010000 		.4byte	.LASF0
+ 1859 002c 02       		.uleb128 0x2
+ 1860 002d 01       		.byte	0x1
+ 1861 002e 08       		.byte	0x8
+ 1862 002f 19010000 		.4byte	.LASF1
+ 1863 0033 02       		.uleb128 0x2
+ 1864 0034 02       		.byte	0x2
+ 1865 0035 05       		.byte	0x5
+ 1866 0036 5F000000 		.4byte	.LASF2
+ 1867 003a 02       		.uleb128 0x2
+ 1868 003b 02       		.byte	0x2
+ 1869 003c 07       		.byte	0x7
+ 1870 003d B3020000 		.4byte	.LASF3
+ 1871 0041 02       		.uleb128 0x2
+ 1872 0042 04       		.byte	0x4
+ 1873 0043 05       		.byte	0x5
+ 1874 0044 E9000000 		.4byte	.LASF4
+ 1875 0048 02       		.uleb128 0x2
+ 1876 0049 04       		.byte	0x4
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 40
+
+
+ 1877 004a 07       		.byte	0x7
+ 1878 004b 49020000 		.4byte	.LASF5
+ 1879 004f 02       		.uleb128 0x2
+ 1880 0050 08       		.byte	0x8
+ 1881 0051 05       		.byte	0x5
+ 1882 0052 D3000000 		.4byte	.LASF6
+ 1883 0056 02       		.uleb128 0x2
+ 1884 0057 08       		.byte	0x8
+ 1885 0058 07       		.byte	0x7
+ 1886 0059 11020000 		.4byte	.LASF7
+ 1887 005d 03       		.uleb128 0x3
+ 1888 005e 04       		.byte	0x4
+ 1889 005f 05       		.byte	0x5
+ 1890 0060 696E7400 		.ascii	"int\000"
+ 1891 0064 02       		.uleb128 0x2
+ 1892 0065 04       		.byte	0x4
+ 1893 0066 07       		.byte	0x7
+ 1894 0067 32020000 		.4byte	.LASF8
+ 1895 006b 04       		.uleb128 0x4
+ 1896 006c B6000000 		.4byte	.LASF9
+ 1897 0070 02       		.byte	0x2
+ 1898 0071 E601     		.2byte	0x1e6
+ 1899 0073 2C000000 		.4byte	0x2c
+ 1900 0077 04       		.uleb128 0x4
+ 1901 0078 A9000000 		.4byte	.LASF10
+ 1902 007c 02       		.byte	0x2
+ 1903 007d E701     		.2byte	0x1e7
+ 1904 007f 3A000000 		.4byte	0x3a
+ 1905 0083 04       		.uleb128 0x4
+ 1906 0084 E2020000 		.4byte	.LASF11
+ 1907 0088 02       		.byte	0x2
+ 1908 0089 E801     		.2byte	0x1e8
+ 1909 008b 48000000 		.4byte	0x48
+ 1910 008f 04       		.uleb128 0x4
+ 1911 0090 B0000000 		.4byte	.LASF12
+ 1912 0094 02       		.byte	0x2
+ 1913 0095 EA01     		.2byte	0x1ea
+ 1914 0097 33000000 		.4byte	0x33
+ 1915 009b 04       		.uleb128 0x4
+ 1916 009c 17030000 		.4byte	.LASF13
+ 1917 00a0 02       		.byte	0x2
+ 1918 00a1 EB01     		.2byte	0x1eb
+ 1919 00a3 41000000 		.4byte	0x41
+ 1920 00a7 02       		.uleb128 0x2
+ 1921 00a8 04       		.byte	0x4
+ 1922 00a9 04       		.byte	0x4
+ 1923 00aa C1000000 		.4byte	.LASF14
+ 1924 00ae 02       		.uleb128 0x2
+ 1925 00af 08       		.byte	0x8
+ 1926 00b0 04       		.byte	0x4
+ 1927 00b1 72030000 		.4byte	.LASF15
+ 1928 00b5 02       		.uleb128 0x2
+ 1929 00b6 01       		.byte	0x1
+ 1930 00b7 08       		.byte	0x8
+ 1931 00b8 92020000 		.4byte	.LASF16
+ 1932 00bc 05       		.uleb128 0x5
+ 1933 00bd 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 41
+
+
+ 1934 00c1 05       		.uleb128 0x5
+ 1935 00c2 83000000 		.4byte	0x83
+ 1936 00c6 02       		.uleb128 0x2
+ 1937 00c7 08       		.byte	0x8
+ 1938 00c8 04       		.byte	0x4
+ 1939 00c9 CE010000 		.4byte	.LASF17
+ 1940 00cd 02       		.uleb128 0x2
+ 1941 00ce 04       		.byte	0x4
+ 1942 00cf 07       		.byte	0x7
+ 1943 00d0 82000000 		.4byte	.LASF18
+ 1944 00d4 06       		.uleb128 0x6
+ 1945 00d5 01       		.byte	0x1
+ 1946 00d6 2C000000 		.4byte	0x2c
+ 1947 00da 03       		.byte	0x3
+ 1948 00db 11       		.byte	0x11
+ 1949 00dc ED000000 		.4byte	0xed
+ 1950 00e0 07       		.uleb128 0x7
+ 1951 00e1 8E030000 		.4byte	.LASF19
+ 1952 00e5 00       		.byte	0
+ 1953 00e6 07       		.uleb128 0x7
+ 1954 00e7 C6020000 		.4byte	.LASF20
+ 1955 00eb 01       		.byte	0x1
+ 1956 00ec 00       		.byte	0
+ 1957 00ed 08       		.uleb128 0x8
+ 1958 00ee BC000000 		.4byte	.LASF21
+ 1959 00f2 03       		.byte	0x3
+ 1960 00f3 11       		.byte	0x11
+ 1961 00f4 D4000000 		.4byte	0xd4
+ 1962 00f8 09       		.uleb128 0x9
+ 1963 00f9 28       		.byte	0x28
+ 1964 00fa 03       		.byte	0x3
+ 1965 00fb 27       		.byte	0x27
+ 1966 00fc F1010000 		.4byte	0x1f1
+ 1967 0100 0A       		.uleb128 0xa
+ 1968 0101 DA010000 		.4byte	.LASF22
+ 1969 0105 03       		.byte	0x3
+ 1970 0106 28       		.byte	0x28
+ 1971 0107 77000000 		.4byte	0x77
+ 1972 010b 00       		.byte	0
+ 1973 010c 0A       		.uleb128 0xa
+ 1974 010d 02010000 		.4byte	.LASF23
+ 1975 0111 03       		.byte	0x3
+ 1976 0112 29       		.byte	0x29
+ 1977 0113 B5000000 		.4byte	0xb5
+ 1978 0117 02       		.byte	0x2
+ 1979 0118 0A       		.uleb128 0xa
+ 1980 0119 CB020000 		.4byte	.LASF24
+ 1981 011d 03       		.byte	0x3
+ 1982 011e 2A       		.byte	0x2a
+ 1983 011f 77000000 		.4byte	0x77
+ 1984 0123 04       		.byte	0x4
+ 1985 0124 0A       		.uleb128 0xa
+ 1986 0125 5B020000 		.4byte	.LASF25
+ 1987 0129 03       		.byte	0x3
+ 1988 012a 2B       		.byte	0x2b
+ 1989 012b 77000000 		.4byte	0x77
+ 1990 012f 06       		.byte	0x6
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 42
+
+
+ 1991 0130 0A       		.uleb128 0xa
+ 1992 0131 1D000000 		.4byte	.LASF26
+ 1993 0135 03       		.byte	0x3
+ 1994 0136 2C       		.byte	0x2c
+ 1995 0137 77000000 		.4byte	0x77
+ 1996 013b 08       		.byte	0x8
+ 1997 013c 0A       		.uleb128 0xa
+ 1998 013d 86030000 		.4byte	.LASF27
+ 1999 0141 03       		.byte	0x3
+ 2000 0142 2D       		.byte	0x2d
+ 2001 0143 77000000 		.4byte	0x77
+ 2002 0147 0A       		.byte	0xa
+ 2003 0148 0A       		.uleb128 0xa
+ 2004 0149 2B030000 		.4byte	.LASF28
+ 2005 014d 03       		.byte	0x3
+ 2006 014e 2E       		.byte	0x2e
+ 2007 014f 77000000 		.4byte	0x77
+ 2008 0153 0C       		.byte	0xc
+ 2009 0154 0A       		.uleb128 0xa
+ 2010 0155 AB020000 		.4byte	.LASF29
+ 2011 0159 03       		.byte	0x3
+ 2012 015a 2F       		.byte	0x2f
+ 2013 015b 77000000 		.4byte	0x77
+ 2014 015f 0E       		.byte	0xe
+ 2015 0160 0A       		.uleb128 0xa
+ 2016 0161 90000000 		.4byte	.LASF30
+ 2017 0165 03       		.byte	0x3
+ 2018 0166 30       		.byte	0x30
+ 2019 0167 77000000 		.4byte	0x77
+ 2020 016b 10       		.byte	0x10
+ 2021 016c 0A       		.uleb128 0xa
+ 2022 016d 00000000 		.4byte	.LASF31
+ 2023 0171 03       		.byte	0x3
+ 2024 0172 31       		.byte	0x31
+ 2025 0173 77000000 		.4byte	0x77
+ 2026 0177 12       		.byte	0x12
+ 2027 0178 0A       		.uleb128 0xa
+ 2028 0179 08000000 		.4byte	.LASF32
+ 2029 017d 03       		.byte	0x3
+ 2030 017e 32       		.byte	0x32
+ 2031 017f 77000000 		.4byte	0x77
+ 2032 0183 14       		.byte	0x14
+ 2033 0184 0A       		.uleb128 0xa
+ 2034 0185 8A020000 		.4byte	.LASF33
+ 2035 0189 03       		.byte	0x3
+ 2036 018a 33       		.byte	0x33
+ 2037 018b 77000000 		.4byte	0x77
+ 2038 018f 16       		.byte	0x16
+ 2039 0190 0A       		.uleb128 0xa
+ 2040 0191 52000000 		.4byte	.LASF34
+ 2041 0195 03       		.byte	0x3
+ 2042 0196 34       		.byte	0x34
+ 2043 0197 77000000 		.4byte	0x77
+ 2044 019b 18       		.byte	0x18
+ 2045 019c 0A       		.uleb128 0xa
+ 2046 019d 9E030000 		.4byte	.LASF35
+ 2047 01a1 03       		.byte	0x3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 43
+
+
+ 2048 01a2 35       		.byte	0x35
+ 2049 01a3 77000000 		.4byte	0x77
+ 2050 01a7 1A       		.byte	0x1a
+ 2051 01a8 0A       		.uleb128 0xa
+ 2052 01a9 09030000 		.4byte	.LASF36
+ 2053 01ad 03       		.byte	0x3
+ 2054 01ae 36       		.byte	0x36
+ 2055 01af B5000000 		.4byte	0xb5
+ 2056 01b3 1C       		.byte	0x1c
+ 2057 01b4 0A       		.uleb128 0xa
+ 2058 01b5 1D030000 		.4byte	.LASF37
+ 2059 01b9 03       		.byte	0x3
+ 2060 01ba 37       		.byte	0x37
+ 2061 01bb 8F000000 		.4byte	0x8f
+ 2062 01bf 1E       		.byte	0x1e
+ 2063 01c0 0A       		.uleb128 0xa
+ 2064 01c1 C7000000 		.4byte	.LASF38
+ 2065 01c5 03       		.byte	0x3
+ 2066 01c6 38       		.byte	0x38
+ 2067 01c7 8F000000 		.4byte	0x8f
+ 2068 01cb 20       		.byte	0x20
+ 2069 01cc 0A       		.uleb128 0xa
+ 2070 01cd 10000000 		.4byte	.LASF39
+ 2071 01d1 03       		.byte	0x3
+ 2072 01d2 39       		.byte	0x39
+ 2073 01d3 77000000 		.4byte	0x77
+ 2074 01d7 22       		.byte	0x22
+ 2075 01d8 0A       		.uleb128 0xa
+ 2076 01d9 79030000 		.4byte	.LASF40
+ 2077 01dd 03       		.byte	0x3
+ 2078 01de 3A       		.byte	0x3a
+ 2079 01df 77000000 		.4byte	0x77
+ 2080 01e3 24       		.byte	0x24
+ 2081 01e4 0B       		.uleb128 0xb
+ 2082 01e5 43524300 		.ascii	"CRC\000"
+ 2083 01e9 03       		.byte	0x3
+ 2084 01ea 3B       		.byte	0x3b
+ 2085 01eb 77000000 		.4byte	0x77
+ 2086 01ef 26       		.byte	0x26
+ 2087 01f0 00       		.byte	0
+ 2088 01f1 08       		.uleb128 0x8
+ 2089 01f2 A2000000 		.4byte	.LASF41
+ 2090 01f6 03       		.byte	0x3
+ 2091 01f7 3C       		.byte	0x3c
+ 2092 01f8 F8000000 		.4byte	0xf8
+ 2093 01fc 0C       		.uleb128 0xc
+ 2094 01fd F2000000 		.4byte	.LASF47
+ 2095 0201 01       		.byte	0x1
+ 2096 0202 12       		.byte	0x12
+ 2097 0203 00000000 		.4byte	.LFB32
+ 2098 0207 2C000000 		.4byte	.LFE32-.LFB32
+ 2099 020b 01       		.uleb128 0x1
+ 2100 020c 9C       		.byte	0x9c
+ 2101 020d 2E020000 		.4byte	0x22e
+ 2102 0211 0D       		.uleb128 0xd
+ 2103 0212 E1000000 		.4byte	.LASF49
+ 2104 0216 01       		.byte	0x1
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 44
+
+
+ 2105 0217 12       		.byte	0x12
+ 2106 0218 83000000 		.4byte	0x83
+ 2107 021c 02       		.uleb128 0x2
+ 2108 021d 91       		.byte	0x91
+ 2109 021e 6C       		.sleb128 -20
+ 2110 021f 0E       		.uleb128 0xe
+ 2111 0220 5A000000 		.4byte	.LASF44
+ 2112 0224 01       		.byte	0x1
+ 2113 0225 14       		.byte	0x14
+ 2114 0226 83000000 		.4byte	0x83
+ 2115 022a 02       		.uleb128 0x2
+ 2116 022b 91       		.byte	0x91
+ 2117 022c 74       		.sleb128 -12
+ 2118 022d 00       		.byte	0
+ 2119 022e 0F       		.uleb128 0xf
+ 2120 022f FD030000 		.4byte	.LASF42
+ 2121 0233 01       		.byte	0x1
+ 2122 0234 19       		.byte	0x19
+ 2123 0235 00000000 		.4byte	.LFB33
+ 2124 0239 70000000 		.4byte	.LFE33-.LFB33
+ 2125 023d 01       		.uleb128 0x1
+ 2126 023e 9C       		.byte	0x9c
+ 2127 023f 0F       		.uleb128 0xf
+ 2128 0240 39030000 		.4byte	.LASF43
+ 2129 0244 01       		.byte	0x1
+ 2130 0245 4F       		.byte	0x4f
+ 2131 0246 00000000 		.4byte	.LFB34
+ 2132 024a 40020000 		.4byte	.LFE34-.LFB34
+ 2133 024e 01       		.uleb128 0x1
+ 2134 024f 9C       		.byte	0x9c
+ 2135 0250 10       		.uleb128 0x10
+ 2136 0251 3F030000 		.4byte	.LASF83
+ 2137 0255 01       		.byte	0x1
+ 2138 0256 B1       		.byte	0xb1
+ 2139 0257 00000000 		.4byte	.LFB35
+ 2140 025b 1C090000 		.4byte	.LFE35-.LFB35
+ 2141 025f 01       		.uleb128 0x1
+ 2142 0260 9C       		.byte	0x9c
+ 2143 0261 82020000 		.4byte	0x282
+ 2144 0265 0E       		.uleb128 0xe
+ 2145 0266 98000000 		.4byte	.LASF45
+ 2146 026a 01       		.byte	0x1
+ 2147 026b B3       		.byte	0xb3
+ 2148 026c 9B000000 		.4byte	0x9b
+ 2149 0270 02       		.uleb128 0x2
+ 2150 0271 91       		.byte	0x91
+ 2151 0272 6C       		.sleb128 -20
+ 2152 0273 0E       		.uleb128 0xe
+ 2153 0274 5A000000 		.4byte	.LASF44
+ 2154 0278 01       		.byte	0x1
+ 2155 0279 B4       		.byte	0xb4
+ 2156 027a 83000000 		.4byte	0x83
+ 2157 027e 02       		.uleb128 0x2
+ 2158 027f 91       		.byte	0x91
+ 2159 0280 68       		.sleb128 -24
+ 2160 0281 00       		.byte	0
+ 2161 0282 11       		.uleb128 0x11
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 45
+
+
+ 2162 0283 28020000 		.4byte	.LASF46
+ 2163 0287 01       		.byte	0x1
+ 2164 0288 3701     		.2byte	0x137
+ 2165 028a 00000000 		.4byte	.LFB36
+ 2166 028e 4C000000 		.4byte	.LFE36-.LFB36
+ 2167 0292 01       		.uleb128 0x1
+ 2168 0293 9C       		.byte	0x9c
+ 2169 0294 12       		.uleb128 0x12
+ 2170 0295 DF010000 		.4byte	.LASF48
+ 2171 0299 01       		.byte	0x1
+ 2172 029a 4701     		.2byte	0x147
+ 2173 029c 00000000 		.4byte	.LFB37
+ 2174 02a0 88000000 		.4byte	.LFE37-.LFB37
+ 2175 02a4 01       		.uleb128 0x1
+ 2176 02a5 9C       		.byte	0x9c
+ 2177 02a6 BA020000 		.4byte	0x2ba
+ 2178 02aa 13       		.uleb128 0x13
+ 2179 02ab 33030000 		.4byte	.LASF50
+ 2180 02af 01       		.byte	0x1
+ 2181 02b0 4701     		.2byte	0x147
+ 2182 02b2 83000000 		.4byte	0x83
+ 2183 02b6 02       		.uleb128 0x2
+ 2184 02b7 91       		.byte	0x91
+ 2185 02b8 74       		.sleb128 -12
+ 2186 02b9 00       		.byte	0
+ 2187 02ba 14       		.uleb128 0x14
+ 2188 02bb CB020000 		.4byte	0x2cb
+ 2189 02bf CB020000 		.4byte	0x2cb
+ 2190 02c3 15       		.uleb128 0x15
+ 2191 02c4 CD000000 		.4byte	0xcd
+ 2192 02c8 FF01     		.2byte	0x1ff
+ 2193 02ca 00       		.byte	0
+ 2194 02cb 16       		.uleb128 0x16
+ 2195 02cc 9B000000 		.4byte	0x9b
+ 2196 02d0 17       		.uleb128 0x17
+ 2197 02d1 6B030000 		.4byte	.LASF51
+ 2198 02d5 03       		.byte	0x3
+ 2199 02d6 1B       		.byte	0x1b
+ 2200 02d7 DB020000 		.4byte	0x2db
+ 2201 02db 16       		.uleb128 0x16
+ 2202 02dc BA020000 		.4byte	0x2ba
+ 2203 02e0 17       		.uleb128 0x17
+ 2204 02e1 F2010000 		.4byte	.LASF52
+ 2205 02e5 03       		.byte	0x3
+ 2206 02e6 1E       		.byte	0x1e
+ 2207 02e7 EB020000 		.4byte	0x2eb
+ 2208 02eb 16       		.uleb128 0x16
+ 2209 02ec BA020000 		.4byte	0x2ba
+ 2210 02f0 17       		.uleb128 0x17
+ 2211 02f1 25000000 		.4byte	.LASF53
+ 2212 02f5 03       		.byte	0x3
+ 2213 02f6 1F       		.byte	0x1f
+ 2214 02f7 FB020000 		.4byte	0x2fb
+ 2215 02fb 16       		.uleb128 0x16
+ 2216 02fc BA020000 		.4byte	0x2ba
+ 2217 0300 17       		.uleb128 0x17
+ 2218 0301 69000000 		.4byte	.LASF54
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 46
+
+
+ 2219 0305 03       		.byte	0x3
+ 2220 0306 20       		.byte	0x20
+ 2221 0307 0B030000 		.4byte	0x30b
+ 2222 030b 16       		.uleb128 0x16
+ 2223 030c BA020000 		.4byte	0x2ba
+ 2224 0310 17       		.uleb128 0x17
+ 2225 0311 5F030000 		.4byte	.LASF55
+ 2226 0315 03       		.byte	0x3
+ 2227 0316 21       		.byte	0x21
+ 2228 0317 ED000000 		.4byte	0xed
+ 2229 031b 17       		.uleb128 0x17
+ 2230 031c 63020000 		.4byte	.LASF56
+ 2231 0320 04       		.byte	0x4
+ 2232 0321 17       		.byte	0x17
+ 2233 0322 C1000000 		.4byte	0xc1
+ 2234 0326 17       		.uleb128 0x17
+ 2235 0327 46030000 		.4byte	.LASF57
+ 2236 032b 05       		.byte	0x5
+ 2237 032c 12       		.byte	0x12
+ 2238 032d BC000000 		.4byte	0xbc
+ 2239 0331 17       		.uleb128 0x17
+ 2240 0332 8B000000 		.4byte	.LASF58
+ 2241 0336 05       		.byte	0x5
+ 2242 0337 12       		.byte	0x12
+ 2243 0338 BC000000 		.4byte	0xbc
+ 2244 033c 17       		.uleb128 0x17
+ 2245 033d C1010000 		.4byte	.LASF59
+ 2246 0341 05       		.byte	0x5
+ 2247 0342 13       		.byte	0x13
+ 2248 0343 47030000 		.4byte	0x347
+ 2249 0347 18       		.uleb128 0x18
+ 2250 0348 04       		.byte	0x4
+ 2251 0349 52030000 		.4byte	0x352
+ 2252 034d 05       		.uleb128 0x5
+ 2253 034e 9B000000 		.4byte	0x9b
+ 2254 0352 16       		.uleb128 0x16
+ 2255 0353 4D030000 		.4byte	0x34d
+ 2256 0357 17       		.uleb128 0x17
+ 2257 0358 3F020000 		.4byte	.LASF60
+ 2258 035c 05       		.byte	0x5
+ 2259 035d 15       		.byte	0x15
+ 2260 035e 4D030000 		.4byte	0x34d
+ 2261 0362 17       		.uleb128 0x17
+ 2262 0363 44020000 		.4byte	.LASF61
+ 2263 0367 05       		.byte	0x5
+ 2264 0368 15       		.byte	0x15
+ 2265 0369 4D030000 		.4byte	0x34d
+ 2266 036d 17       		.uleb128 0x17
+ 2267 036e D8020000 		.4byte	.LASF62
+ 2268 0372 05       		.byte	0x5
+ 2269 0373 16       		.byte	0x16
+ 2270 0374 78030000 		.4byte	0x378
+ 2271 0378 05       		.uleb128 0x5
+ 2272 0379 A7000000 		.4byte	0xa7
+ 2273 037d 17       		.uleb128 0x17
+ 2274 037e B5010000 		.4byte	.LASF63
+ 2275 0382 05       		.byte	0x5
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 47
+
+
+ 2276 0383 17       		.byte	0x17
+ 2277 0384 4D030000 		.4byte	0x34d
+ 2278 0388 17       		.uleb128 0x17
+ 2279 0389 76000000 		.4byte	.LASF64
+ 2280 038d 05       		.byte	0x5
+ 2281 038e 17       		.byte	0x17
+ 2282 038f 4D030000 		.4byte	0x34d
+ 2283 0393 17       		.uleb128 0x17
+ 2284 0394 2B000000 		.4byte	.LASF65
+ 2285 0398 05       		.byte	0x5
+ 2286 0399 18       		.byte	0x18
+ 2287 039a 4D030000 		.4byte	0x34d
+ 2288 039e 17       		.uleb128 0x17
+ 2289 039f A3020000 		.4byte	.LASF66
+ 2290 03a3 05       		.byte	0x5
+ 2291 03a4 18       		.byte	0x18
+ 2292 03a5 4D030000 		.4byte	0x34d
+ 2293 03a9 17       		.uleb128 0x17
+ 2294 03aa 97020000 		.4byte	.LASF67
+ 2295 03ae 05       		.byte	0x5
+ 2296 03af 18       		.byte	0x18
+ 2297 03b0 4D030000 		.4byte	0x34d
+ 2298 03b4 17       		.uleb128 0x17
+ 2299 03b5 9D020000 		.4byte	.LASF68
+ 2300 03b9 05       		.byte	0x5
+ 2301 03ba 18       		.byte	0x18
+ 2302 03bb 4D030000 		.4byte	0x34d
+ 2303 03bf 17       		.uleb128 0x17
+ 2304 03c0 E9020000 		.4byte	.LASF69
+ 2305 03c4 05       		.byte	0x5
+ 2306 03c5 19       		.byte	0x19
+ 2307 03c6 4D030000 		.4byte	0x34d
+ 2308 03ca 17       		.uleb128 0x17
+ 2309 03cb 34000000 		.4byte	.LASF70
+ 2310 03cf 05       		.byte	0x5
+ 2311 03d0 19       		.byte	0x19
+ 2312 03d1 4D030000 		.4byte	0x34d
+ 2313 03d5 17       		.uleb128 0x17
+ 2314 03d6 F9020000 		.4byte	.LASF71
+ 2315 03da 05       		.byte	0x5
+ 2316 03db 19       		.byte	0x19
+ 2317 03dc 4D030000 		.4byte	0x34d
+ 2318 03e0 17       		.uleb128 0x17
+ 2319 03e1 43000000 		.4byte	.LASF72
+ 2320 03e5 05       		.byte	0x5
+ 2321 03e6 19       		.byte	0x19
+ 2322 03e7 4D030000 		.4byte	0x34d
+ 2323 03eb 17       		.uleb128 0x17
+ 2324 03ec 6E020000 		.4byte	.LASF73
+ 2325 03f0 05       		.byte	0x5
+ 2326 03f1 19       		.byte	0x19
+ 2327 03f2 4D030000 		.4byte	0x34d
+ 2328 03f6 17       		.uleb128 0x17
+ 2329 03f7 7C020000 		.4byte	.LASF74
+ 2330 03fb 05       		.byte	0x5
+ 2331 03fc 19       		.byte	0x19
+ 2332 03fd 4D030000 		.4byte	0x34d
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 48
+
+
+ 2333 0401 19       		.uleb128 0x19
+ 2334 0402 08040000 		.4byte	0x408
+ 2335 0406 1A       		.uleb128 0x1a
+ 2336 0407 00       		.byte	0
+ 2337 0408 17       		.uleb128 0x17
+ 2338 0409 07020000 		.4byte	.LASF75
+ 2339 040d 05       		.byte	0x5
+ 2340 040e 1A       		.byte	0x1a
+ 2341 040f 13040000 		.4byte	0x413
+ 2342 0413 18       		.uleb128 0x18
+ 2343 0414 04       		.byte	0x4
+ 2344 0415 01040000 		.4byte	0x401
+ 2345 0419 17       		.uleb128 0x17
+ 2346 041a 94030000 		.4byte	.LASF76
+ 2347 041e 05       		.byte	0x5
+ 2348 041f 1B       		.byte	0x1b
+ 2349 0420 C1000000 		.4byte	0xc1
+ 2350 0424 17       		.uleb128 0x17
+ 2351 0425 68020000 		.4byte	.LASF77
+ 2352 0429 04       		.byte	0x4
+ 2353 042a 16       		.byte	0x16
+ 2354 042b 2F040000 		.4byte	0x42f
+ 2355 042f 05       		.uleb128 0x5
+ 2356 0430 F1010000 		.4byte	0x1f1
+ 2357 0434 1B       		.uleb128 0x1b
+ 2358 0435 4E00     		.ascii	"N\000"
+ 2359 0437 01       		.byte	0x1
+ 2360 0438 10       		.byte	0x10
+ 2361 0439 9B000000 		.4byte	0x9b
+ 2362 043d 05       		.uleb128 0x5
+ 2363 043e 03       		.byte	0x3
+ 2364 043f 00000000 		.4byte	N
+ 2365 0443 1C       		.uleb128 0x1c
+ 2366 0444 D3020000 		.4byte	.LASF78
+ 2367 0448 01       		.byte	0x1
+ 2368 0449 AF       		.byte	0xaf
+ 2369 044a ED000000 		.4byte	0xed
+ 2370 044e 05       		.uleb128 0x5
+ 2371 044f 03       		.byte	0x3
+ 2372 0450 00000000 		.4byte	test
+ 2373 0454 1C       		.uleb128 0x1c
+ 2374 0455 0D010000 		.4byte	.LASF79
+ 2375 0459 01       		.byte	0x1
+ 2376 045a B0       		.byte	0xb0
+ 2377 045b 9B000000 		.4byte	0x9b
+ 2378 045f 05       		.uleb128 0x5
+ 2379 0460 03       		.byte	0x3
+ 2380 0461 00000000 		.4byte	erreur_temp
+ 2381 0465 00       		.byte	0
+ 2382              		.section	.debug_abbrev,"",%progbits
+ 2383              	.Ldebug_abbrev0:
+ 2384 0000 01       		.uleb128 0x1
+ 2385 0001 11       		.uleb128 0x11
+ 2386 0002 01       		.byte	0x1
+ 2387 0003 25       		.uleb128 0x25
+ 2388 0004 0E       		.uleb128 0xe
+ 2389 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 49
+
+
+ 2390 0006 0B       		.uleb128 0xb
+ 2391 0007 03       		.uleb128 0x3
+ 2392 0008 0E       		.uleb128 0xe
+ 2393 0009 1B       		.uleb128 0x1b
+ 2394 000a 0E       		.uleb128 0xe
+ 2395 000b 55       		.uleb128 0x55
+ 2396 000c 17       		.uleb128 0x17
+ 2397 000d 11       		.uleb128 0x11
+ 2398 000e 01       		.uleb128 0x1
+ 2399 000f 10       		.uleb128 0x10
+ 2400 0010 17       		.uleb128 0x17
+ 2401 0011 00       		.byte	0
+ 2402 0012 00       		.byte	0
+ 2403 0013 02       		.uleb128 0x2
+ 2404 0014 24       		.uleb128 0x24
+ 2405 0015 00       		.byte	0
+ 2406 0016 0B       		.uleb128 0xb
+ 2407 0017 0B       		.uleb128 0xb
+ 2408 0018 3E       		.uleb128 0x3e
+ 2409 0019 0B       		.uleb128 0xb
+ 2410 001a 03       		.uleb128 0x3
+ 2411 001b 0E       		.uleb128 0xe
+ 2412 001c 00       		.byte	0
+ 2413 001d 00       		.byte	0
+ 2414 001e 03       		.uleb128 0x3
+ 2415 001f 24       		.uleb128 0x24
+ 2416 0020 00       		.byte	0
+ 2417 0021 0B       		.uleb128 0xb
+ 2418 0022 0B       		.uleb128 0xb
+ 2419 0023 3E       		.uleb128 0x3e
+ 2420 0024 0B       		.uleb128 0xb
+ 2421 0025 03       		.uleb128 0x3
+ 2422 0026 08       		.uleb128 0x8
+ 2423 0027 00       		.byte	0
+ 2424 0028 00       		.byte	0
+ 2425 0029 04       		.uleb128 0x4
+ 2426 002a 16       		.uleb128 0x16
+ 2427 002b 00       		.byte	0
+ 2428 002c 03       		.uleb128 0x3
+ 2429 002d 0E       		.uleb128 0xe
+ 2430 002e 3A       		.uleb128 0x3a
+ 2431 002f 0B       		.uleb128 0xb
+ 2432 0030 3B       		.uleb128 0x3b
+ 2433 0031 05       		.uleb128 0x5
+ 2434 0032 49       		.uleb128 0x49
+ 2435 0033 13       		.uleb128 0x13
+ 2436 0034 00       		.byte	0
+ 2437 0035 00       		.byte	0
+ 2438 0036 05       		.uleb128 0x5
+ 2439 0037 35       		.uleb128 0x35
+ 2440 0038 00       		.byte	0
+ 2441 0039 49       		.uleb128 0x49
+ 2442 003a 13       		.uleb128 0x13
+ 2443 003b 00       		.byte	0
+ 2444 003c 00       		.byte	0
+ 2445 003d 06       		.uleb128 0x6
+ 2446 003e 04       		.uleb128 0x4
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 50
+
+
+ 2447 003f 01       		.byte	0x1
+ 2448 0040 0B       		.uleb128 0xb
+ 2449 0041 0B       		.uleb128 0xb
+ 2450 0042 49       		.uleb128 0x49
+ 2451 0043 13       		.uleb128 0x13
+ 2452 0044 3A       		.uleb128 0x3a
+ 2453 0045 0B       		.uleb128 0xb
+ 2454 0046 3B       		.uleb128 0x3b
+ 2455 0047 0B       		.uleb128 0xb
+ 2456 0048 01       		.uleb128 0x1
+ 2457 0049 13       		.uleb128 0x13
+ 2458 004a 00       		.byte	0
+ 2459 004b 00       		.byte	0
+ 2460 004c 07       		.uleb128 0x7
+ 2461 004d 28       		.uleb128 0x28
+ 2462 004e 00       		.byte	0
+ 2463 004f 03       		.uleb128 0x3
+ 2464 0050 0E       		.uleb128 0xe
+ 2465 0051 1C       		.uleb128 0x1c
+ 2466 0052 0B       		.uleb128 0xb
+ 2467 0053 00       		.byte	0
+ 2468 0054 00       		.byte	0
+ 2469 0055 08       		.uleb128 0x8
+ 2470 0056 16       		.uleb128 0x16
+ 2471 0057 00       		.byte	0
+ 2472 0058 03       		.uleb128 0x3
+ 2473 0059 0E       		.uleb128 0xe
+ 2474 005a 3A       		.uleb128 0x3a
+ 2475 005b 0B       		.uleb128 0xb
+ 2476 005c 3B       		.uleb128 0x3b
+ 2477 005d 0B       		.uleb128 0xb
+ 2478 005e 49       		.uleb128 0x49
+ 2479 005f 13       		.uleb128 0x13
+ 2480 0060 00       		.byte	0
+ 2481 0061 00       		.byte	0
+ 2482 0062 09       		.uleb128 0x9
+ 2483 0063 13       		.uleb128 0x13
+ 2484 0064 01       		.byte	0x1
+ 2485 0065 0B       		.uleb128 0xb
+ 2486 0066 0B       		.uleb128 0xb
+ 2487 0067 3A       		.uleb128 0x3a
+ 2488 0068 0B       		.uleb128 0xb
+ 2489 0069 3B       		.uleb128 0x3b
+ 2490 006a 0B       		.uleb128 0xb
+ 2491 006b 01       		.uleb128 0x1
+ 2492 006c 13       		.uleb128 0x13
+ 2493 006d 00       		.byte	0
+ 2494 006e 00       		.byte	0
+ 2495 006f 0A       		.uleb128 0xa
+ 2496 0070 0D       		.uleb128 0xd
+ 2497 0071 00       		.byte	0
+ 2498 0072 03       		.uleb128 0x3
+ 2499 0073 0E       		.uleb128 0xe
+ 2500 0074 3A       		.uleb128 0x3a
+ 2501 0075 0B       		.uleb128 0xb
+ 2502 0076 3B       		.uleb128 0x3b
+ 2503 0077 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 51
+
+
+ 2504 0078 49       		.uleb128 0x49
+ 2505 0079 13       		.uleb128 0x13
+ 2506 007a 38       		.uleb128 0x38
+ 2507 007b 0B       		.uleb128 0xb
+ 2508 007c 00       		.byte	0
+ 2509 007d 00       		.byte	0
+ 2510 007e 0B       		.uleb128 0xb
+ 2511 007f 0D       		.uleb128 0xd
+ 2512 0080 00       		.byte	0
+ 2513 0081 03       		.uleb128 0x3
+ 2514 0082 08       		.uleb128 0x8
+ 2515 0083 3A       		.uleb128 0x3a
+ 2516 0084 0B       		.uleb128 0xb
+ 2517 0085 3B       		.uleb128 0x3b
+ 2518 0086 0B       		.uleb128 0xb
+ 2519 0087 49       		.uleb128 0x49
+ 2520 0088 13       		.uleb128 0x13
+ 2521 0089 38       		.uleb128 0x38
+ 2522 008a 0B       		.uleb128 0xb
+ 2523 008b 00       		.byte	0
+ 2524 008c 00       		.byte	0
+ 2525 008d 0C       		.uleb128 0xc
+ 2526 008e 2E       		.uleb128 0x2e
+ 2527 008f 01       		.byte	0x1
+ 2528 0090 3F       		.uleb128 0x3f
+ 2529 0091 19       		.uleb128 0x19
+ 2530 0092 03       		.uleb128 0x3
+ 2531 0093 0E       		.uleb128 0xe
+ 2532 0094 3A       		.uleb128 0x3a
+ 2533 0095 0B       		.uleb128 0xb
+ 2534 0096 3B       		.uleb128 0x3b
+ 2535 0097 0B       		.uleb128 0xb
+ 2536 0098 27       		.uleb128 0x27
+ 2537 0099 19       		.uleb128 0x19
+ 2538 009a 11       		.uleb128 0x11
+ 2539 009b 01       		.uleb128 0x1
+ 2540 009c 12       		.uleb128 0x12
+ 2541 009d 06       		.uleb128 0x6
+ 2542 009e 40       		.uleb128 0x40
+ 2543 009f 18       		.uleb128 0x18
+ 2544 00a0 9742     		.uleb128 0x2117
+ 2545 00a2 19       		.uleb128 0x19
+ 2546 00a3 01       		.uleb128 0x1
+ 2547 00a4 13       		.uleb128 0x13
+ 2548 00a5 00       		.byte	0
+ 2549 00a6 00       		.byte	0
+ 2550 00a7 0D       		.uleb128 0xd
+ 2551 00a8 05       		.uleb128 0x5
+ 2552 00a9 00       		.byte	0
+ 2553 00aa 03       		.uleb128 0x3
+ 2554 00ab 0E       		.uleb128 0xe
+ 2555 00ac 3A       		.uleb128 0x3a
+ 2556 00ad 0B       		.uleb128 0xb
+ 2557 00ae 3B       		.uleb128 0x3b
+ 2558 00af 0B       		.uleb128 0xb
+ 2559 00b0 49       		.uleb128 0x49
+ 2560 00b1 13       		.uleb128 0x13
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 52
+
+
+ 2561 00b2 02       		.uleb128 0x2
+ 2562 00b3 18       		.uleb128 0x18
+ 2563 00b4 00       		.byte	0
+ 2564 00b5 00       		.byte	0
+ 2565 00b6 0E       		.uleb128 0xe
+ 2566 00b7 34       		.uleb128 0x34
+ 2567 00b8 00       		.byte	0
+ 2568 00b9 03       		.uleb128 0x3
+ 2569 00ba 0E       		.uleb128 0xe
+ 2570 00bb 3A       		.uleb128 0x3a
+ 2571 00bc 0B       		.uleb128 0xb
+ 2572 00bd 3B       		.uleb128 0x3b
+ 2573 00be 0B       		.uleb128 0xb
+ 2574 00bf 49       		.uleb128 0x49
+ 2575 00c0 13       		.uleb128 0x13
+ 2576 00c1 02       		.uleb128 0x2
+ 2577 00c2 18       		.uleb128 0x18
+ 2578 00c3 00       		.byte	0
+ 2579 00c4 00       		.byte	0
+ 2580 00c5 0F       		.uleb128 0xf
+ 2581 00c6 2E       		.uleb128 0x2e
+ 2582 00c7 00       		.byte	0
+ 2583 00c8 3F       		.uleb128 0x3f
+ 2584 00c9 19       		.uleb128 0x19
+ 2585 00ca 03       		.uleb128 0x3
+ 2586 00cb 0E       		.uleb128 0xe
+ 2587 00cc 3A       		.uleb128 0x3a
+ 2588 00cd 0B       		.uleb128 0xb
+ 2589 00ce 3B       		.uleb128 0x3b
+ 2590 00cf 0B       		.uleb128 0xb
+ 2591 00d0 11       		.uleb128 0x11
+ 2592 00d1 01       		.uleb128 0x1
+ 2593 00d2 12       		.uleb128 0x12
+ 2594 00d3 06       		.uleb128 0x6
+ 2595 00d4 40       		.uleb128 0x40
+ 2596 00d5 18       		.uleb128 0x18
+ 2597 00d6 9642     		.uleb128 0x2116
+ 2598 00d8 19       		.uleb128 0x19
+ 2599 00d9 00       		.byte	0
+ 2600 00da 00       		.byte	0
+ 2601 00db 10       		.uleb128 0x10
+ 2602 00dc 2E       		.uleb128 0x2e
+ 2603 00dd 01       		.byte	0x1
+ 2604 00de 3F       		.uleb128 0x3f
+ 2605 00df 19       		.uleb128 0x19
+ 2606 00e0 03       		.uleb128 0x3
+ 2607 00e1 0E       		.uleb128 0xe
+ 2608 00e2 3A       		.uleb128 0x3a
+ 2609 00e3 0B       		.uleb128 0xb
+ 2610 00e4 3B       		.uleb128 0x3b
+ 2611 00e5 0B       		.uleb128 0xb
+ 2612 00e6 11       		.uleb128 0x11
+ 2613 00e7 01       		.uleb128 0x1
+ 2614 00e8 12       		.uleb128 0x12
+ 2615 00e9 06       		.uleb128 0x6
+ 2616 00ea 40       		.uleb128 0x40
+ 2617 00eb 18       		.uleb128 0x18
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 53
+
+
+ 2618 00ec 9642     		.uleb128 0x2116
+ 2619 00ee 19       		.uleb128 0x19
+ 2620 00ef 01       		.uleb128 0x1
+ 2621 00f0 13       		.uleb128 0x13
+ 2622 00f1 00       		.byte	0
+ 2623 00f2 00       		.byte	0
+ 2624 00f3 11       		.uleb128 0x11
+ 2625 00f4 2E       		.uleb128 0x2e
+ 2626 00f5 00       		.byte	0
+ 2627 00f6 3F       		.uleb128 0x3f
+ 2628 00f7 19       		.uleb128 0x19
+ 2629 00f8 03       		.uleb128 0x3
+ 2630 00f9 0E       		.uleb128 0xe
+ 2631 00fa 3A       		.uleb128 0x3a
+ 2632 00fb 0B       		.uleb128 0xb
+ 2633 00fc 3B       		.uleb128 0x3b
+ 2634 00fd 05       		.uleb128 0x5
+ 2635 00fe 11       		.uleb128 0x11
+ 2636 00ff 01       		.uleb128 0x1
+ 2637 0100 12       		.uleb128 0x12
+ 2638 0101 06       		.uleb128 0x6
+ 2639 0102 40       		.uleb128 0x40
+ 2640 0103 18       		.uleb128 0x18
+ 2641 0104 9642     		.uleb128 0x2116
+ 2642 0106 19       		.uleb128 0x19
+ 2643 0107 00       		.byte	0
+ 2644 0108 00       		.byte	0
+ 2645 0109 12       		.uleb128 0x12
+ 2646 010a 2E       		.uleb128 0x2e
+ 2647 010b 01       		.byte	0x1
+ 2648 010c 3F       		.uleb128 0x3f
+ 2649 010d 19       		.uleb128 0x19
+ 2650 010e 03       		.uleb128 0x3
+ 2651 010f 0E       		.uleb128 0xe
+ 2652 0110 3A       		.uleb128 0x3a
+ 2653 0111 0B       		.uleb128 0xb
+ 2654 0112 3B       		.uleb128 0x3b
+ 2655 0113 05       		.uleb128 0x5
+ 2656 0114 27       		.uleb128 0x27
+ 2657 0115 19       		.uleb128 0x19
+ 2658 0116 11       		.uleb128 0x11
+ 2659 0117 01       		.uleb128 0x1
+ 2660 0118 12       		.uleb128 0x12
+ 2661 0119 06       		.uleb128 0x6
+ 2662 011a 40       		.uleb128 0x40
+ 2663 011b 18       		.uleb128 0x18
+ 2664 011c 9642     		.uleb128 0x2116
+ 2665 011e 19       		.uleb128 0x19
+ 2666 011f 01       		.uleb128 0x1
+ 2667 0120 13       		.uleb128 0x13
+ 2668 0121 00       		.byte	0
+ 2669 0122 00       		.byte	0
+ 2670 0123 13       		.uleb128 0x13
+ 2671 0124 05       		.uleb128 0x5
+ 2672 0125 00       		.byte	0
+ 2673 0126 03       		.uleb128 0x3
+ 2674 0127 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 54
+
+
+ 2675 0128 3A       		.uleb128 0x3a
+ 2676 0129 0B       		.uleb128 0xb
+ 2677 012a 3B       		.uleb128 0x3b
+ 2678 012b 05       		.uleb128 0x5
+ 2679 012c 49       		.uleb128 0x49
+ 2680 012d 13       		.uleb128 0x13
+ 2681 012e 02       		.uleb128 0x2
+ 2682 012f 18       		.uleb128 0x18
+ 2683 0130 00       		.byte	0
+ 2684 0131 00       		.byte	0
+ 2685 0132 14       		.uleb128 0x14
+ 2686 0133 01       		.uleb128 0x1
+ 2687 0134 01       		.byte	0x1
+ 2688 0135 49       		.uleb128 0x49
+ 2689 0136 13       		.uleb128 0x13
+ 2690 0137 01       		.uleb128 0x1
+ 2691 0138 13       		.uleb128 0x13
+ 2692 0139 00       		.byte	0
+ 2693 013a 00       		.byte	0
+ 2694 013b 15       		.uleb128 0x15
+ 2695 013c 21       		.uleb128 0x21
+ 2696 013d 00       		.byte	0
+ 2697 013e 49       		.uleb128 0x49
+ 2698 013f 13       		.uleb128 0x13
+ 2699 0140 2F       		.uleb128 0x2f
+ 2700 0141 05       		.uleb128 0x5
+ 2701 0142 00       		.byte	0
+ 2702 0143 00       		.byte	0
+ 2703 0144 16       		.uleb128 0x16
+ 2704 0145 26       		.uleb128 0x26
+ 2705 0146 00       		.byte	0
+ 2706 0147 49       		.uleb128 0x49
+ 2707 0148 13       		.uleb128 0x13
+ 2708 0149 00       		.byte	0
+ 2709 014a 00       		.byte	0
+ 2710 014b 17       		.uleb128 0x17
+ 2711 014c 34       		.uleb128 0x34
+ 2712 014d 00       		.byte	0
+ 2713 014e 03       		.uleb128 0x3
+ 2714 014f 0E       		.uleb128 0xe
+ 2715 0150 3A       		.uleb128 0x3a
+ 2716 0151 0B       		.uleb128 0xb
+ 2717 0152 3B       		.uleb128 0x3b
+ 2718 0153 0B       		.uleb128 0xb
+ 2719 0154 49       		.uleb128 0x49
+ 2720 0155 13       		.uleb128 0x13
+ 2721 0156 3F       		.uleb128 0x3f
+ 2722 0157 19       		.uleb128 0x19
+ 2723 0158 3C       		.uleb128 0x3c
+ 2724 0159 19       		.uleb128 0x19
+ 2725 015a 00       		.byte	0
+ 2726 015b 00       		.byte	0
+ 2727 015c 18       		.uleb128 0x18
+ 2728 015d 0F       		.uleb128 0xf
+ 2729 015e 00       		.byte	0
+ 2730 015f 0B       		.uleb128 0xb
+ 2731 0160 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 55
+
+
+ 2732 0161 49       		.uleb128 0x49
+ 2733 0162 13       		.uleb128 0x13
+ 2734 0163 00       		.byte	0
+ 2735 0164 00       		.byte	0
+ 2736 0165 19       		.uleb128 0x19
+ 2737 0166 15       		.uleb128 0x15
+ 2738 0167 01       		.byte	0x1
+ 2739 0168 01       		.uleb128 0x1
+ 2740 0169 13       		.uleb128 0x13
+ 2741 016a 00       		.byte	0
+ 2742 016b 00       		.byte	0
+ 2743 016c 1A       		.uleb128 0x1a
+ 2744 016d 18       		.uleb128 0x18
+ 2745 016e 00       		.byte	0
+ 2746 016f 00       		.byte	0
+ 2747 0170 00       		.byte	0
+ 2748 0171 1B       		.uleb128 0x1b
+ 2749 0172 34       		.uleb128 0x34
+ 2750 0173 00       		.byte	0
+ 2751 0174 03       		.uleb128 0x3
+ 2752 0175 08       		.uleb128 0x8
+ 2753 0176 3A       		.uleb128 0x3a
+ 2754 0177 0B       		.uleb128 0xb
+ 2755 0178 3B       		.uleb128 0x3b
+ 2756 0179 0B       		.uleb128 0xb
+ 2757 017a 49       		.uleb128 0x49
+ 2758 017b 13       		.uleb128 0x13
+ 2759 017c 3F       		.uleb128 0x3f
+ 2760 017d 19       		.uleb128 0x19
+ 2761 017e 02       		.uleb128 0x2
+ 2762 017f 18       		.uleb128 0x18
+ 2763 0180 00       		.byte	0
+ 2764 0181 00       		.byte	0
+ 2765 0182 1C       		.uleb128 0x1c
+ 2766 0183 34       		.uleb128 0x34
+ 2767 0184 00       		.byte	0
+ 2768 0185 03       		.uleb128 0x3
+ 2769 0186 0E       		.uleb128 0xe
+ 2770 0187 3A       		.uleb128 0x3a
+ 2771 0188 0B       		.uleb128 0xb
+ 2772 0189 3B       		.uleb128 0x3b
+ 2773 018a 0B       		.uleb128 0xb
+ 2774 018b 49       		.uleb128 0x49
+ 2775 018c 13       		.uleb128 0x13
+ 2776 018d 3F       		.uleb128 0x3f
+ 2777 018e 19       		.uleb128 0x19
+ 2778 018f 02       		.uleb128 0x2
+ 2779 0190 18       		.uleb128 0x18
+ 2780 0191 00       		.byte	0
+ 2781 0192 00       		.byte	0
+ 2782 0193 00       		.byte	0
+ 2783              		.section	.debug_aranges,"",%progbits
+ 2784 0000 44000000 		.4byte	0x44
+ 2785 0004 0200     		.2byte	0x2
+ 2786 0006 00000000 		.4byte	.Ldebug_info0
+ 2787 000a 04       		.byte	0x4
+ 2788 000b 00       		.byte	0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 56
+
+
+ 2789 000c 0000     		.2byte	0
+ 2790 000e 0000     		.2byte	0
+ 2791 0010 00000000 		.4byte	.LFB32
+ 2792 0014 2C000000 		.4byte	.LFE32-.LFB32
+ 2793 0018 00000000 		.4byte	.LFB33
+ 2794 001c 70000000 		.4byte	.LFE33-.LFB33
+ 2795 0020 00000000 		.4byte	.LFB34
+ 2796 0024 40020000 		.4byte	.LFE34-.LFB34
+ 2797 0028 00000000 		.4byte	.LFB35
+ 2798 002c 1C090000 		.4byte	.LFE35-.LFB35
+ 2799 0030 00000000 		.4byte	.LFB36
+ 2800 0034 4C000000 		.4byte	.LFE36-.LFB36
+ 2801 0038 00000000 		.4byte	.LFB37
+ 2802 003c 88000000 		.4byte	.LFE37-.LFB37
+ 2803 0040 00000000 		.4byte	0
+ 2804 0044 00000000 		.4byte	0
+ 2805              		.section	.debug_ranges,"",%progbits
+ 2806              	.Ldebug_ranges0:
+ 2807 0000 00000000 		.4byte	.LFB32
+ 2808 0004 2C000000 		.4byte	.LFE32
+ 2809 0008 00000000 		.4byte	.LFB33
+ 2810 000c 70000000 		.4byte	.LFE33
+ 2811 0010 00000000 		.4byte	.LFB34
+ 2812 0014 40020000 		.4byte	.LFE34
+ 2813 0018 00000000 		.4byte	.LFB35
+ 2814 001c 1C090000 		.4byte	.LFE35
+ 2815 0020 00000000 		.4byte	.LFB36
+ 2816 0024 4C000000 		.4byte	.LFE36
+ 2817 0028 00000000 		.4byte	.LFB37
+ 2818 002c 88000000 		.4byte	.LFE37
+ 2819 0030 00000000 		.4byte	0
+ 2820 0034 00000000 		.4byte	0
+ 2821              		.section	.debug_line,"",%progbits
+ 2822              	.Ldebug_line0:
+ 2823 0000 10020000 		.section	.debug_str,"MS",%progbits,1
+ 2823      02007A00 
+ 2823      00000201 
+ 2823      FB0E0D00 
+ 2823      01010101 
+ 2824              	.LASF31:
+ 2825 0000 4B64325F 		.ascii	"Kd2_den\000"
+ 2825      64656E00 
+ 2826              	.LASF32:
+ 2827 0008 4B69315F 		.ascii	"Ki1_num\000"
+ 2827      6E756D00 
+ 2828              	.LASF39:
+ 2829 0010 636F6E73 		.ascii	"cons_per_num\000"
+ 2829      5F706572 
+ 2829      5F6E756D 
+ 2829      00
+ 2830              	.LASF26:
+ 2831 001d 4B70325F 		.ascii	"Kp2_num\000"
+ 2831      6E756D00 
+ 2832              	.LASF53:
+ 2833 0025 73696E75 		.ascii	"sinus\000"
+ 2833      7300
+ 2834              	.LASF65:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 57
+
+
+ 2835 002b 636F6E73 		.ascii	"consigne\000"
+ 2835      69676E65 
+ 2835      00
+ 2836              	.LASF70:
+ 2837 0034 65727265 		.ascii	"erreur_av_pid1\000"
+ 2837      75725F61 
+ 2837      765F7069 
+ 2837      643100
+ 2838              	.LASF72:
+ 2839 0043 65727265 		.ascii	"erreur_av_pid2\000"
+ 2839      75725F61 
+ 2839      765F7069 
+ 2839      643200
+ 2840              	.LASF34:
+ 2841 0052 4B69325F 		.ascii	"Ki2_num\000"
+ 2841      6E756D00 
+ 2842              	.LASF44:
+ 2843 005a 74656D70 		.ascii	"temp\000"
+ 2843      00
+ 2844              	.LASF2:
+ 2845 005f 73686F72 		.ascii	"short int\000"
+ 2845      7420696E 
+ 2845      7400
+ 2846              	.LASF54:
+ 2847 0069 64656E74 		.ascii	"dent_de_scie\000"
+ 2847      5F64655F 
+ 2847      73636965 
+ 2847      00
+ 2848              	.LASF64:
+ 2849 0076 70776D31 		.ascii	"pwm1_valeur\000"
+ 2849      5F76616C 
+ 2849      65757200 
+ 2850              	.LASF18:
+ 2851 0082 73697A65 		.ascii	"sizetype\000"
+ 2851      74797065 
+ 2851      00
+ 2852              	.LASF58:
+ 2853 008b 73656E74 		.ascii	"sent\000"
+ 2853      00
+ 2854              	.LASF30:
+ 2855 0090 4B64325F 		.ascii	"Kd2_num\000"
+ 2855      6E756D00 
+ 2856              	.LASF45:
+ 2857 0098 6F75745F 		.ascii	"out_deriv\000"
+ 2857      64657269 
+ 2857      7600
+ 2858              	.LASF41:
+ 2859 00a2 636F6E66 		.ascii	"config\000"
+ 2859      696700
+ 2860              	.LASF10:
+ 2861 00a9 75696E74 		.ascii	"uint16\000"
+ 2861      313600
+ 2862              	.LASF12:
+ 2863 00b0 696E7431 		.ascii	"int16\000"
+ 2863      3600
+ 2864              	.LASF9:
+ 2865 00b6 75696E74 		.ascii	"uint8\000"
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 58
+
+
+ 2865      3800
+ 2866              	.LASF21:
+ 2867 00bc 626F6F6C 		.ascii	"bool\000"
+ 2867      00
+ 2868              	.LASF14:
+ 2869 00c1 666C6F61 		.ascii	"float\000"
+ 2869      7400
+ 2870              	.LASF38:
+ 2871 00c7 636F6E73 		.ascii	"cons_finale\000"
+ 2871      5F66696E 
+ 2871      616C6500 
+ 2872              	.LASF6:
+ 2873 00d3 6C6F6E67 		.ascii	"long long int\000"
+ 2873      206C6F6E 
+ 2873      6720696E 
+ 2873      7400
+ 2874              	.LASF49:
+ 2875 00e1 61747465 		.ascii	"attente\000"
+ 2875      6E746500 
+ 2876              	.LASF4:
+ 2877 00e9 6C6F6E67 		.ascii	"long int\000"
+ 2877      20696E74 
+ 2877      00
+ 2878              	.LASF47:
+ 2879 00f2 73797374 		.ascii	"systick_delayms\000"
+ 2879      69636B5F 
+ 2879      64656C61 
+ 2879      796D7300 
+ 2880              	.LASF23:
+ 2881 0102 6E625F62 		.ascii	"nb_boucles\000"
+ 2881      6F75636C 
+ 2881      657300
+ 2882              	.LASF79:
+ 2883 010d 65727265 		.ascii	"erreur_temp\000"
+ 2883      75725F74 
+ 2883      656D7000 
+ 2884              	.LASF1:
+ 2885 0119 756E7369 		.ascii	"unsigned char\000"
+ 2885      676E6564 
+ 2885      20636861 
+ 2885      7200
+ 2886              	.LASF80:
+ 2887 0127 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2887      43313120 
+ 2887      352E342E 
+ 2887      31203230 
+ 2887      31363036 
+ 2888 015a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2888      20726576 
+ 2888      6973696F 
+ 2888      6E203233 
+ 2888      37373135 
+ 2889 018d 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2889      66756E63 
+ 2889      74696F6E 
+ 2889      2D736563 
+ 2889      74696F6E 
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 59
+
+
+ 2890              	.LASF63:
+ 2891 01b5 6F666673 		.ascii	"offset_pwm1\000"
+ 2891      65745F70 
+ 2891      776D3100 
+ 2892              	.LASF59:
+ 2893 01c1 706F696E 		.ascii	"pointeur_gen\000"
+ 2893      74657572 
+ 2893      5F67656E 
+ 2893      00
+ 2894              	.LASF17:
+ 2895 01ce 6C6F6E67 		.ascii	"long double\000"
+ 2895      20646F75 
+ 2895      626C6500 
+ 2896              	.LASF22:
+ 2897 01da 54656368 		.ascii	"Tech\000"
+ 2897      00
+ 2898              	.LASF48:
+ 2899 01df 73656E64 		.ascii	"send_control_frame\000"
+ 2899      5F636F6E 
+ 2899      74726F6C 
+ 2899      5F667261 
+ 2899      6D6500
+ 2900              	.LASF52:
+ 2901 01f2 74726961 		.ascii	"triangle\000"
+ 2901      6E676C65 
+ 2901      00
+ 2902              	.LASF0:
+ 2903 01fb 7369676E 		.ascii	"signed char\000"
+ 2903      65642063 
+ 2903      68617200 
+ 2904              	.LASF75:
+ 2905 0207 73746174 		.ascii	"statefunc\000"
+ 2905      6566756E 
+ 2905      6300
+ 2906              	.LASF7:
+ 2907 0211 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2907      206C6F6E 
+ 2907      6720756E 
+ 2907      7369676E 
+ 2907      65642069 
+ 2908              	.LASF46:
+ 2909 0228 61727265 		.ascii	"arret_urg\000"
+ 2909      745F7572 
+ 2909      6700
+ 2910              	.LASF8:
+ 2911 0232 756E7369 		.ascii	"unsigned int\000"
+ 2911      676E6564 
+ 2911      20696E74 
+ 2911      00
+ 2912              	.LASF60:
+ 2913 023f 76616C31 		.ascii	"val1\000"
+ 2913      00
+ 2914              	.LASF61:
+ 2915 0244 76616C32 		.ascii	"val2\000"
+ 2915      00
+ 2916              	.LASF5:
+ 2917 0249 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 60
+
+
+ 2917      20756E73 
+ 2917      69676E65 
+ 2917      6420696E 
+ 2917      7400
+ 2918              	.LASF25:
+ 2919 025b 4B70315F 		.ascii	"Kp1_den\000"
+ 2919      64656E00 
+ 2920              	.LASF56:
+ 2921 0263 74696D65 		.ascii	"time\000"
+ 2921      00
+ 2922              	.LASF77:
+ 2923 0268 70617261 		.ascii	"param\000"
+ 2923      6D00
+ 2924              	.LASF73:
+ 2925 026e 6F75745F 		.ascii	"out_deriv_av1\000"
+ 2925      64657269 
+ 2925      765F6176 
+ 2925      3100
+ 2926              	.LASF74:
+ 2927 027c 6F75745F 		.ascii	"out_deriv_av2\000"
+ 2927      64657269 
+ 2927      765F6176 
+ 2927      3200
+ 2928              	.LASF33:
+ 2929 028a 4B69315F 		.ascii	"Ki1_den\000"
+ 2929      64656E00 
+ 2930              	.LASF16:
+ 2931 0292 63686172 		.ascii	"char\000"
+ 2931      00
+ 2932              	.LASF67:
+ 2933 0297 73706964 		.ascii	"spid1\000"
+ 2933      3100
+ 2934              	.LASF68:
+ 2935 029d 73706964 		.ascii	"spid2\000"
+ 2935      3200
+ 2936              	.LASF66:
+ 2937 02a3 65707369 		.ascii	"epsilon\000"
+ 2937      6C6F6E00 
+ 2938              	.LASF29:
+ 2939 02ab 4B64315F 		.ascii	"Kd1_den\000"
+ 2939      64656E00 
+ 2940              	.LASF3:
+ 2941 02b3 73686F72 		.ascii	"short unsigned int\000"
+ 2941      7420756E 
+ 2941      7369676E 
+ 2941      65642069 
+ 2941      6E7400
+ 2942              	.LASF20:
+ 2943 02c6 74727565 		.ascii	"true\000"
+ 2943      00
+ 2944              	.LASF24:
+ 2945 02cb 4B70315F 		.ascii	"Kp1_num\000"
+ 2945      6E756D00 
+ 2946              	.LASF78:
+ 2947 02d3 74657374 		.ascii	"test\000"
+ 2947      00
+ 2948              	.LASF62:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 61
+
+
+ 2949 02d8 6761696E 		.ascii	"gain_pwm1\000"
+ 2949      5F70776D 
+ 2949      3100
+ 2950              	.LASF11:
+ 2951 02e2 75696E74 		.ascii	"uint32\000"
+ 2951      333200
+ 2952              	.LASF69:
+ 2953 02e9 65727265 		.ascii	"erreur_int_pid1\000"
+ 2953      75725F69 
+ 2953      6E745F70 
+ 2953      69643100 
+ 2954              	.LASF71:
+ 2955 02f9 65727265 		.ascii	"erreur_int_pid2\000"
+ 2955      75725F69 
+ 2955      6E745F70 
+ 2955      69643200 
+ 2956              	.LASF36:
+ 2957 0309 74797065 		.ascii	"type_consigne\000"
+ 2957      5F636F6E 
+ 2957      7369676E 
+ 2957      6500
+ 2958              	.LASF13:
+ 2959 0317 696E7433 		.ascii	"int32\000"
+ 2959      3200
+ 2960              	.LASF37:
+ 2961 031d 636F6E73 		.ascii	"cons_initiale\000"
+ 2961      5F696E69 
+ 2961      7469616C 
+ 2961      6500
+ 2962              	.LASF28:
+ 2963 032b 4B64315F 		.ascii	"Kd1_num\000"
+ 2963      6E756D00 
+ 2964              	.LASF50:
+ 2965 0333 73746174 		.ascii	"state\000"
+ 2965      6500
+ 2966              	.LASF43:
+ 2967 0339 61727265 		.ascii	"arret\000"
+ 2967      7400
+ 2968              	.LASF83:
+ 2969 033f 6D617263 		.ascii	"marche\000"
+ 2969      686500
+ 2970              	.LASF57:
+ 2971 0346 70617261 		.ascii	"param_ok\000"
+ 2971      6D5F6F6B 
+ 2971      00
+ 2972              	.LASF81:
+ 2973 034f 53746174 		.ascii	"State_machine.c\000"
+ 2973      655F6D61 
+ 2973      6368696E 
+ 2973      652E6300 
+ 2974              	.LASF55:
+ 2975 035f 6D617263 		.ascii	"marche_bool\000"
+ 2975      68655F62 
+ 2975      6F6F6C00 
+ 2976              	.LASF51:
+ 2977 036b 63617272 		.ascii	"carree\000"
+ 2977      656500
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccR63Xdq.s 			page 62
+
+
+ 2978              	.LASF15:
+ 2979 0372 646F7562 		.ascii	"double\000"
+ 2979      6C6500
+ 2980              	.LASF40:
+ 2981 0379 636F6E73 		.ascii	"cons_per_den\000"
+ 2981      5F706572 
+ 2981      5F64656E 
+ 2981      00
+ 2982              	.LASF27:
+ 2983 0386 4B70325F 		.ascii	"Kp2_den\000"
+ 2983      64656E00 
+ 2984              	.LASF19:
+ 2985 038e 66616C73 		.ascii	"false\000"
+ 2985      6500
+ 2986              	.LASF76:
+ 2987 0394 696E6465 		.ascii	"index_gen\000"
+ 2987      785F6765 
+ 2987      6E00
+ 2988              	.LASF35:
+ 2989 039e 4B69325F 		.ascii	"Ki2_den\000"
+ 2989      64656E00 
+ 2990              	.LASF82:
+ 2991 03a6 433A5C55 		.ascii	"C:\\Users\\Laurent\\Documents\\PSoC Creator\\4.4\\V"
+ 2991      73657273 
+ 2991      5C4C6175 
+ 2991      72656E74 
+ 2991      5C446F63 
+ 2992 03d3 484E3730 		.ascii	"HN7040AY\\Labo_Autom\\VNH7040_modifie.cydsn\000"
+ 2992      34304159 
+ 2992      5C4C6162 
+ 2992      6F5F4175 
+ 2992      746F6D5C 
+ 2993              	.LASF42:
+ 2994 03fd 696E6974 		.ascii	"init\000"
+ 2994      00
+ 2995              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

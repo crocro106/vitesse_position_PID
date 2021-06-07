@@ -1,0 +1,907 @@
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"QuadDec_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.bss
+  20              		.align	2
+  21              	QuadDec_backup:
+  22 0000 00000000 		.space	6
+  22      0000
+  23              		.section	.text.QuadDec_SaveConfig,"ax",%progbits
+  24              		.align	2
+  25              		.global	QuadDec_SaveConfig
+  26              		.code	16
+  27              		.thumb_func
+  28              		.type	QuadDec_SaveConfig, %function
+  29              	QuadDec_SaveConfig:
+  30              	.LFB0:
+  31              		.file 1 "Generated_Source\\PSoC4\\QuadDec_PM.c"
+   1:Generated_Source\PSoC4/QuadDec_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/QuadDec_PM.c **** * File Name: QuadDec_PM.c  
+   3:Generated_Source\PSoC4/QuadDec_PM.c **** * Version 3.0
+   4:Generated_Source\PSoC4/QuadDec_PM.c **** *
+   5:Generated_Source\PSoC4/QuadDec_PM.c **** *  Description:
+   6:Generated_Source\PSoC4/QuadDec_PM.c **** *    This file provides the power management source code to API for the
+   7:Generated_Source\PSoC4/QuadDec_PM.c **** *    Counter.  
+   8:Generated_Source\PSoC4/QuadDec_PM.c **** *
+   9:Generated_Source\PSoC4/QuadDec_PM.c **** *   Note:
+  10:Generated_Source\PSoC4/QuadDec_PM.c **** *     None
+  11:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  12:Generated_Source\PSoC4/QuadDec_PM.c **** ********************************************************************************
+  13:Generated_Source\PSoC4/QuadDec_PM.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC4/QuadDec_PM.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC4/QuadDec_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:Generated_Source\PSoC4/QuadDec_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC4/QuadDec_PM.c **** *******************************************************************************/
+  18:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  19:Generated_Source\PSoC4/QuadDec_PM.c **** #include "QuadDec.h"
+  20:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  21:Generated_Source\PSoC4/QuadDec_PM.c **** static QuadDec_backupStruct QuadDec_backup;
+  22:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  23:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  24:Generated_Source\PSoC4/QuadDec_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC4/QuadDec_PM.c **** * Function Name: QuadDec_SaveConfig
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 2
+
+
+  26:Generated_Source\PSoC4/QuadDec_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC4/QuadDec_PM.c **** * Summary:
+  28:Generated_Source\PSoC4/QuadDec_PM.c **** *     Save the current user configuration
+  29:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  30:Generated_Source\PSoC4/QuadDec_PM.c **** * Parameters:  
+  31:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  32:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  33:Generated_Source\PSoC4/QuadDec_PM.c **** * Return: 
+  34:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  35:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  36:Generated_Source\PSoC4/QuadDec_PM.c **** * Global variables:
+  37:Generated_Source\PSoC4/QuadDec_PM.c **** *  QuadDec_backup:  Variables of this global structure are modified to 
+  38:Generated_Source\PSoC4/QuadDec_PM.c **** *  store the values of non retention configuration registers when Sleep() API is 
+  39:Generated_Source\PSoC4/QuadDec_PM.c **** *  called.
+  40:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  41:Generated_Source\PSoC4/QuadDec_PM.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/QuadDec_PM.c **** void QuadDec_SaveConfig(void) 
+  43:Generated_Source\PSoC4/QuadDec_PM.c **** {
+  32              		.loc 1 43 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36 0000 80B5     		push	{r7, lr}
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_def_cfa_register 7
+  44:Generated_Source\PSoC4/QuadDec_PM.c ****     #if (!QuadDec_UsingFixedFunction)
+  45:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  46:Generated_Source\PSoC4/QuadDec_PM.c ****         QuadDec_backup.CounterUdb = QuadDec_ReadCounter();
+  42              		.loc 1 46 0
+  43 0004 FFF7FEFF 		bl	QuadDec_ReadCounter
+  44 0008 0300     		movs	r3, r0
+  45 000a 1A00     		movs	r2, r3
+  46 000c 054B     		ldr	r3, .L2
+  47 000e 5A80     		strh	r2, [r3, #2]
+  47:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  48:Generated_Source\PSoC4/QuadDec_PM.c ****         #if(!QuadDec_ControlRegRemoved)
+  49:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_backup.CounterControlRegister = QuadDec_ReadControlRegister();
+  48              		.loc 1 49 0
+  49 0010 FFF7FEFF 		bl	QuadDec_ReadControlRegister
+  50 0014 0300     		movs	r3, r0
+  51 0016 1A00     		movs	r2, r3
+  52 0018 024B     		ldr	r3, .L2
+  53 001a 1A71     		strb	r2, [r3, #4]
+  50:Generated_Source\PSoC4/QuadDec_PM.c ****         #endif /* (!QuadDec_ControlRegRemoved) */
+  51:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  52:Generated_Source\PSoC4/QuadDec_PM.c ****     #endif /* (!QuadDec_UsingFixedFunction) */
+  53:Generated_Source\PSoC4/QuadDec_PM.c **** }
+  54              		.loc 1 53 0
+  55 001c C046     		nop
+  56 001e BD46     		mov	sp, r7
+  57              		@ sp needed
+  58 0020 80BD     		pop	{r7, pc}
+  59              	.L3:
+  60 0022 C046     		.align	2
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 3
+
+
+  61              	.L2:
+  62 0024 00000000 		.word	QuadDec_backup
+  63              		.cfi_endproc
+  64              	.LFE0:
+  65              		.size	QuadDec_SaveConfig, .-QuadDec_SaveConfig
+  66              		.section	.text.QuadDec_RestoreConfig,"ax",%progbits
+  67              		.align	2
+  68              		.global	QuadDec_RestoreConfig
+  69              		.code	16
+  70              		.thumb_func
+  71              		.type	QuadDec_RestoreConfig, %function
+  72              	QuadDec_RestoreConfig:
+  73              	.LFB1:
+  54:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  55:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  56:Generated_Source\PSoC4/QuadDec_PM.c **** /*******************************************************************************
+  57:Generated_Source\PSoC4/QuadDec_PM.c **** * Function Name: QuadDec_RestoreConfig
+  58:Generated_Source\PSoC4/QuadDec_PM.c **** ********************************************************************************
+  59:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  60:Generated_Source\PSoC4/QuadDec_PM.c **** * Summary:
+  61:Generated_Source\PSoC4/QuadDec_PM.c **** *  Restores the current user configuration.
+  62:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  63:Generated_Source\PSoC4/QuadDec_PM.c **** * Parameters:  
+  64:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  65:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  66:Generated_Source\PSoC4/QuadDec_PM.c **** * Return: 
+  67:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  68:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  69:Generated_Source\PSoC4/QuadDec_PM.c **** * Global variables:
+  70:Generated_Source\PSoC4/QuadDec_PM.c **** *  QuadDec_backup:  Variables of this global structure are used to 
+  71:Generated_Source\PSoC4/QuadDec_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  72:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  73:Generated_Source\PSoC4/QuadDec_PM.c **** *******************************************************************************/
+  74:Generated_Source\PSoC4/QuadDec_PM.c **** void QuadDec_RestoreConfig(void) 
+  75:Generated_Source\PSoC4/QuadDec_PM.c **** {      
+  74              		.loc 1 75 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 1, uses_anonymous_args = 0
+  78 0000 80B5     		push	{r7, lr}
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 7, -8
+  81              		.cfi_offset 14, -4
+  82 0002 00AF     		add	r7, sp, #0
+  83              		.cfi_def_cfa_register 7
+  76:Generated_Source\PSoC4/QuadDec_PM.c ****     #if (!QuadDec_UsingFixedFunction)
+  77:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  78:Generated_Source\PSoC4/QuadDec_PM.c ****        QuadDec_WriteCounter(QuadDec_backup.CounterUdb);
+  84              		.loc 1 78 0
+  85 0004 064B     		ldr	r3, .L5
+  86 0006 5B88     		ldrh	r3, [r3, #2]
+  87 0008 1800     		movs	r0, r3
+  88 000a FFF7FEFF 		bl	QuadDec_WriteCounter
+  79:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  80:Generated_Source\PSoC4/QuadDec_PM.c ****         #if(!QuadDec_ControlRegRemoved)
+  81:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_WriteControlRegister(QuadDec_backup.CounterControlRegister);
+  89              		.loc 1 81 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 4
+
+
+  90 000e 044B     		ldr	r3, .L5
+  91 0010 1B79     		ldrb	r3, [r3, #4]
+  92 0012 1800     		movs	r0, r3
+  93 0014 FFF7FEFF 		bl	QuadDec_WriteControlRegister
+  82:Generated_Source\PSoC4/QuadDec_PM.c ****         #endif /* (!QuadDec_ControlRegRemoved) */
+  83:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  84:Generated_Source\PSoC4/QuadDec_PM.c ****     #endif /* (!QuadDec_UsingFixedFunction) */
+  85:Generated_Source\PSoC4/QuadDec_PM.c **** }
+  94              		.loc 1 85 0
+  95 0018 C046     		nop
+  96 001a BD46     		mov	sp, r7
+  97              		@ sp needed
+  98 001c 80BD     		pop	{r7, pc}
+  99              	.L6:
+ 100 001e C046     		.align	2
+ 101              	.L5:
+ 102 0020 00000000 		.word	QuadDec_backup
+ 103              		.cfi_endproc
+ 104              	.LFE1:
+ 105              		.size	QuadDec_RestoreConfig, .-QuadDec_RestoreConfig
+ 106              		.section	.text.QuadDec_Sleep,"ax",%progbits
+ 107              		.align	2
+ 108              		.global	QuadDec_Sleep
+ 109              		.code	16
+ 110              		.thumb_func
+ 111              		.type	QuadDec_Sleep, %function
+ 112              	QuadDec_Sleep:
+ 113              	.LFB2:
+  86:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  87:Generated_Source\PSoC4/QuadDec_PM.c **** 
+  88:Generated_Source\PSoC4/QuadDec_PM.c **** /*******************************************************************************
+  89:Generated_Source\PSoC4/QuadDec_PM.c **** * Function Name: QuadDec_Sleep
+  90:Generated_Source\PSoC4/QuadDec_PM.c **** ********************************************************************************
+  91:Generated_Source\PSoC4/QuadDec_PM.c **** * Summary:
+  92:Generated_Source\PSoC4/QuadDec_PM.c **** *     Stop and Save the user configuration
+  93:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  94:Generated_Source\PSoC4/QuadDec_PM.c **** * Parameters:  
+  95:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  96:Generated_Source\PSoC4/QuadDec_PM.c **** *
+  97:Generated_Source\PSoC4/QuadDec_PM.c **** * Return: 
+  98:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+  99:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 100:Generated_Source\PSoC4/QuadDec_PM.c **** * Global variables:
+ 101:Generated_Source\PSoC4/QuadDec_PM.c **** *  QuadDec_backup.enableState:  Is modified depending on the enable 
+ 102:Generated_Source\PSoC4/QuadDec_PM.c **** *  state of the block before entering sleep mode.
+ 103:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 104:Generated_Source\PSoC4/QuadDec_PM.c **** *******************************************************************************/
+ 105:Generated_Source\PSoC4/QuadDec_PM.c **** void QuadDec_Sleep(void) 
+ 106:Generated_Source\PSoC4/QuadDec_PM.c **** {
+ 114              		.loc 1 106 0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 1, uses_anonymous_args = 0
+ 118 0000 80B5     		push	{r7, lr}
+ 119              		.cfi_def_cfa_offset 8
+ 120              		.cfi_offset 7, -8
+ 121              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 5
+
+
+ 122 0002 00AF     		add	r7, sp, #0
+ 123              		.cfi_def_cfa_register 7
+ 107:Generated_Source\PSoC4/QuadDec_PM.c ****     #if(!QuadDec_ControlRegRemoved)
+ 108:Generated_Source\PSoC4/QuadDec_PM.c ****         /* Save Counter's enable state */
+ 109:Generated_Source\PSoC4/QuadDec_PM.c ****         if(QuadDec_CTRL_ENABLE == (QuadDec_CONTROL & QuadDec_CTRL_ENABLE))
+ 124              		.loc 1 109 0
+ 125 0004 094B     		ldr	r3, .L10
+ 126 0006 1B78     		ldrb	r3, [r3]
+ 127 0008 DBB2     		uxtb	r3, r3
+ 128 000a 5BB2     		sxtb	r3, r3
+ 129 000c 002B     		cmp	r3, #0
+ 130 000e 03DA     		bge	.L8
+ 110:Generated_Source\PSoC4/QuadDec_PM.c ****         {
+ 111:Generated_Source\PSoC4/QuadDec_PM.c ****             /* Counter is enabled */
+ 112:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_backup.CounterEnableState = 1u;
+ 131              		.loc 1 112 0
+ 132 0010 074B     		ldr	r3, .L10+4
+ 133 0012 0122     		movs	r2, #1
+ 134 0014 1A70     		strb	r2, [r3]
+ 135 0016 02E0     		b	.L9
+ 136              	.L8:
+ 113:Generated_Source\PSoC4/QuadDec_PM.c ****         }
+ 114:Generated_Source\PSoC4/QuadDec_PM.c ****         else
+ 115:Generated_Source\PSoC4/QuadDec_PM.c ****         {
+ 116:Generated_Source\PSoC4/QuadDec_PM.c ****             /* Counter is disabled */
+ 117:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_backup.CounterEnableState = 0u;
+ 137              		.loc 1 117 0
+ 138 0018 054B     		ldr	r3, .L10+4
+ 139 001a 0022     		movs	r2, #0
+ 140 001c 1A70     		strb	r2, [r3]
+ 141              	.L9:
+ 118:Generated_Source\PSoC4/QuadDec_PM.c ****         }
+ 119:Generated_Source\PSoC4/QuadDec_PM.c ****     #else
+ 120:Generated_Source\PSoC4/QuadDec_PM.c ****         QuadDec_backup.CounterEnableState = 1u;
+ 121:Generated_Source\PSoC4/QuadDec_PM.c ****         if(QuadDec_backup.CounterEnableState != 0u)
+ 122:Generated_Source\PSoC4/QuadDec_PM.c ****         {
+ 123:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_backup.CounterEnableState = 0u;
+ 124:Generated_Source\PSoC4/QuadDec_PM.c ****         }
+ 125:Generated_Source\PSoC4/QuadDec_PM.c ****     #endif /* (!QuadDec_ControlRegRemoved) */
+ 126:Generated_Source\PSoC4/QuadDec_PM.c ****     
+ 127:Generated_Source\PSoC4/QuadDec_PM.c ****     QuadDec_Stop();
+ 142              		.loc 1 127 0
+ 143 001e FFF7FEFF 		bl	QuadDec_Stop
+ 128:Generated_Source\PSoC4/QuadDec_PM.c ****     QuadDec_SaveConfig();
+ 144              		.loc 1 128 0
+ 145 0022 FFF7FEFF 		bl	QuadDec_SaveConfig
+ 129:Generated_Source\PSoC4/QuadDec_PM.c **** }
+ 146              		.loc 1 129 0
+ 147 0026 C046     		nop
+ 148 0028 BD46     		mov	sp, r7
+ 149              		@ sp needed
+ 150 002a 80BD     		pop	{r7, pc}
+ 151              	.L11:
+ 152              		.align	2
+ 153              	.L10:
+ 154 002c 71000F40 		.word	1074724977
+ 155 0030 00000000 		.word	QuadDec_backup
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 6
+
+
+ 156              		.cfi_endproc
+ 157              	.LFE2:
+ 158              		.size	QuadDec_Sleep, .-QuadDec_Sleep
+ 159              		.section	.text.QuadDec_Wakeup,"ax",%progbits
+ 160              		.align	2
+ 161              		.global	QuadDec_Wakeup
+ 162              		.code	16
+ 163              		.thumb_func
+ 164              		.type	QuadDec_Wakeup, %function
+ 165              	QuadDec_Wakeup:
+ 166              	.LFB3:
+ 130:Generated_Source\PSoC4/QuadDec_PM.c **** 
+ 131:Generated_Source\PSoC4/QuadDec_PM.c **** 
+ 132:Generated_Source\PSoC4/QuadDec_PM.c **** /*******************************************************************************
+ 133:Generated_Source\PSoC4/QuadDec_PM.c **** * Function Name: QuadDec_Wakeup
+ 134:Generated_Source\PSoC4/QuadDec_PM.c **** ********************************************************************************
+ 135:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 136:Generated_Source\PSoC4/QuadDec_PM.c **** * Summary:
+ 137:Generated_Source\PSoC4/QuadDec_PM.c **** *  Restores and enables the user configuration
+ 138:Generated_Source\PSoC4/QuadDec_PM.c **** *  
+ 139:Generated_Source\PSoC4/QuadDec_PM.c **** * Parameters:  
+ 140:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+ 141:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 142:Generated_Source\PSoC4/QuadDec_PM.c **** * Return: 
+ 143:Generated_Source\PSoC4/QuadDec_PM.c **** *  void
+ 144:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 145:Generated_Source\PSoC4/QuadDec_PM.c **** * Global variables:
+ 146:Generated_Source\PSoC4/QuadDec_PM.c **** *  QuadDec_backup.enableState:  Is used to restore the enable state of 
+ 147:Generated_Source\PSoC4/QuadDec_PM.c **** *  block on wakeup from sleep mode.
+ 148:Generated_Source\PSoC4/QuadDec_PM.c **** *
+ 149:Generated_Source\PSoC4/QuadDec_PM.c **** *******************************************************************************/
+ 150:Generated_Source\PSoC4/QuadDec_PM.c **** void QuadDec_Wakeup(void) 
+ 151:Generated_Source\PSoC4/QuadDec_PM.c **** {
+ 167              		.loc 1 151 0
+ 168              		.cfi_startproc
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 1, uses_anonymous_args = 0
+ 171 0000 80B5     		push	{r7, lr}
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ 174              		.cfi_offset 14, -4
+ 175 0002 00AF     		add	r7, sp, #0
+ 176              		.cfi_def_cfa_register 7
+ 152:Generated_Source\PSoC4/QuadDec_PM.c ****     QuadDec_RestoreConfig();
+ 177              		.loc 1 152 0
+ 178 0004 FFF7FEFF 		bl	QuadDec_RestoreConfig
+ 153:Generated_Source\PSoC4/QuadDec_PM.c ****     #if(!QuadDec_ControlRegRemoved)
+ 154:Generated_Source\PSoC4/QuadDec_PM.c ****         if(QuadDec_backup.CounterEnableState == 1u)
+ 179              		.loc 1 154 0
+ 180 0008 044B     		ldr	r3, .L15
+ 181 000a 1B78     		ldrb	r3, [r3]
+ 182 000c 012B     		cmp	r3, #1
+ 183 000e 01D1     		bne	.L14
+ 155:Generated_Source\PSoC4/QuadDec_PM.c ****         {
+ 156:Generated_Source\PSoC4/QuadDec_PM.c ****             /* Enable Counter's operation */
+ 157:Generated_Source\PSoC4/QuadDec_PM.c ****             QuadDec_Enable();
+ 184              		.loc 1 157 0
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 7
+
+
+ 185 0010 FFF7FEFF 		bl	QuadDec_Enable
+ 186              	.L14:
+ 158:Generated_Source\PSoC4/QuadDec_PM.c ****         } /* Do nothing if Counter was disabled before */    
+ 159:Generated_Source\PSoC4/QuadDec_PM.c ****     #endif /* (!QuadDec_ControlRegRemoved) */
+ 160:Generated_Source\PSoC4/QuadDec_PM.c ****     
+ 161:Generated_Source\PSoC4/QuadDec_PM.c **** }
+ 187              		.loc 1 161 0
+ 188 0014 C046     		nop
+ 189 0016 BD46     		mov	sp, r7
+ 190              		@ sp needed
+ 191 0018 80BD     		pop	{r7, pc}
+ 192              	.L16:
+ 193 001a C046     		.align	2
+ 194              	.L15:
+ 195 001c 00000000 		.word	QuadDec_backup
+ 196              		.cfi_endproc
+ 197              	.LFE3:
+ 198              		.size	QuadDec_Wakeup, .-QuadDec_Wakeup
+ 199              		.text
+ 200              	.Letext0:
+ 201              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 202              		.file 3 "Generated_Source\\PSoC4\\QuadDec.h"
+ 203              		.section	.debug_info,"",%progbits
+ 204              	.Ldebug_info0:
+ 205 0000 41010000 		.4byte	0x141
+ 206 0004 0400     		.2byte	0x4
+ 207 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 208 000a 04       		.byte	0x4
+ 209 000b 01       		.uleb128 0x1
+ 210 000c 31000000 		.4byte	.LASF25
+ 211 0010 0C       		.byte	0xc
+ 212 0011 F3010000 		.4byte	.LASF26
+ 213 0015 6F010000 		.4byte	.LASF27
+ 214 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 215 001d 00000000 		.4byte	0
+ 216 0021 00000000 		.4byte	.Ldebug_line0
+ 217 0025 02       		.uleb128 0x2
+ 218 0026 01       		.byte	0x1
+ 219 0027 06       		.byte	0x6
+ 220 0028 D9010000 		.4byte	.LASF0
+ 221 002c 02       		.uleb128 0x2
+ 222 002d 01       		.byte	0x1
+ 223 002e 08       		.byte	0x8
+ 224 002f E5010000 		.4byte	.LASF1
+ 225 0033 02       		.uleb128 0x2
+ 226 0034 02       		.byte	0x2
+ 227 0035 05       		.byte	0x5
+ 228 0036 23020000 		.4byte	.LASF2
+ 229 003a 02       		.uleb128 0x2
+ 230 003b 02       		.byte	0x2
+ 231 003c 07       		.byte	0x7
+ 232 003d C6010000 		.4byte	.LASF3
+ 233 0041 02       		.uleb128 0x2
+ 234 0042 04       		.byte	0x4
+ 235 0043 05       		.byte	0x5
+ 236 0044 47010000 		.4byte	.LASF4
+ 237 0048 02       		.uleb128 0x2
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 8
+
+
+ 238 0049 04       		.byte	0x4
+ 239 004a 07       		.byte	0x7
+ 240 004b E7000000 		.4byte	.LASF5
+ 241 004f 02       		.uleb128 0x2
+ 242 0050 08       		.byte	0x8
+ 243 0051 05       		.byte	0x5
+ 244 0052 00000000 		.4byte	.LASF6
+ 245 0056 02       		.uleb128 0x2
+ 246 0057 08       		.byte	0x8
+ 247 0058 07       		.byte	0x7
+ 248 0059 F9000000 		.4byte	.LASF7
+ 249 005d 03       		.uleb128 0x3
+ 250 005e 04       		.byte	0x4
+ 251 005f 05       		.byte	0x5
+ 252 0060 696E7400 		.ascii	"int\000"
+ 253 0064 02       		.uleb128 0x2
+ 254 0065 04       		.byte	0x4
+ 255 0066 07       		.byte	0x7
+ 256 0067 0E000000 		.4byte	.LASF8
+ 257 006b 04       		.uleb128 0x4
+ 258 006c E1000000 		.4byte	.LASF9
+ 259 0070 02       		.byte	0x2
+ 260 0071 E601     		.2byte	0x1e6
+ 261 0073 2C000000 		.4byte	0x2c
+ 262 0077 04       		.uleb128 0x4
+ 263 0078 2D020000 		.4byte	.LASF10
+ 264 007c 02       		.byte	0x2
+ 265 007d E701     		.2byte	0x1e7
+ 266 007f 3A000000 		.4byte	0x3a
+ 267 0083 02       		.uleb128 0x2
+ 268 0084 04       		.byte	0x4
+ 269 0085 04       		.byte	0x4
+ 270 0086 10010000 		.4byte	.LASF11
+ 271 008a 02       		.uleb128 0x2
+ 272 008b 08       		.byte	0x8
+ 273 008c 04       		.byte	0x4
+ 274 008d 68010000 		.4byte	.LASF12
+ 275 0091 02       		.uleb128 0x2
+ 276 0092 01       		.byte	0x1
+ 277 0093 08       		.byte	0x8
+ 278 0094 42010000 		.4byte	.LASF13
+ 279 0098 04       		.uleb128 0x4
+ 280 0099 63010000 		.4byte	.LASF14
+ 281 009d 02       		.byte	0x2
+ 282 009e 9002     		.2byte	0x290
+ 283 00a0 A4000000 		.4byte	0xa4
+ 284 00a4 05       		.uleb128 0x5
+ 285 00a5 6B000000 		.4byte	0x6b
+ 286 00a9 02       		.uleb128 0x2
+ 287 00aa 08       		.byte	0x8
+ 288 00ab 04       		.byte	0x4
+ 289 00ac 17020000 		.4byte	.LASF15
+ 290 00b0 02       		.uleb128 0x2
+ 291 00b1 04       		.byte	0x4
+ 292 00b2 07       		.byte	0x7
+ 293 00b3 5C020000 		.4byte	.LASF16
+ 294 00b7 06       		.uleb128 0x6
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 9
+
+
+ 295 00b8 06       		.byte	0x6
+ 296 00b9 03       		.byte	0x3
+ 297 00ba 40       		.byte	0x40
+ 298 00bb E4000000 		.4byte	0xe4
+ 299 00bf 07       		.uleb128 0x7
+ 300 00c0 50010000 		.4byte	.LASF17
+ 301 00c4 03       		.byte	0x3
+ 302 00c5 42       		.byte	0x42
+ 303 00c6 6B000000 		.4byte	0x6b
+ 304 00ca 00       		.byte	0
+ 305 00cb 07       		.uleb128 0x7
+ 306 00cc 34020000 		.4byte	.LASF18
+ 307 00d0 03       		.byte	0x3
+ 308 00d1 43       		.byte	0x43
+ 309 00d2 77000000 		.4byte	0x77
+ 310 00d6 02       		.byte	0x2
+ 311 00d7 07       		.uleb128 0x7
+ 312 00d8 2B010000 		.4byte	.LASF19
+ 313 00dc 03       		.byte	0x3
+ 314 00dd 46       		.byte	0x46
+ 315 00de 6B000000 		.4byte	0x6b
+ 316 00e2 04       		.byte	0x4
+ 317 00e3 00       		.byte	0
+ 318 00e4 08       		.uleb128 0x8
+ 319 00e5 16010000 		.4byte	.LASF20
+ 320 00e9 03       		.byte	0x3
+ 321 00ea 49       		.byte	0x49
+ 322 00eb B7000000 		.4byte	0xb7
+ 323 00ef 09       		.uleb128 0x9
+ 324 00f0 BF000000 		.4byte	.LASF21
+ 325 00f4 01       		.byte	0x1
+ 326 00f5 2A       		.byte	0x2a
+ 327 00f6 00000000 		.4byte	.LFB0
+ 328 00fa 28000000 		.4byte	.LFE0-.LFB0
+ 329 00fe 01       		.uleb128 0x1
+ 330 00ff 9C       		.byte	0x9c
+ 331 0100 09       		.uleb128 0x9
+ 332 0101 1B000000 		.4byte	.LASF22
+ 333 0105 01       		.byte	0x1
+ 334 0106 4A       		.byte	0x4a
+ 335 0107 00000000 		.4byte	.LFB1
+ 336 010b 24000000 		.4byte	.LFE1-.LFB1
+ 337 010f 01       		.uleb128 0x1
+ 338 0110 9C       		.byte	0x9c
+ 339 0111 09       		.uleb128 0x9
+ 340 0112 3F020000 		.4byte	.LASF23
+ 341 0116 01       		.byte	0x1
+ 342 0117 69       		.byte	0x69
+ 343 0118 00000000 		.4byte	.LFB2
+ 344 011c 34000000 		.4byte	.LFE2-.LFB2
+ 345 0120 01       		.uleb128 0x1
+ 346 0121 9C       		.byte	0x9c
+ 347 0122 09       		.uleb128 0x9
+ 348 0123 D2000000 		.4byte	.LASF24
+ 349 0127 01       		.byte	0x1
+ 350 0128 96       		.byte	0x96
+ 351 0129 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 10
+
+
+ 352 012d 20000000 		.4byte	.LFE3-.LFB3
+ 353 0131 01       		.uleb128 0x1
+ 354 0132 9C       		.byte	0x9c
+ 355 0133 0A       		.uleb128 0xa
+ 356 0134 4D020000 		.4byte	.LASF28
+ 357 0138 01       		.byte	0x1
+ 358 0139 15       		.byte	0x15
+ 359 013a E4000000 		.4byte	0xe4
+ 360 013e 05       		.uleb128 0x5
+ 361 013f 03       		.byte	0x3
+ 362 0140 00000000 		.4byte	QuadDec_backup
+ 363 0144 00       		.byte	0
+ 364              		.section	.debug_abbrev,"",%progbits
+ 365              	.Ldebug_abbrev0:
+ 366 0000 01       		.uleb128 0x1
+ 367 0001 11       		.uleb128 0x11
+ 368 0002 01       		.byte	0x1
+ 369 0003 25       		.uleb128 0x25
+ 370 0004 0E       		.uleb128 0xe
+ 371 0005 13       		.uleb128 0x13
+ 372 0006 0B       		.uleb128 0xb
+ 373 0007 03       		.uleb128 0x3
+ 374 0008 0E       		.uleb128 0xe
+ 375 0009 1B       		.uleb128 0x1b
+ 376 000a 0E       		.uleb128 0xe
+ 377 000b 55       		.uleb128 0x55
+ 378 000c 17       		.uleb128 0x17
+ 379 000d 11       		.uleb128 0x11
+ 380 000e 01       		.uleb128 0x1
+ 381 000f 10       		.uleb128 0x10
+ 382 0010 17       		.uleb128 0x17
+ 383 0011 00       		.byte	0
+ 384 0012 00       		.byte	0
+ 385 0013 02       		.uleb128 0x2
+ 386 0014 24       		.uleb128 0x24
+ 387 0015 00       		.byte	0
+ 388 0016 0B       		.uleb128 0xb
+ 389 0017 0B       		.uleb128 0xb
+ 390 0018 3E       		.uleb128 0x3e
+ 391 0019 0B       		.uleb128 0xb
+ 392 001a 03       		.uleb128 0x3
+ 393 001b 0E       		.uleb128 0xe
+ 394 001c 00       		.byte	0
+ 395 001d 00       		.byte	0
+ 396 001e 03       		.uleb128 0x3
+ 397 001f 24       		.uleb128 0x24
+ 398 0020 00       		.byte	0
+ 399 0021 0B       		.uleb128 0xb
+ 400 0022 0B       		.uleb128 0xb
+ 401 0023 3E       		.uleb128 0x3e
+ 402 0024 0B       		.uleb128 0xb
+ 403 0025 03       		.uleb128 0x3
+ 404 0026 08       		.uleb128 0x8
+ 405 0027 00       		.byte	0
+ 406 0028 00       		.byte	0
+ 407 0029 04       		.uleb128 0x4
+ 408 002a 16       		.uleb128 0x16
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 11
+
+
+ 409 002b 00       		.byte	0
+ 410 002c 03       		.uleb128 0x3
+ 411 002d 0E       		.uleb128 0xe
+ 412 002e 3A       		.uleb128 0x3a
+ 413 002f 0B       		.uleb128 0xb
+ 414 0030 3B       		.uleb128 0x3b
+ 415 0031 05       		.uleb128 0x5
+ 416 0032 49       		.uleb128 0x49
+ 417 0033 13       		.uleb128 0x13
+ 418 0034 00       		.byte	0
+ 419 0035 00       		.byte	0
+ 420 0036 05       		.uleb128 0x5
+ 421 0037 35       		.uleb128 0x35
+ 422 0038 00       		.byte	0
+ 423 0039 49       		.uleb128 0x49
+ 424 003a 13       		.uleb128 0x13
+ 425 003b 00       		.byte	0
+ 426 003c 00       		.byte	0
+ 427 003d 06       		.uleb128 0x6
+ 428 003e 13       		.uleb128 0x13
+ 429 003f 01       		.byte	0x1
+ 430 0040 0B       		.uleb128 0xb
+ 431 0041 0B       		.uleb128 0xb
+ 432 0042 3A       		.uleb128 0x3a
+ 433 0043 0B       		.uleb128 0xb
+ 434 0044 3B       		.uleb128 0x3b
+ 435 0045 0B       		.uleb128 0xb
+ 436 0046 01       		.uleb128 0x1
+ 437 0047 13       		.uleb128 0x13
+ 438 0048 00       		.byte	0
+ 439 0049 00       		.byte	0
+ 440 004a 07       		.uleb128 0x7
+ 441 004b 0D       		.uleb128 0xd
+ 442 004c 00       		.byte	0
+ 443 004d 03       		.uleb128 0x3
+ 444 004e 0E       		.uleb128 0xe
+ 445 004f 3A       		.uleb128 0x3a
+ 446 0050 0B       		.uleb128 0xb
+ 447 0051 3B       		.uleb128 0x3b
+ 448 0052 0B       		.uleb128 0xb
+ 449 0053 49       		.uleb128 0x49
+ 450 0054 13       		.uleb128 0x13
+ 451 0055 38       		.uleb128 0x38
+ 452 0056 0B       		.uleb128 0xb
+ 453 0057 00       		.byte	0
+ 454 0058 00       		.byte	0
+ 455 0059 08       		.uleb128 0x8
+ 456 005a 16       		.uleb128 0x16
+ 457 005b 00       		.byte	0
+ 458 005c 03       		.uleb128 0x3
+ 459 005d 0E       		.uleb128 0xe
+ 460 005e 3A       		.uleb128 0x3a
+ 461 005f 0B       		.uleb128 0xb
+ 462 0060 3B       		.uleb128 0x3b
+ 463 0061 0B       		.uleb128 0xb
+ 464 0062 49       		.uleb128 0x49
+ 465 0063 13       		.uleb128 0x13
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 12
+
+
+ 466 0064 00       		.byte	0
+ 467 0065 00       		.byte	0
+ 468 0066 09       		.uleb128 0x9
+ 469 0067 2E       		.uleb128 0x2e
+ 470 0068 00       		.byte	0
+ 471 0069 3F       		.uleb128 0x3f
+ 472 006a 19       		.uleb128 0x19
+ 473 006b 03       		.uleb128 0x3
+ 474 006c 0E       		.uleb128 0xe
+ 475 006d 3A       		.uleb128 0x3a
+ 476 006e 0B       		.uleb128 0xb
+ 477 006f 3B       		.uleb128 0x3b
+ 478 0070 0B       		.uleb128 0xb
+ 479 0071 27       		.uleb128 0x27
+ 480 0072 19       		.uleb128 0x19
+ 481 0073 11       		.uleb128 0x11
+ 482 0074 01       		.uleb128 0x1
+ 483 0075 12       		.uleb128 0x12
+ 484 0076 06       		.uleb128 0x6
+ 485 0077 40       		.uleb128 0x40
+ 486 0078 18       		.uleb128 0x18
+ 487 0079 9642     		.uleb128 0x2116
+ 488 007b 19       		.uleb128 0x19
+ 489 007c 00       		.byte	0
+ 490 007d 00       		.byte	0
+ 491 007e 0A       		.uleb128 0xa
+ 492 007f 34       		.uleb128 0x34
+ 493 0080 00       		.byte	0
+ 494 0081 03       		.uleb128 0x3
+ 495 0082 0E       		.uleb128 0xe
+ 496 0083 3A       		.uleb128 0x3a
+ 497 0084 0B       		.uleb128 0xb
+ 498 0085 3B       		.uleb128 0x3b
+ 499 0086 0B       		.uleb128 0xb
+ 500 0087 49       		.uleb128 0x49
+ 501 0088 13       		.uleb128 0x13
+ 502 0089 02       		.uleb128 0x2
+ 503 008a 18       		.uleb128 0x18
+ 504 008b 00       		.byte	0
+ 505 008c 00       		.byte	0
+ 506 008d 00       		.byte	0
+ 507              		.section	.debug_aranges,"",%progbits
+ 508 0000 34000000 		.4byte	0x34
+ 509 0004 0200     		.2byte	0x2
+ 510 0006 00000000 		.4byte	.Ldebug_info0
+ 511 000a 04       		.byte	0x4
+ 512 000b 00       		.byte	0
+ 513 000c 0000     		.2byte	0
+ 514 000e 0000     		.2byte	0
+ 515 0010 00000000 		.4byte	.LFB0
+ 516 0014 28000000 		.4byte	.LFE0-.LFB0
+ 517 0018 00000000 		.4byte	.LFB1
+ 518 001c 24000000 		.4byte	.LFE1-.LFB1
+ 519 0020 00000000 		.4byte	.LFB2
+ 520 0024 34000000 		.4byte	.LFE2-.LFB2
+ 521 0028 00000000 		.4byte	.LFB3
+ 522 002c 20000000 		.4byte	.LFE3-.LFB3
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 13
+
+
+ 523 0030 00000000 		.4byte	0
+ 524 0034 00000000 		.4byte	0
+ 525              		.section	.debug_ranges,"",%progbits
+ 526              	.Ldebug_ranges0:
+ 527 0000 00000000 		.4byte	.LFB0
+ 528 0004 28000000 		.4byte	.LFE0
+ 529 0008 00000000 		.4byte	.LFB1
+ 530 000c 24000000 		.4byte	.LFE1
+ 531 0010 00000000 		.4byte	.LFB2
+ 532 0014 34000000 		.4byte	.LFE2
+ 533 0018 00000000 		.4byte	.LFB3
+ 534 001c 20000000 		.4byte	.LFE3
+ 535 0020 00000000 		.4byte	0
+ 536 0024 00000000 		.4byte	0
+ 537              		.section	.debug_line,"",%progbits
+ 538              	.Ldebug_line0:
+ 539 0000 AB000000 		.section	.debug_str,"MS",%progbits,1
+ 539      02005400 
+ 539      00000201 
+ 539      FB0E0D00 
+ 539      01010101 
+ 540              	.LASF6:
+ 541 0000 6C6F6E67 		.ascii	"long long int\000"
+ 541      206C6F6E 
+ 541      6720696E 
+ 541      7400
+ 542              	.LASF8:
+ 543 000e 756E7369 		.ascii	"unsigned int\000"
+ 543      676E6564 
+ 543      20696E74 
+ 543      00
+ 544              	.LASF22:
+ 545 001b 51756164 		.ascii	"QuadDec_RestoreConfig\000"
+ 545      4465635F 
+ 545      52657374 
+ 545      6F726543 
+ 545      6F6E6669 
+ 546              	.LASF25:
+ 547 0031 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 547      43313120 
+ 547      352E342E 
+ 547      31203230 
+ 547      31363036 
+ 548 0064 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 548      20726576 
+ 548      6973696F 
+ 548      6E203233 
+ 548      37373135 
+ 549 0097 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 549      66756E63 
+ 549      74696F6E 
+ 549      2D736563 
+ 549      74696F6E 
+ 550              	.LASF21:
+ 551 00bf 51756164 		.ascii	"QuadDec_SaveConfig\000"
+ 551      4465635F 
+ 551      53617665 
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 14
+
+
+ 551      436F6E66 
+ 551      696700
+ 552              	.LASF24:
+ 553 00d2 51756164 		.ascii	"QuadDec_Wakeup\000"
+ 553      4465635F 
+ 553      57616B65 
+ 553      757000
+ 554              	.LASF9:
+ 555 00e1 75696E74 		.ascii	"uint8\000"
+ 555      3800
+ 556              	.LASF5:
+ 557 00e7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 557      20756E73 
+ 557      69676E65 
+ 557      6420696E 
+ 557      7400
+ 558              	.LASF7:
+ 559 00f9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 559      206C6F6E 
+ 559      6720756E 
+ 559      7369676E 
+ 559      65642069 
+ 560              	.LASF11:
+ 561 0110 666C6F61 		.ascii	"float\000"
+ 561      7400
+ 562              	.LASF20:
+ 563 0116 51756164 		.ascii	"QuadDec_backupStruct\000"
+ 563      4465635F 
+ 563      6261636B 
+ 563      75705374 
+ 563      72756374 
+ 564              	.LASF19:
+ 565 012b 436F756E 		.ascii	"CounterControlRegister\000"
+ 565      74657243 
+ 565      6F6E7472 
+ 565      6F6C5265 
+ 565      67697374 
+ 566              	.LASF13:
+ 567 0142 63686172 		.ascii	"char\000"
+ 567      00
+ 568              	.LASF4:
+ 569 0147 6C6F6E67 		.ascii	"long int\000"
+ 569      20696E74 
+ 569      00
+ 570              	.LASF17:
+ 571 0150 436F756E 		.ascii	"CounterEnableState\000"
+ 571      74657245 
+ 571      6E61626C 
+ 571      65537461 
+ 571      746500
+ 572              	.LASF14:
+ 573 0163 72656738 		.ascii	"reg8\000"
+ 573      00
+ 574              	.LASF12:
+ 575 0168 646F7562 		.ascii	"double\000"
+ 575      6C6500
+ 576              	.LASF27:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 15
+
+
+ 577 016f 433A5C55 		.ascii	"C:\\Users\\Laurent\\Documents\\PSoC Creator\\4.4\\V"
+ 577      73657273 
+ 577      5C4C6175 
+ 577      72656E74 
+ 577      5C446F63 
+ 578 019c 484E3730 		.ascii	"HN7040AY\\Labo_Autom\\VNH7040_modifie.cydsn\000"
+ 578      34304159 
+ 578      5C4C6162 
+ 578      6F5F4175 
+ 578      746F6D5C 
+ 579              	.LASF3:
+ 580 01c6 73686F72 		.ascii	"short unsigned int\000"
+ 580      7420756E 
+ 580      7369676E 
+ 580      65642069 
+ 580      6E7400
+ 581              	.LASF0:
+ 582 01d9 7369676E 		.ascii	"signed char\000"
+ 582      65642063 
+ 582      68617200 
+ 583              	.LASF1:
+ 584 01e5 756E7369 		.ascii	"unsigned char\000"
+ 584      676E6564 
+ 584      20636861 
+ 584      7200
+ 585              	.LASF26:
+ 586 01f3 47656E65 		.ascii	"Generated_Source\\PSoC4\\QuadDec_PM.c\000"
+ 586      72617465 
+ 586      645F536F 
+ 586      75726365 
+ 586      5C50536F 
+ 587              	.LASF15:
+ 588 0217 6C6F6E67 		.ascii	"long double\000"
+ 588      20646F75 
+ 588      626C6500 
+ 589              	.LASF2:
+ 590 0223 73686F72 		.ascii	"short int\000"
+ 590      7420696E 
+ 590      7400
+ 591              	.LASF10:
+ 592 022d 75696E74 		.ascii	"uint16\000"
+ 592      313600
+ 593              	.LASF18:
+ 594 0234 436F756E 		.ascii	"CounterUdb\000"
+ 594      74657255 
+ 594      646200
+ 595              	.LASF23:
+ 596 023f 51756164 		.ascii	"QuadDec_Sleep\000"
+ 596      4465635F 
+ 596      536C6565 
+ 596      7000
+ 597              	.LASF28:
+ 598 024d 51756164 		.ascii	"QuadDec_backup\000"
+ 598      4465635F 
+ 598      6261636B 
+ 598      757000
+ 599              	.LASF16:
+ARM GAS  C:\Users\Laurent\AppData\Local\Temp\ccZikBlC.s 			page 16
+
+
+ 600 025c 73697A65 		.ascii	"sizetype\000"
+ 600      74797065 
+ 600      00
+ 601              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
